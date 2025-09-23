@@ -275,7 +275,7 @@ const StaffSignup: React.FC = () => {
           )}
         </div>
 
-    {/* Education */}
+  {/* Education */}
 <div className="staffsignup-form-section">
   <h2>Education Qualification</h2>
   <table>
@@ -295,7 +295,7 @@ const StaffSignup: React.FC = () => {
           <td>
             <input
               type="text"
-              value={edu.sno}
+              value={edu.sno || String(index + 1)}
               onChange={(e) => handleInputChange(e, "education", "sno", index)}
             />
           </td>
@@ -354,6 +354,7 @@ const StaffSignup: React.FC = () => {
     + Add Education
   </button>
 </div>
+
 
         {/* Job Details */}
         <div className="staffsignup-form-section">

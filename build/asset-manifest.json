@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d14bba47.css",
-    "main.js": "/static/js/main.47f6bf53.js",
+    "main.css": "/static/css/main.fa1f84de.css",
+    "main.js": "/static/js/main.bbb5eb9f.js",
     "static/media/fa-solid-900.svg": "/static/media/fa-solid-900.7a8b4f130182d19a2d7c.svg",
     "static/media/fa-brands-400.svg": "/static/media/fa-brands-400.2f517e09eb2ca6650ff5.svg",
     "static/media/Menu.png": "/static/media/Menu.436f81d44c1a0c3b2b17.png",
@@ -25,40 +25,32 @@
     "static/media/fa-brands-400.woff": "/static/media/fa-brands-400.2285773e6b4b172f07d9.woff",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.1551f4f60c37af51121f.woff2",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.d878b0a6a1144760244f.woff2",
+    "static/media/BMP.png": "/static/media/BMP.c34c2b3500bb46d3797a.png",
     "static/media/fa-regular-400.eot": "/static/media/fa-regular-400.77206a6bb316fa0aded5.eot",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.491974d108fe4002b2aa.ttf",
     "static/media/url9.jpg": "/static/media/url9.fcf5712016ea77ea7bee.jpg",
     "static/media/image.png": "/static/media/image.ef71fbef5c9a8a5db126.png",
-    "static/media/user-login.jpg": "/static/media/user-login.f08e629af86b64c52b44.jpg",
     "static/media/url4.jpg": "/static/media/url4.aaf9beda5c1725b3c0f5.jpg",
     "static/media/fa-regular-400.woff": "/static/media/fa-regular-400.bb58e57c48a3e911f15f.woff",
     "static/media/vendor.png": "/static/media/vendor.4b42b0b51f3588ddaebc.png",
-    "static/media/dinner.jpg": "/static/media/dinner.97ae58aa401c7b598c94.jpg",
     "static/media/staff.png": "/static/media/staff.f1cba334b7143783db62.png",
     "static/media/milk.jpg": "/static/media/milk.f162996fbfe76e2f4fc9.jpg",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
     "static/media/url3.jpg": "/static/media/url3.0ce448ac7f004ceee4cb.jpg",
-    "static/media/masala-dosa.jpg": "/static/media/masala-dosa.cbc19f77317e8550db6e.jpg",
     "static/media/delivery.png": "/static/media/delivery.1bb58040110ebc921e9f.png",
-    "static/media/breakfast.jpg": "/static/media/breakfast.7a4f24ed3b8d9a48cf51.jpg",
     "static/media/chips.jpg": "/static/media/chips.890222b8a473de2c864c.jpg",
-    "static/media/container.jpg": "/static/media/container.f7fbe3794fdba7eec13c.jpg",
     "static/media/carrot.jpg": "/static/media/carrot.77c092a7a4bf7a3852af.jpg",
-    "static/media/coffee-maker-icon.jpg": "/static/media/coffee-maker-icon.dbcb437b72daf520ca4a.jpg",
-    "static/media/mini-bar-icon.jpg": "/static/media/mini-bar-icon.b6f07169492ecee5f07f.jpg",
-    "static/media/instant-food.jpg": "/static/media/instant-food.5c105aa67b89336bff61.jpg",
-    "static/media/pasta.jpg": "/static/media/pasta.a45ff3a448548a26531b.jpg",
     "static/media/deal2.jpg": "/static/media/deal2.3773da0d92f3913606be.jpg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/index.html",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
-    "main.d14bba47.css.map": "/static/css/main.d14bba47.css.map",
-    "main.47f6bf53.js.map": "/static/js/main.47f6bf53.js.map"
+    "main.fa1f84de.css.map": "/static/css/main.fa1f84de.css.map",
+    "main.bbb5eb9f.js.map": "/static/js/main.bbb5eb9f.js.map"
   },
   "entrypoints": [
-    "static/css/main.d14bba47.css",
-    "static/js/main.47f6bf53.js"
+    "static/css/main.fa1f84de.css",
+    "static/js/main.bbb5eb9f.js"
   ]
 }

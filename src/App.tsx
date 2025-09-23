@@ -75,6 +75,7 @@ import GroceryMenu from "./GroceryMenu";
 import RetailShopMenu from "./RetailShopMenu";
 import CaterersMenu from "./CaterersMenu";
 import ServiceMenu from "./ServiceMenu";
+import WorkLogin from './WorkLogin'; 
 
 const App = () => {
   return (
@@ -189,6 +190,7 @@ const AppContent = () => {
         <Route path="/RetailShopMenu" element={<RetailShopMenu />} />
         <Route path="/CaterersMenu" element={<CaterersMenu />} />
         <Route path="/ServiceMenu" element={<ServiceMenu />} />
+        <Route path="/WorkLogin" element={<WorkLogin />} />
       </Routes>
 
       {!isAuthPage && <Footer />}

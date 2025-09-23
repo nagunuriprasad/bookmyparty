@@ -1,0 +1,269 @@
+.dashboard-container10 {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    transition: width 0.3s;
+    background-color: #fae49b;
+    color: white;
+    overflow-x: hidden;
+  }
+  /* Sidebar Scroll */
+.sidebar-content {
+  max-height: calc(100vh - 60px); /* Adjust this based on your logo height */
+  overflow-y: auto;
+}
+
+/* Hide scrollbar */
+.sidebar-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.sidebar-content:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+  
+  .sidebar-closed {
+    width: 80px;
+  }
+  
+  .sidebar-open {
+    width: 300px;
+  }
+  
+  .sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  
+  }
+  
+  .logo-imgs {
+    max-width: 50%;
+    background-color: #050505;
+    border-radius: 70px;
+  }
+  
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+  }
+  
+  .sidebar-menu li {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    padding-left: 35px;
+  }
+  
+  .sidebar-menu li i {
+    margin-right: 10px;
+  }
+  
+  .sidebar-menu li span {
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+  
+  .sidebar-closed .sidebar-menu li span {
+    opacity: 0;
+  }
+  
+  .sidebar-closed .sidebar-menu li i {
+    margin-right: 0;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    /*padding: 20px;*/
+   
+   background-color: #f6f7fa;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #c2cdf8;
+    
+    
+  }
+  
+  .nav-control {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(18, 17, 17);
+    margin: 4px 0;
+  }
+  
+  .hamburger-open .line {
+    background-color:rgb(5, 4, 4);
+  }
+  
+  .hamburger-closed .fa-arrow-right {
+    font-size: 1.5rem;
+    color: rgb(12, 12, 12);
+  }
+  .fa-chevron-right:before {
+    content: "\f054";
+    font-size: 17px;
+    margin-left: 5px;
+  }
+  .fa-chevron-down:before {
+    content: "\f078";
+    font-size: 17px;
+    margin-left: 5px;
+  }
+  .text-left {
+    text-align: left !important;
+    color: rgb(10, 10, 10);
+  }
+  .dashboard-cards10{
+    display: flex;
+  }
+  .card10 {
+    width: 270px;
+    
+    height: 160px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1 1 calc(50% - 20px); /* Each card takes 50% width minus the gap */
+    background-color: #c8d3fd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect width calc*/
+  }
+  .cards10-container10 {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 10px; /* Space between cards */
+    justify-content: space-between; /* Space out cards evenly */
+    margin-top: 30px;
+    align-content: flex-start;
+    margin-right: 30px;
+  }
+  .card10 h2 {
+    font-size: 50px; /* Set the font size */
+    color: #ffffff;  /* Set the text color */
+    margin-bottom: 10px; /* Add spacing below the heading */
+    font-weight: bold;  /* Make the text bold */
+    text-align: left;
+  }
+  
+  .card p {
+    font-size: 20px;  /* Style for the paragraph text */
+    color: #888da5;   /* Set a lighter color for the description */
+  }
+  .card10-icon-text {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and h2 */
+  }
+  
+  .card10-icon {
+    font-size: 36px; /* Adjust the size of the icon */
+    color: #ffffff; /* Icon color */
+  }
+  
+  
+  
+  .orders-queue {
+    background-color: #1e2746; /* Match the background with the cards */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 10px; /* Rounded corners */
+    text-align: left; /* Center the text */
+    margin-top: 28px; /* Add spacing from the card grid */
+    color: #ffffff; /* White text color */
+    font-size: 25px; /* Font size for the queue title */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for a lifted effect */
+    width:580px;
+    height:600px;
+  font-weight: bold;
+  
+  }
+  
+  .orders-queue div {
+    font-weight: bold; /* Make the text bold */
+    gap: 100px;
+  }
+  
+  .orders-queue ul {
+    list-style: none; /* Remove bullet points if you later add a list */
+    padding: 0;
+  }
+  
+  .orders-queue li {
+    padding: 10px 0; /* Add padding between items */
+    border-bottom: 1px solid #888da5; /* Optional divider for list items */
+  }
+  .cards10-container10-main{
+    display: flex;
+    padding: 20px;
+  }
+  .username{
+    font-size: 30px;
+    color: #0e0e0e;
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between bell icon and username */
+  }
+  
+  .icon-notifications {
+    font-size: 24px; /* Adjust icon size */
+    color: #f80404; /* Adjust color if needed */
+  }
+  
+  /* Wallet Section */
+  .wallet-section {
+    display: flex;
+    justify-content: center; /* Centers the wallet in the section */
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for distinction */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+    margin: 20px auto; /* Centers the section vertically and horizontally */
+    width: 100%; /* Full width inside the container */
+    max-width: 900px; /* Optional: restricts max width */
+  }
+  
+  /* Wallet Section Heading (Optional for additional styling) */
+  .wallet-section h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  

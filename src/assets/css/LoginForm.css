@@ -1,0 +1,259 @@
+.loginform-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #12172d;
+  min-height: 100vh;         /* full height screen */
+  padding: 40px 20px;
+  margin: auto;
+  width: 90%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-radius: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  gap: 40px;
+  overflow: hidden;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.form-style {
+  background-color: #1e2746;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* Image Section */
+.loginform-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginform-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Login Form Section */
+.login-form-events {
+  flex: 1;
+  background-color: #1e2746;
+  border-radius: 20px;
+  max-width: 380px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Headings */
+.login-form-header {
+  text-align: center;
+  margin-top: 10px;
+  color: #d8b573;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-group-event {
+  margin-bottom: 20px;
+}
+.form-group-event label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #d8b573;
+}
+
+/* Input Fields */
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-container input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: none;
+  border-bottom: 2px solid #888;
+  background-color: transparent;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+}
+.input-container input:focus {
+  border-bottom-color: #d8b573;
+  transition: 0.3s;
+}
+.input-container input::placeholder {
+  color: #d8b573;
+  font-size: 15px;
+}
+.input-container .icon {
+  position: absolute;
+  right: 10px;
+  font-size: 18px;
+  color: #888;
+}
+.input-container input:focus + .icon {
+  color: #d8b573;
+}
+
+/* Toggle Buttons */
+.login-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+.login-toggle button {
+  background-color: transparent;
+  border: 2px solid #d8b573;
+  color: #d8b573;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login-toggle button:hover,
+.login-toggle button.active {
+  background-color: #d8b573;
+  color: #1e2746;
+  font-weight: bold;
+}
+
+/* Submit Button */
+.loginform-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #d8b573;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 15px 0;
+  transition: 0.3s;
+}
+.loginform-button:hover {
+  background-color: #b28f4c;
+}
+
+/* Form options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.remember-me {
+  display: flex;
+  align-items: center;
+  color: #d8b573;
+}
+.remember-me input[type="checkbox"] {
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+}
+.forgot-password {
+  text-decoration: none;
+  color: #d8b573;
+}
+.forgot-password:hover {
+  color: #b28f4c;
+}
+
+/* Social Login */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.google-button, .facebook-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.google-button,
+.facebook-button {
+  background-color: #d8b573;
+}
+.google-button:hover,
+.facebook-button:hover {
+  background-color: #b28f4c;
+}
+
+/* Signup Options */
+.signup-link p {
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.signup-options-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: #d8b573;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.link-btn:hover {
+  color: #b28f4c;
+}
+
+/* Error */
+.error {
+  color: #ff4c4c;
+  text-align: center;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .loginform-container {
+    flex-direction: column;
+    width: 95%;
+    padding: 20px;
+  }
+  .loginform-image {
+    padding: 10px 0;
+  }
+  .login-form-events {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+  .login-toggle {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .login-toggle button {
+    flex: 1;
+    font-size: 14px;
+    padding: 8px;
+  }
+}

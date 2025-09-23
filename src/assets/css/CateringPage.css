@@ -1,0 +1,104 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+}
+
+.catering-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  color: #4a90e2;
+  font-size: 1.8rem; /* Adjusted font size */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.catering-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Reduced gap for medium size */
+}
+
+.form-label {
+  font-size: 1.1rem; /* Adjusted font size */
+  font-weight: bold;
+  color: #333;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 8px; /* Reduced padding for a more compact look */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1.1rem; /* Adjusted font size */
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.form-textarea {
+  resize: none;
+}
+
+.address-section {
+  margin-top: 20px;
+}
+
+.address-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px; /* Reduced gap for medium size */
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 20px; /* Space between buttons */
+  margin-top: 25px; /* Reduced margin for medium size */
+}
+
+.btn2 {
+  padding: 10px 20px; /* Reduced padding */
+  font-size: 1.1rem; /* Adjusted font size */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn2-confirm {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn2-confirm:hover {
+  background-color: #45a049;
+}
+
+.btn2-cart {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn2-cart:hover {
+  background-color: #d32f2f;
+}

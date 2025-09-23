@@ -1,0 +1,179 @@
+.company-form-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 45px;
+    color: #d8b573;
+}
+.profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Add space below the section */
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    cursor: pointer; /* Make it look clickable */
+    transition: opacity 0.3s ease;
+}
+
+.profile-image:hover {
+    opacity: 0.8; /* Add visual feedback on hover */
+}
+.profile-image-input {
+    width: auto; /* Adjust the width of the input field */
+    text-align: center; /* Center the text inside the input */
+    cursor: pointer; /* Change the cursor to pointer on hover */
+    margin-top: 0px; /* Add space between image and input */
+    margin-left: 100px;
+}
+
+.company-forms-container {
+    width:100%;
+    display: inline-block;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between the forms */
+  }
+  
+/* Reduce padding and spacing inside individual form sections */
+.company-form-section {
+    padding: 15px; /* Reduced padding inside each form section */
+    border-radius: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduced gap between form fields */
+    box-sizing: border-box;
+    width:100%;
+
+
+/* You can further reduce input padding and adjust layout if necessary */
+input, select, textarea {
+    padding: 8px; /* Reduced padding for input fields */
+    margin: 5px 0; /* Slight reduction in margin to decrease vertical spacing */
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Profile image input centered with margin adjustment */
+
+.title-center{
+    text-align: center;
+    margin-top: 0px;
+    color: #d8b573;
+    margin-bottom: 0px;
+}
+
+
+
+
+/* Profile Image */
+
+
+/* Flex container for forms */
+.company-forms-container {
+  
+        display: inline-block;
+        justify-content: space-between;
+        gap: 20px; /* Adds space between the forms */
+}
+
+/* Individual form sections */
+.company-form-section {
+    flex: 1; /* Make each form take equal space */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+
+.address-fields input,
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+.address-fields input:hover,
+.form-group input:hover,
+.form-group select:hover {
+    border-color: #007bff; /* Light blue border on hover */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue shadow on hover */
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 32%;
+    padding: 10px;
+    background-color:#007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    margin-top: 20px;
+}
+.submit-btn-container{
+    text-align: center;
+    width:100%;
+}
+.submit-btn:hover {
+    background-color: #218838;
+    box-shadow: 0 0 10px rgba(33, 136, 56, 0.5); /* Add shadow on hover */
+}
+
+input, select {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    padding: 10px;
+}
+
+.terms-section {
+    display: flex;
+    align-items: left;
+    gap: 10px;
+    justify-content: left;
+}
+
+/* Responsive design for mobile view */
+@media (max-width: 768px) {
+    .company-form-container {
+        width: 95%;
+        padding: 0; /* Remove padding for small screens */
+    }
+
+    .company-forms-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .company-form-section {
+        width: 100%; /* Full width on mobile */
+    }
+    .submit-btn {
+        width: 100%;
+    }
+}
+}

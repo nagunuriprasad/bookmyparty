@@ -1,0 +1,173 @@
+.image-grid-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 120px);
+    grid-gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .image-circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-circle:hover {
+    transform: scale(1.1);
+  }
+  
+  .image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  /* Center the editable text box and increase opacity */
+.title-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column; /* To stack title and text box */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    transition: background-color 0.3s;
+    border-radius: 0 0 50% 50%;
+    background-color: rgba(0, 0, 0, 0.8); /* Increased opacity */
+}
+  
+  /* Status-specific overlay colors */
+  .status-verified .title-overlay {
+    background-color: rgba(0, 128, 0, 0.7);
+  }
+  
+  .status-not-verified .title-overlay {
+    background-color: rgba(128, 128, 128, 0.7);
+  }
+  
+  .status-renewal .title-overlay {
+    background-color: rgba(255, 165, 0, 0.7);
+  }
+  
+  .status-hold .title-overlay {
+    background-color: rgba(255, 255, 0, 0.7);
+  }
+  
+  .status-selector {
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .status-selector select {
+    width: 100%;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    color: black; /* Set list text color to black */
+  }
+  
+  /* Selector box background colors */
+  .status-verified select {
+    background-color: green;
+  }
+  
+  .status-not-verified select {
+    background-color: grey;
+  }
+  
+  .status-renewal select {
+    background-color: orange;
+  }
+  
+  .status-hold select {
+    background-color: yellow;
+  }
+  
+  .status-display {
+    margin-top: 4px;
+    font-weight: bold;
+  }
+  
+  /* Responsive Grid Adjustments */
+  @media (max-width: 768px) {
+    .image-grid {
+      grid-template-columns: repeat(3, 100px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .image-grid {
+      grid-template-columns: repeat(2, 100px);
+    }
+  }
+  
+  .image-grid-container {
+    max-width: 90%;
+    margin: auto;
+  }
+  
+  @media (hover: hover) {
+    .image-circle:hover {
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  
+  .editable-text-box {
+    width: 80%; /* Slightly smaller for centering */
+    margin-top: 4px;
+    padding: 4px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Higher opacity for readability */
+    color: #333;
+    outline: none;
+}
+
+/* Editable Text Box - Transparent Background and Bold Text */
+.editable-text-box {
+    background-color: transparent; /* Makes the text box background transparent */
+    border: none; /* Removes border */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Centers the text */
+    width: 90%; /* Adjust width as needed */
+    outline: none; /* Removes outline when focused */
+}
+
+/* Placeholder Styling */
+.editable-text-box::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Slightly faded white placeholder */
+    font-weight: normal; /* Regular weight for placeholder */
+}
+
+

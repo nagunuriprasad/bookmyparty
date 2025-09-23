@@ -1,0 +1,90 @@
+/* General App Styling */
+.app {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 40px; /* Increase padding to make it wider */
+  max-width: 1300px; /* Increased max-width for a wider container */
+  margin: 0 auto; /* Center the content */
+  background-color: #f9f9f9; /* Light background for better contrast */
+  border-radius: 10px; /* Rounded corners for aesthetics */
+}
+
+.app-title {
+  font-size: 3em; /* Larger font size for desktop view */
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.add-review-title {
+  font-size: 2em; /* Larger for better visibility */
+  margin-top: 40px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Increase form width */
+.review-form-container {
+  width: 100%; /* Increased width of the form container */
+  max-width: 1300px; /* Set max-width for the form */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+  .app {
+    padding: 30px; /* Less padding on tablets */
+  }
+
+  .app-title {
+    font-size: 2.5em; /* Adjust font size for tablet screens */
+  }
+
+  .add-review-title {
+    font-size: 1.8em; /* Adjust title size */
+  }
+
+  .review-form-container {
+    width: 100%; /* Adjust form width for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 20px; /* Less padding for medium screens */
+  }
+
+  .app-title {
+    font-size: 2.2em; /* Adjust font size */
+  }
+
+  .add-review-title {
+    font-size: 1.6em; /* Adjust font size */
+  }
+
+  .review-form-container {
+    width: 100%; /* Adjust form width for mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 15px; /* Less padding for mobile devices */
+  }
+
+  .app-title {
+    font-size: 1.8em; /* Smaller font size on mobile */
+  }
+
+  .add-review-title {
+    font-size: 1.5em; /* Adjust title size for mobile */
+  }
+
+  .review-form-container {
+    width: 100%; /* Form takes full width on mobile */
+  }
+}

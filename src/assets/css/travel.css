@@ -1,0 +1,168 @@
+/* General App Styling */
+.travel-app {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  /* Map Section */
+  .travel-map {
+    width: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Section */
+  .travel-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Ride Type Selector */
+  .travel-package-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .package-label {
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .ride-type-dropdown {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .ride-type-dropdown:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Tabs */
+  .travel-vehicle-tabs {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .tab-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .tab-button:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.05);
+  }
+  
+  .active-tab {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Vehicle Prices Section */
+  .travel-vehicle-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .vehicle-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vehicle-container p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  /* Book Now Button */
+  .book-now {
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .book-now:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+/* General Styling */
+.travel-vehicle-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .vehicle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .vehicle-image {
+    width: 80px;
+    height: 60px;
+    border-radius: 5px;
+  }
+  
+

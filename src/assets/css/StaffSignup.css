@@ -1,0 +1,196 @@
+.staffsignup-container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f5f5f5;
+  }
+  
+    h2 {
+        text-align: center;
+         margin-top: 0px; 
+        color: #d8b573;
+         margin-bottom: 0px;
+    
+  }
+  .staffsignup-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .staffsignup-forms-container {
+    display: inline-block;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between the forms */
+  }
+  
+  .staffsignup-form-section {
+    flex: 1; /* Make each form take equal space */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
+  .staffsignup-form-section input,
+  .staffsignup-form-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .staffsignup-form-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .staffsignup-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .staffsignup-submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width:30%;
+  }
+  
+  .staffsignup-submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .staffsignup-error {
+    color: red;
+    margin-bottom: 10px;
+  }
+ /* Staff Signup Form Container */
+.staffsignup-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Header */
+  .staffsignup-header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .staffsignup-profile-image-input {
+    display: none;
+  }
+  
+  .staffsignup-profile-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .staffsignup-profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+  }
+  
+  .staffsignup-header {
+    text-align: center;
+  }
+  
+  .staffsignup-container {
+    padding: 20px;
+  }
+  
+  .staffsignup-form-section {
+    margin-bottom: 20px;
+  }
+  
+  .staffsignup-terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .staffsignup-terms input[type="checkbox"] {
+    margin-right: 10px;
+    width:20px;
+    height: 18px;
+  }
+  
+  .staffsignup-terms label {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .staffsignup-terms a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .staffsignup-terms a:hover {
+    text-decoration: underline;
+  }
+  
+  .staffsignup-submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .staffsignup-submit-button:hover {
+    background-color: #0056b3;
+  }
+
+  .name-input-container {
+    display: flex;
+    gap: 10px; /* Adds space between the inputs */
+  }
+  
+  .name-input-container input {
+    flex: 1; /* Ensures both inputs take equal space */
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+
+  .tab-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .tab {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .tab.selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+
+
+

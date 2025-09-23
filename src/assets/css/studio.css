@@ -1,0 +1,132 @@
+/* Centered "My Party" heading */
+.page-title {
+    text-align: center;
+    font-size: 4vw;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Tabs Container */
+  .tabs-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 20px auto;
+    padding: 10px;
+    gap: 2vw;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* Tabs Styling */
+  .tabs {
+    display: flex;
+    gap: 2vw;
+  }
+  
+  /* Tab Button Styling */
+  .tab-button {
+    padding: 2vw 4vw;
+    align-items: center;
+    font-size: 1.1em;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Active Tab Styling */
+  .tab-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    transform: scale(1.05);
+    align-items: center;
+  }
+  
+  /* Tab Hover Effect */
+  .tab-button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+  }
+  
+  /* Party Type Selector Styling */
+  .party-type-selector {
+    padding: 1vw 2vw;
+    align-items: center;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  
+  /* Carousel Section */
+  .marquee-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    animation: marquee 300s linear infinite;  /* Slow down the animation further */
+    justify-content: center; /* Center images */
+  }
+  
+  /* Marquee Images */
+  .marquee-image {
+    width: auto;
+    max-width: 500px;  /* Larger images */
+    object-fit: cover;
+    height: auto;
+    margin: 0 20px; /* Space between images */
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    /* Adjust font size for smaller screens */
+    .page-title {
+      font-size: 6vw;
+    }
+  
+    .tab-button {
+      padding: 4vw 6vw;
+    }
+  
+    .party-type-selector {
+      padding: 2vw 4vw;
+    }
+  
+    /* Adjust the image width for tablets */
+    .marquee-image {
+      max-width: 400px;  /* Slightly smaller than desktop but larger than mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Further reduce font size and padding on very small screens */
+    .page-title {
+      font-size: 8vw;
+    }
+  
+    .tabs-container {
+      flex-direction: column;
+      gap: 2vw;
+    }
+  
+    .tab-button {
+      padding: 5vw 8vw;
+    }
+  
+    .party-type-selector {
+      padding: 3vw 5vw;
+    }
+  
+    /* Adjust the image width for mobile */
+    .marquee-image {
+      max-width: 100%;     /* Full width for mobile devices */
+    }
+  }
+  

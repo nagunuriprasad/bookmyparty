@@ -1,0 +1,157 @@
+.contactus-container {
+  width: 100%;
+  font-family: Arial, sans-serif;
+ 
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #f7f7f7;
+  text-align: left;
+}
+
+
+/* Contact Us Section */
+.contactus-section {
+  text-align: center;
+  margin-bottom: 50px;
+  
+}
+
+.contactus-section h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contactus-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactus-form div {
+  margin-bottom: 15px;
+}
+
+
+
+.contactus-form input,
+.contactus-form textarea {
+  width: 100%; /* Make input and textarea fields 100% width */
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contactus-form textarea {
+  height: 100px;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+  text-align: left;
+  
+}
+
+
+
+button:hover {
+  background-color: #e5be00;
+}
+
+/* General styling for sections */
+.contactus-section h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contactus-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.contactus-content div {
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+.contactus-content h3 {
+  font-size: 24px;
+  color: #fdd835;
+}
+
+.contactus-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Customer Reviews */
+.customer-reviews {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.review {
+  display: inline-block;
+}
+
+.customer-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.review-text {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.review h4 {
+  font-weight: bold;
+}
+
+.contactus-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contactus-button {
+  padding: 10px 20px;
+  background-color: #fdd835;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 5px;
+  width:25%;
+}
+
+.contactus-button:hover {
+  background-color: #e5be00;
+}
+.contactus-heading {
+  text-align: center; /* Center the heading */
+  font-size: 36px; /* Adjust size as needed */
+  margin-bottom: 15px; /* Space below the heading */
+  position: relative; /* Set positioning for the pseudo-element */
+}
+
+.contactus-heading::after {
+  content: ""; /* Create a pseudo-element */
+  display: block; /* Make it a block element */
+  width: 100px; /* Set the width of the underline */
+  height: 4px; /* Set the height of the underline */
+  background-color: #fdd835; /* Set the underline color */
+  margin: 10px auto 0; /* Center it and add some space above */
+}
+.contactus-label {
+  font-size: 18px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the label bold */
+  /* Space below the label */
+  display: block; /* Ensure label takes a block layout */
+  text-align: left;
+}

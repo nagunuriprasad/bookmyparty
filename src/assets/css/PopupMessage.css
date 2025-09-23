@@ -1,0 +1,40 @@
+.popup-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .popup-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup-message {
+    position: absolute;
+    bottom: -50px; /* Adjust based on your needs */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    z-index: 1;
+  }
+  
+  .popup-arrow-up {
+    position: absolute;
+    top: -5px; /* Align the arrow with the popup */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #333;
+  }
+  

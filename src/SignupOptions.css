@@ -1,0 +1,115 @@
+/* SignupOptions.css */
+
+.signup-options {
+    display: flex;
+    flex-direction: column; /* Stack toggle button above options */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f9f9f9; /* Light background color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+    position: relative; /* Relative positioning for absolute elements */
+    padding: 20px;
+}
+
+.signup-options.dark-mode {
+    background-color: #333; /* Dark background for dark mode */
+    color: white; /* Light text color for dark mode */
+}
+
+.theme-toggle {
+    position: absolute; /* Absolute positioning to place it in the corner */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+}
+
+.theme-button {
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 24px; /* Size of the icon */
+    color: inherit; /* Inherit color from parent */
+    outline: none; /* Remove outline */
+}
+
+/* Prevent background color on hover */
+.theme-button:hover {
+    background: none; /* Ensure no background on hover */
+    opacity: 1; /* Maintain opacity */
+}
+
+.options-container {
+    display: flex; /* Use flexbox to display options side by side */
+    justify-content: space-around; /* Space them evenly */
+    width: 100%; /* Full width of the container */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Spacing between items */
+}
+
+.option {
+    text-align: center; /* Centers text in each option */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: transform 0.3s; /* Smooth scaling effect on hover */
+    width: 200px; /* Set a default width */
+    max-width: 100%; /* Ensures responsiveness */
+}
+
+.option h3 {
+    margin-top: 10px; /* Space above the heading */
+    font-size: 20px; /* Increased font size for headings */
+    color: inherit; /* Inherit color from the parent */
+}
+
+.option:hover {
+    transform: scale(1.1); /* Slightly enlarges the option on hover */
+}
+
+.option img {
+    width: 150px; /* Increased width for icons */
+    height: 150px; /* Increased height for icons */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the circle */
+}
+
+/* Light Mode Styles */
+.signup-options:not(.dark-mode) .option {
+    color: #333; /* Dark text color for light mode */
+}
+
+/* Dark Mode Styles */
+.signup-options.dark-mode .option {
+    color: white; /* Light text color for dark mode */
+}
+
+.theme-toggle .theme-button:hover {
+    opacity: 0.7; /* Slightly dim the icon on hover */
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .options-container {
+        flex-direction: column; /* Stack options vertically on small screens */
+        align-items: center; /* Center them horizontally */
+    }
+
+    .option {
+        width: 100%; /* Full width for each option */
+        max-width: 300px; /* Set a max width for each option */
+    }
+}
+
+@media (max-width: 480px) {
+    .theme-button {
+        font-size: 20px; /* Adjust size for small screens */
+    }
+
+    .option img {
+        width: 120px; /* Adjust image size */
+        height: 120px; /* Adjust image size */
+    }
+
+    .option h3 {
+        font-size: 16px; /* Adjust font size for headings */
+    }
+}

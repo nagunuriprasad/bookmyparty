@@ -1,0 +1,108 @@
+.slider-container {
+  width: 100%;
+  margin: auto; /* Center the slider */
+  overflow: hidden; /* Prevent overflow issues */
+  
+}
+
+.image-container {
+  padding: 10px; /* Reduced padding for smaller image containers */
+}
+
+.owl-item {
+  width: 240px; /* Reduced width for better responsiveness */
+  margin-right: 8px; /* Adjusted margin for smaller gaps */
+}
+
+.product-item {
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.product-item:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.card {
+  width: 100%; /* Ensure the card takes full width */
+  max-width: 194px; /* Limit card width for smaller screens */
+  border-radius: 8px; /* Optional: rounded corners */
+  overflow: hidden; /* Hide overflow */
+ 
+}
+
+.card img {
+  width: 100%; /* Ensure images are responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.owl-carousel .owl-item {
+  flex: 0 0 240px; /* Reduced fixed width for better responsiveness */
+  margin-right: 8px; /* Consistent smaller gap */
+  transition: transform 0.4s ease; /* Smooth animation when interacting */
+}
+
+.owl-carousel .owl-stage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Prevent extra gaps from flexbox alignment */
+  transition: transform 0.4s linear; /* Smooth transition between items */
+}
+
+@keyframes continuousScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-80%);
+  }
+}
+
+.text-center {
+  text-align: center !important;
+  color: black;
+}
+
+.px-2 {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  color: black;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.star-rating {
+  margin-top: 8px; /* Reduced spacing */
+  margin-bottom: 8px; /* Reduced spacing */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .owl-item {
+    width: 180px; /* Smaller width for tablet and mobile screens */
+  }
+
+  .card {
+    max-width: 200px; /* Adjust card size for smaller screens */
+  }
+
+  .image-container {
+    padding: 5px; /* Reduced padding for compact layout */
+  }
+}
+
+@media (max-width: 480px) {
+  .owl-item {
+    width: 140px; /* Further reduction for smaller devices */
+  }
+
+  .card {
+    max-width: 260px; /* Compact card size for mobile devices */
+  }
+
+  .text-center {
+    font-size: 10px; /* Adjust font size for readability */
+  }
+}

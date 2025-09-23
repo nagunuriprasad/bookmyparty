@@ -1,0 +1,151 @@
+/* Footer Container */
+.footer-container {
+  background-color: #222;
+  color: #fff;
+  padding: 10px 20px; /* Adjusted padding */
+  font-size: 14px;
+  max-width: auto;
+  max-height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Ensure padding and borders are included in the size */
+}
+
+/* Footer Content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px; /* Adjusted gap for better spacing */
+  margin-bottom: 15px;
+}
+
+/* Footer Sections */
+.footer-section {
+  flex: 1;
+  min-width: 200px; /* Slightly increased minimum width for better fit */
+  margin: 10px;
+  text-align: center; /* Center-align for consistent mobile view */
+}
+
+.footer-section h4 {
+  margin-bottom: 10px; /* Adjusted margin for spacing */
+  font-size: 16px; /* Better readability */
+  color: #f0f0f0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #e0dfeb;
+  text-decoration: underline;
+}
+
+.footer-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Contact Information & Apps */
+.contact-and-apps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+/* Contact Info Styling */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+  color: #bbb;
+}
+
+.contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact-info i {
+  color: #e0dfeb;
+}
+
+/* App Store & Play Store Icons */
+.app-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.app-icons img {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.app-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .contact-info {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .app-icons img {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    width: 60px;
+  }
+
+  .footer-section h4 {
+    font-size: 14px;
+  }
+
+  .footer-section ul li a {
+    font-size: 12px;
+  }
+
+  .app-icons img {
+    width: 70px;
+  }
+}

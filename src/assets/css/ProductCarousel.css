@@ -1,0 +1,37 @@
+.owl-theme .owl-nav [class*='owl-'] {
+    background: transparent;
+    color: inherit;
+    font-size: 2rem;
+    padding: 4px 7px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .owl-theme .owl-nav .owl-prev {
+    left: -20px;
+  }
+  
+  .owl-theme .owl-nav .owl-next {
+    right: -20px;
+  }
+  
+  .owl-theme .owl-dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .owl-theme .owl-dots .owl-dot {
+    display: inline-block;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+  }
+  
+  .owl-theme .owl-dots .owl-dot.active {
+    background: #000;
+  }
+  

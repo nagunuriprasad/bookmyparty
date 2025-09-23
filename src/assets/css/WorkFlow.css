@@ -1,0 +1,25 @@
+.software-cycle-container {
+  text-align: center;
+}
+
+.circle-diagram {
+  cursor: pointer;
+}
+
+.content-container {
+  margin-top: 20px;
+}
+
+.phase-content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: left;
+  max-width: 400px;
+}
+
+.phase-content h2 {
+  margin-bottom: 10px;
+  color: #333;
+}

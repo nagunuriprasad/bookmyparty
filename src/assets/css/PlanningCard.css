@@ -1,0 +1,84 @@
+.planning-card {
+    width: 355px;
+    height: 280px;
+    background-image: url('../planing.jpeg'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+    filter: brightness(0.8); /* Adjusts brightness; can be changed or removed */
+    transition: transform 0.3s ease, filter 0.3s ease;
+    
+}
+.planning-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+    z-index: 1;
+}
+
+.planning-card-container {
+    display: flex; /* Use flexbox to create a two-column layout */
+    justify-content: center; /* Space between the columns */
+    flex-wrap: wrap; /* Allow columns to wrap if the viewport is small */
+    
+    background-color: rgb(200, 226, 226);
+    padding-top: 50px;
+    
+}
+.planning-card-container2 {
+    display: flex; /* Use flexbox to create a two-column layout */
+    justify-content: center; /* Space between the columns */
+    flex-wrap: wrap; /* Allow columns to wrap if the viewport is small */
+    
+    background-color: rgb(200, 226, 226);
+    
+    padding-bottom: 50px;
+}
+.planning-content {
+    position: absolute;
+    bottom: 10px; /* Keep some space from the bottom */
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    transition: background-color 0.1s ease-in-out;
+    z-index: 2;
+}
+
+.planning-heading {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+    transition: all 0.4s ease-in-out;
+}
+
+.planning-extra-text {
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    opacity: 0; /* Initially hidden */
+    transition: all 0.4s ease-in-out;
+}
+
+.planning-card:hover .planning-extra-text {
+    opacity: 1; /* Show extra text on hover */
+    transform: translateY(-100px);
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.planning-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    filter: brightness(1); /* Reset brightness on hover */
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+
+.planning-card:hover .planning-heading {
+    transform: translateY(-100px); /* Move heading up on hover */
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,57 @@
+.marquee-container {
+  width: 100%; /* Full width of the screen */
+  overflow: hidden; /* Hide the images outside the container */
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: aqua; /* Background color */
+  
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content; /* Ensures that the content doesn't wrap */
+  animation: slide-left 80s linear infinite; /* Slower animation for very smooth sliding */
+}
+
+.marquee-image {
+  width: auto; /* Let images scale naturally */
+  height: 350px; /* Reduced height for desktop */
+  object-fit: cover; /* Ensure the images fit well */
+  margin-right: 0; /* Removed spacing for seamless transition */
+  border-radius: 5px; /* Optional: Rounded corners */
+}
+
+/* Keyframes for seamless marquee animation */
+@keyframes slide-left {
+  from {
+    transform: translateX(0); /* Start from the initial position */
+  }
+  to {
+    transform: translateX(-50%); /* Move left by 50% of the track width */
+  }
+}
+
+/* Optional: Pause on hover */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused; /* Pause animation on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .marquee-image {
+    height: 300px; /* Adjust height for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-image {
+    height: 250px; /* Further reduced height for smaller devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-image {
+    height: 180px; /* Compact height for mobile devices */
+  }
+}

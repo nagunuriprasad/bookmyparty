@@ -1,0 +1,95 @@
+.header { 
+  background-color: #363e45;
+  padding: 0px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Aligns items to the left and right */
+  align-items: center;
+  padding-left: 5px; /* Reduce padding on the left */
+  padding-right: 5px; /* Reduce padding on the right */
+  height: 80px; /* Reduced height for the header container */
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo-img {
+  height: 100px; /* Reduced logo height */
+  width: 120px;  /* Reduced logo width */
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Aligns the login button to the right */
+}
+
+.login-button {
+  background-color: #d8b573;
+  color: white;
+  padding: 4px 8px; /* Further reduced padding */
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px; /* Reduced font size */
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+/* CSS for Header */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.location-container {
+  display: flex;
+  align-items: center;
+}
+
+.location-button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.location-status {
+  margin-right: 20px;
+}
+
+.nearby-locations {
+  padding: 5px 10px;
+  margin-right: 20px;
+}
+
+.search-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.login-container {
+  margin-left: auto;
+}
+
+.language-selector {
+  margin-left: 20px;
+}

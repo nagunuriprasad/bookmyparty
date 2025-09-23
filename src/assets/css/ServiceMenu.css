@@ -1,0 +1,162 @@
+/* Wrapper and Header */
+.service-menu-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .service-menu-header {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #d4a017;
+    margin-bottom: 10px;
+  }
+  
+  .service-menu-subheader {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #4a4a4a;
+  }
+  
+  /* Form */
+  .service-menu-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Form Group */
+  .service-menu-group {
+    margin-bottom: 20px;
+  }
+  
+  .service-menu-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .service-menu-group-half {
+    flex: 1;
+  }
+  
+  /* Labels and Inputs */
+  .service-menu-label {
+    display: block;
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 8px;
+  }
+  
+  .service-menu-input,
+  .service-menu-select,
+  .service-menu-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+  
+  .service-menu-textarea {
+    min-height: 100px;
+    resize: none;
+  }
+  
+  /* Upload Section */
+  .service-menu-upload-title {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555555;
+    margin-bottom: 8px;
+  }
+  
+  .service-menu-upload-container {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .service-menu-file-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+  
+  /* Submit Button */
+  .service-menu-submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .service-menu-submit-btn:hover {
+    background: linear-gradient(to right, #5a0cb8, #1e5de5);
+  }
+
+  .tag-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px; /* Reduced gap between tags */
+    padding: 4px; /* Reduced padding for the container */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    min-height: 32px; /* Reduced minimum height */
+    
+  }
+  
+  .service-menu-tag-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 12px; /* Reduced font size */
+    padding: 2px; /* Reduced padding for input */
+    min-width: 100px;
+  }
+  
+  .service-menu-tag-input::placeholder {
+    color: #aaa;
+  }
+  
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 16px; /* Small font size for tags */
+    padding: 1px 2px; /* Further reduced padding */
+    border-radius: 6px; /* Smaller border radius */
+    white-space: nowrap;
+    max-height: 19px;
+    max-width: auto;
+  }
+  
+  
+  .tag button {
+    background: none;
+    border: none;
+    color: #555;
+    padding-left: 0%;
+    padding-right: 0%;
+    cursor: pointer;
+    font-size: 10px; /* Adjusted button font size */
+  }
+  
+  .tag button:hover {
+    color: #f00;
+  }
+  

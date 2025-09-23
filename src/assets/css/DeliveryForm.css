@@ -1,0 +1,176 @@
+/* Delivery Form Container */
+.deliveryform-container {
+  width: 100%;
+  padding: 20px;
+  background-color: #f4f4f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.deliveryform-header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Profile Image Section */
+.deliveryform-profile-image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.deliveryform-profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+}
+
+.deliveryform-profile-image-input {
+  display: none;
+}
+
+/* Forms Container */
+.deliveryform-forms-container {
+  width: 100%; /* Full width */
+  display: inline-block;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Form Section */
+.deliveryform-form-section {
+  width: 100%; /* Full width */
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+/* Input Fields */
+.deliveryform-form-section input,
+.deliveryform-form-section textarea,
+.deliveryform-form-section select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Table Styling for Education */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Terms Section */
+.deliveryform-terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.deliveryform-terms input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 18px;
+}
+
+.deliveryform-terms label {
+  font-size: 18px;
+  color: #333;
+}
+
+.deliveryform-terms a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.deliveryform-terms a:hover {
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.deliveryform-submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Full width */
+}
+
+.deliveryform-submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Error Messages */
+.deliveryform-errors {
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Profile Image Upload Button */
+.deliveryform-profile-image-container input[type="file"] {
+  margin-top: 10px;
+}
+
+/* Error Styling */
+.deliveryform-error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.deliveryform-terms {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.deliveryform-submit-btn {
+  display: block;
+  margin: 20px auto; /* Center button horizontally */
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Full width */
+}
+
+.deliveryform-submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.deliveryform-submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.name-input-container {
+  display: flex;
+  gap: 10px; /* Adds space between the inputs */
+}
+
+.name-input-container input {
+  flex: 1; /* Ensures both inputs take equal space */
+  padding: 8px;
+  font-size: 16px;
+}

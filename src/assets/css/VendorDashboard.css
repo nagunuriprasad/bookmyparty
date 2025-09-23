@@ -1,0 +1,516 @@
+.dashboard-container10 {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px; /* Reduced width */
+  transition: width 0.3s;
+  background-color: #fae49b;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Sidebar Scroll */
+.sidebar-content {
+  max-height: calc(100vh - 60px); /* Adjust this based on your logo height */
+  overflow-y: auto;
+}
+
+/* Hide scrollbar */
+.sidebar-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.sidebar-content:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.sidebar-closed {
+  width: 70px; /* Reduced closed width */
+}
+
+.sidebar-open {
+  width: 250px; /* Reduced open width */
+}
+
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px; /* Reduced padding */
+}
+
+.logo-imgs {
+  max-width: 40%; /* Reduced size */
+  background-color: #050505;
+  border-radius: 70px;
+}
+
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  padding: 10px; /* Reduced padding */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 18px; /* Reduced font size */
+  padding-left: 20px; /* Reduced padding */
+}
+
+.sidebar-menu li i {
+  margin-right: 8px; /* Reduced margin */
+}
+
+.sidebar-menu li span {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.sidebar-closed .sidebar-menu li span {
+  opacity: 0;
+}
+
+.sidebar-closed .sidebar-menu li i {
+  margin-right: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: #f6f7fa;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px; /* Reduced padding */
+  background-color: #c2cdf8;
+}
+
+.nav-control {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px; /* Reduced margin */
+}
+
+.hamburger .line {
+  width: 20px; /* Reduced width */
+  height: 2px; /* Reduced height */
+  background-color: rgb(18, 17, 17);
+  margin: 3px 0; /* Reduced margin */
+}
+
+.hamburger-open .line {
+  background-color: rgb(5, 4, 4);
+}
+
+.hamburger-closed .fa-arrow-right {
+  font-size: 1.2rem; /* Reduced font size */
+  color: rgb(12, 12, 12);
+}
+
+.fa-chevron-right:before {
+  content: "\f054";
+  font-size: 14px; /* Reduced font size */
+  margin-left: 3px;
+}
+
+.fa-chevron-down:before {
+  content: "\f078";
+  font-size: 14px; /* Reduced font size */
+  margin-left: 3px;
+}
+
+.text-left {
+  text-align: left !important;
+  color: rgb(10, 10, 10);
+}
+
+.dashboard-cards10 {
+  display: flex;
+}
+
+.card10 {
+  width: 200px; /* Reduced width */
+  height: 140px; /* Reduced height */
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 1 1 calc(50% - 20px);
+  background-color: #c8d3fd;
+  padding: 15px; /* Reduced padding */
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cards10-container10 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Reduced gap */
+  justify-content: space-between;
+  margin-top: 20px; /* Reduced margin */
+  align-content: flex-start;
+  margin-right: 20px; /* Reduced margin */
+}
+
+.card10 h2 {
+  font-size: 30px; /* Reduced font size */
+  color: #ffffff;
+  margin-bottom: 8px; /* Reduced margin */
+  font-weight: bold;
+  text-align: left;
+}
+
+.card p {
+  font-size: 16px; /* Reduced font size */
+  color: #888da5;
+}
+
+.card10-icon-text {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Reduced gap */
+}
+
+.card10-icon {
+  font-size: 24px; /* Reduced icon size */
+  color: #ffffff;
+}
+
+.orders-queue {
+  background-color: #1e2746;
+  padding: 15px; /* Reduced padding */
+  border-radius: 10px;
+  text-align: left;
+  margin-top: 20px; /* Reduced margin */
+  color: #ffffff;
+  font-size: 20px; /* Reduced font size */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Reduced width */
+  height: 450px; /* Reduced height */
+  font-weight: bold;
+}
+
+.orders-queue div {
+  font-weight: bold;
+  gap: 80px; /* Reduced gap */
+}
+
+.orders-queue ul {
+  list-style: none;
+  padding: 0;
+}
+
+.orders-queue li {
+  padding: 8px 0; /* Reduced padding */
+  border-bottom: 1px solid #888da5;
+}
+
+.cards10-container10-main {
+  display: flex;
+  padding: 15px; /* Reduced padding */
+}
+
+.username {
+  font-size: 20px; /* Reduced font size */
+  color: #0e0e0e;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Reduced gap */
+}
+
+.icon-notifications {
+  font-size: 20px; /* Reduced icon size */
+  color: #f80404;
+}
+
+.wallet-section {
+  padding: 15px; /* Reduced padding */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 15px auto; /* Reduced margin */
+  width: 100%;
+  max-width: 700px; /* Reduced max width */
+}
+
+.wallet-section h2 {
+  font-size: 16px; /* Reduced font size */
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px; /* Reduced margin */
+  text-align: center;
+}
+
+.password-section {
+  padding: 20px;
+  background-color: #f4f6f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 960px; /* Increased width */
+  height: auto; /* Auto height for content */
+  margin: 0 auto; /* Center the container */
+}
+
+.password-section h2 {
+  font-size: 22px;
+  margin-bottom: 15px; /* Reduced space between title and form */
+  color: #333;
+  text-align: center;
+}
+
+.password-section .form-group {
+  margin-bottom: 15px;
+}
+
+.password-section label {
+  font-size: 14px; /* Reduced label font size */
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.password-section input {
+  width: 100%;
+  padding: 10px; /* Reduced padding for smaller input field */
+  font-size: 14px; /* Reduced font size */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.password-section input:focus {
+  border-color: #0066cc;
+  outline: none;
+}
+
+.password-section button {
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 8px 16px; /* Reduced button padding */
+  font-size: 14px; /* Reduced button font size */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 20%; /* Full width button */
+  margin-left: 40%;
+}
+
+.password-section button:hover {
+  background-color: #004d99;
+}
+
+.password-section .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.eye-icon:hover {
+  color: #0066cc;
+}
+
+.Edit {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: 100vh; /* Makes the section take the full height of the viewport */
+  background-color: #f9f9f9; /* Optional: Background color for better contrast */
+  padding: 20px; /* Optional: Add some padding */
+  margin-left: 10px;
+  width: 100%;
+  
+}
+
+.Edit section {
+  width: 100%;
+  max-width: 600px; /* Limits the width of the form */
+  background: white; /* Form background color */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+/* Market Events Section */
+.exact-market-events-section {
+  background-color: #1a202c; /* Dark Blue */
+  padding: 1.5rem;
+  margin-top: 1.5rem; /* Space on top */
+  width: 90%; /* Reduced width */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  border-radius: 0.5rem; /* Slight rounding */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+}
+
+.exact-market-events-title {
+  font-size: 1.5rem; /* Smaller title size */
+  color: #fff;
+  text-align: center; /* Center the title */
+  margin-bottom: 0.75rem;
+}
+
+.exact-market-events-description {
+  font-size: 1rem; /* Smaller description size */
+  color: #a0aec0;
+  text-align: center; /* Center the description */
+  margin-bottom: 1.5rem;
+}
+
+/* Grid Layout */
+.exact-market-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* auto-fill to better utilize space */
+  gap: 7px; /* Optional: Reduce space between the cards */
+}
+
+
+/* Event Card */
+.exact-market-event-card {
+  background-color: #2a4365; /* Navy Blue */
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  height: 10rem; /* Reduced height */
+  width: 9rem; /* Reduced width */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.75rem; /* Slightly reduced padding */
+  position: relative;
+  color: white;
+}
+
+.exact-market-event-logo {
+  position: absolute;
+  top: 0.5rem; /* Adjusted for spacing */
+  left: 0.5rem;
+  width: 2rem; /* Smaller logo */
+  height: 2rem;
+  object-fit: contain;
+}
+
+.exact-market-event-name {
+  font-size: 1rem; /* Reduced font size */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center; /* Center text */
+}
+
+.exact-market-event-price {
+  font-size: 0.875rem; /* Smaller price font */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center; /* Center text */
+}
+
+.exact-market-event-edit-btn {
+  background-color: #4a5568; /* Dark Gray */
+  color: #fff;
+  font-size: 0.75rem; /* Smaller button text */
+  padding: 0.375rem 0.75rem; /* Smaller button */
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease-in-out;
+  font-weight: medium;
+  gap: 2px;
+  margin-top: 90px;
+ 
+}
+.exact-market-event-update-btn {
+  background-color: #4a5568; /* Dark Gray */
+  color: #fff;
+  font-size: 0.75rem; /* Smaller button text */
+  padding: 0.275rem 0.35rem; /* Smaller button */
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease-in-out;
+  font-weight: medium;
+  gap: 2px;
+  margin-top: 0%;
+  
+ 
+}
+.exact-market-event-edit-btn:hover {
+  background-color: #2d3748; /* Slightly darker */
+  
+}
+
+/* Add Card */
+.exact-market-event-add-card {
+  background-color: #48bb78; /* Green */
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem; /* Match reduced card height */
+  width: 9rem; /* Match reduced width */
+}
+
+
+/* Add Card */
+.exact-market-event-add-card1 {
+  background-color: #b8bcb9; /* Green */
+  border-radius: 0.5rem;
+ 
+  
+  height: 10rem; /* Match reduced card height */
+  width: 9rem; /* Match reduced width */
+  
+}
+
+.exact-market-event-add-btn {
+  font-size: 2rem; /* Smaller "+" button */
+  color: #fff;
+  background-color: transparent;
+  
+}

@@ -1,0 +1,128 @@
+.custom-menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .meal-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .meal-button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border: 2px solid #ccc;
+    background-color: #f7f7f7;
+    cursor: pointer;
+  }
+  
+  .meal-button:hover {
+    background-color: #e7e7e7;
+  }
+  
+  .price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .reset-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4db6ac;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .total-price {
+    font-size: 18px;
+    margin-left: 15px;
+  }
+  
+  .custom-menu-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .custom-menu-form label {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .custom-menu-form input,
+  .custom-menu-form select,
+  .custom-menu-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    height: 80px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Space between columns */
+  }
+  
+  .menu-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the buttons */
+    gap: 1rem; /* Space between buttons in a column */
+  }
+  
+  .menu-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .custom-menu-container {
+    padding: 20px;
+  }
+  .meal-section {
+    margin-bottom: 20px;
+  }
+  .reset-button {
+    background-color: #ff6347;
+    color: white;
+  }
+  

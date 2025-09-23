@@ -1,0 +1,28 @@
+/* ImageTextGrid.css */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 20px; /* Space between columns */
+    padding: 20px; /* Padding around the grid */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.grid-item {
+    background-color: #ffffff; /* White background for each item */
+    border: 1px solid #ddd; /* Light border around each item */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center text */
+    padding: 10px; /* Padding inside each grid item */
+}
+
+.grid-image {
+    width: 100%; /* Full width of the grid item */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px 8px 0 0; /* Rounded corners on the top */
+}
+
+.page-color {
+    font-size: 16px; /* Set font size for text */
+    color: #333; /* Text color */
+    margin-top: 10px; /* Space above the text */
+}

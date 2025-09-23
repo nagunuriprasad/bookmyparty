@@ -1,0 +1,108 @@
+/* Review Form Styling */
+.review-form {
+  max-width: 1200px; /* Increase max-width for wider form */
+  width: 80%; /* Set the form width to 80% of the container */
+  margin: 40px auto; /* Center the form and increase top margin */
+  padding: 30px; /* Add more padding to make the form look spacious */
+  background-color: #fff;
+  border-radius: 10px; /* Round the corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+}
+
+.profile-pic-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 16px;
+  text-align: center;
+  position: relative;
+  border: 2px solid #ccc;
+}
+
+.profile-pic-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-pic-container label,
+.profile-pic-container input {
+  display: block;
+  margin: 5px auto;
+  font-weight: bold;
+  color: #555; /* Make label color slightly darker */
+}
+
+.form-group {
+  margin-bottom: 25px; /* Increase margin between form groups */
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px; /* Increase the space between label and input */
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px; /* Increase padding for better touch targets */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1em; /* Slightly larger text for better readability */
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 15px 25px; /* Increase padding for better button size */
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em; /* Larger text on the button */
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #218838; /* Darken button on hover */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .review-form {
+    width: 90%; /* Form width for tablets */
+  }
+
+
+  .submit-button {
+    padding: 12px 20px; /* Adjust padding on smaller screens */
+    width: 100%; /* Make the button full width on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .review-form {
+    width: 95%; /* Full width for mobile */
+    padding: 20px; /* Slightly reduced padding */
+  }
+
+
+.profile-placeholder {
+  color: #888;
+  font-size: 14px;
+}
+
+  .submit-button {
+    width: 100%; /* Full-width button on mobile */
+    padding: 12px; /* Adjust padding */
+  }
+}

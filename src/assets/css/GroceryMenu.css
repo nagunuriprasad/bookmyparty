@@ -1,0 +1,83 @@
+.custom-menu-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+  .menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .menu-table th,
+  .menu-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .menu-table th {
+    font-weight: bold;
+    background-color: #f9f9f9;
+  }
+  
+  .reset-button {
+    background-color: #00bcd4;
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .reset-icon {
+    margin-right: 5px;
+  }
+  
+  .total-price {
+    margin-left: 20px;
+    font-weight: bold;
+  }
+  
+  .custom-menu-form {
+    margin: 20px 0;
+  }
+  
+  .custom-menu-form label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .custom-menu-form input,
+  .custom-menu-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  

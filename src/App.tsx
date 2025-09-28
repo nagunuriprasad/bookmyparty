@@ -181,7 +181,7 @@ const AppContent = () => {
         <Route path="/BulkOrder" element={<BulkOrder />} />
         <Route path="/Checkout" element={<Checkout />} />
         <Route path="/VendorDashboard" element={<VendorDashboard />} />
-        <Route path="/admindashboard" element={<AdminDashboard />} />
+        <Route path="/AdminDashboard" element={<AdminDashboard/>} />
         <Route path="/UserDashboard" element={<UserDashboard />} />
         <Route path="/StaffDashboard" element={<StaffDashboard />} />
         <Route path="/DeliveryDashboard" element={<DeliveryDashboard />} />

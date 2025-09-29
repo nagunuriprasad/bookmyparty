@@ -37,7 +37,7 @@ const initialState: VendorState = {
 
 // ✅ Fetch vendors
 export const fetchVendors = createAsyncThunk("vendor/fetchVendors", async () => {
-  const response = await axios.get("http://localhost:5000/api/vendors");
+  const response = await axios.get("http://localhost:8014/api/services");
   return response.data;
 });
 
@@ -62,7 +62,7 @@ export const updatePassword = createAsyncThunk(
 
 // ✅ Fetch wallet
 export const fetchWallet = createAsyncThunk("vendor/fetchWallet", async () => {
-  const response = await axios.get("http://localhost:5000/api/vendors/wallet");
+  const response = await axios.get("http://localhost:8014/api/vendors/wallet");
   return response.data;
 });
 

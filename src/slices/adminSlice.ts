@@ -1,68 +1,60 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-// Async fetch for dashboard stats
+interface DashboardStats {
+  totalUsers: number;
+  totalOrders: number;
+  totalGroups: number;
+  totalPermissions: number;
+}
+
+interface AdminState {
+  stats: DashboardStats;
+  loading: boolean;
+  error: string | null;
+}
+
+const initialState: AdminState = {
+  stats: {
+    totalUsers: 0,
+    totalOrders: 0,
+    totalGroups: 0,
+    totalPermissions: 0,
+  },
+  loading: false,
+  error: null,
+};
+
 export const fetchDashboardData = createAsyncThunk(
-  'admin/fetchDashboardData',
-  async (_, { rejectWithValue }) => {
+  "admin/fetchDashboardData",
+  async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/api/admin/dashboard', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      const response = await axios.get("/api/admin/dashboard"); // Replace with your API
       return response.data;
-    } catch (err: any) {
-      return rejectWithValue(err.response?.data || 'Error fetching dashboard data');
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-interface DashboardState {
-  loading: boolean;
-  error: string | null;
-  stats: {
-    totalServices: number;
-    successfulOrders: number;
-    totalOrders: number;
-    cancelledOrders: number;
-  };
-}
-
-const initialState: DashboardState = {
-  loading: false,
-  error: null,
-  stats: {
-    totalServices: 0,
-    successfulOrders: 0,
-    totalOrders: 0,
-    cancelledOrders: 0,
-  },
-};
-
 const adminSlice = createSlice({
-  name: 'admin',
+  name: "admin",
   initialState,
-  reducers: {
-    clearError: (state) => {
-      state.error = null;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchDashboardData.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(fetchDashboardData.fulfilled, (state, action: PayloadAction<any>) => {
-        state.loading = false;
-        state.stats = action.payload;
-      })
-      .addCase(fetchDashboardData.rejected, (state, action: PayloadAction<any>) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
+    builder.addCase(fetchDashboardData.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(fetchDashboardData.fulfilled, (state, action) => {
+      state.loading = false;
+      state.stats = action.payload;
+    });
+    builder.addCase(fetchDashboardData.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
   },
 });
 
-export const { clearError } = adminSlice.actions;
 export default adminSlice.reducer;

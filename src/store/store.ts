@@ -6,6 +6,7 @@ import staffSignupReducer from "../slices/staffSignupSlice";
 import vendorReducer from "../slices/vendorSlice";
 import walletReducer from "../slices/walletSlice";
 import adminReducer from '../slices/adminSlice';
+import serviceReducer from "../slices/serviceSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     vendor: vendorReducer,
     wallet: walletReducer,
      admin: adminReducer,
+     service: serviceReducer,
   },
 });
 

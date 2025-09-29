@@ -1,96 +1,68 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Define your API endpoints
-const API_BASE = 'https://your-api.com/admin';
-
-// Async thunk for fetching staff prices
-export const fetchStaffPrices = createAsyncThunk(
-  'admin/fetchStaffPrices',
-  async () => {
-    const response = await axios.get(`${API_BASE}/staff-prices`);
-    return response.data;
+// Async fetch for dashboard stats
+export const fetchDashboardData = createAsyncThunk(
+  'admin/fetchDashboardData',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get('/api/admin/dashboard', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      return response.data;
+    } catch (err: any) {
+      return rejectWithValue(err.response?.data || 'Error fetching dashboard data');
+    }
   }
 );
 
-// Async thunk for updating staff prices
-export const updateStaffPrices = createAsyncThunk(
-  'admin/updateStaffPrices',
-  async (payload: { subscriptionType: string; workTitle: string; price: number }) => {
-    const response = await axios.post(`${API_BASE}/staff-prices`, payload);
-    return response.data;
-  }
-);
-
-// Slice state interface
-interface StaffPrice {
-  subscriptionType: string;
-  workTitle: string;
-  price: number;
-}
-
-interface AdminState {
-  staffPrices: StaffPrice[];
+interface DashboardState {
   loading: boolean;
   error: string | null;
+  stats: {
+    totalServices: number;
+    successfulOrders: number;
+    totalOrders: number;
+    cancelledOrders: number;
+  };
 }
 
-const initialState: AdminState = {
-  staffPrices: [],
+const initialState: DashboardState = {
   loading: false,
   error: null,
+  stats: {
+    totalServices: 0,
+    successfulOrders: 0,
+    totalOrders: 0,
+    cancelledOrders: 0,
+  },
 };
 
 const adminSlice = createSlice({
   name: 'admin',
   initialState,
   reducers: {
-    // local updates if needed
-    clearError(state) {
+    clearError: (state) => {
       state.error = null;
     },
   },
   extraReducers: (builder) => {
     builder
-      // fetchStaffPrices
-      .addCase(fetchStaffPrices.pending, (state) => {
+      .addCase(fetchDashboardData.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
-      .addCase(fetchStaffPrices.fulfilled, (state, action: PayloadAction<StaffPrice[]>) => {
+      .addCase(fetchDashboardData.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
-        state.staffPrices = action.payload;
+        state.stats = action.payload;
       })
-      .addCase(fetchStaffPrices.rejected, (state, action) => {
+      .addCase(fetchDashboardData.rejected, (state, action: PayloadAction<any>) => {
         state.loading = false;
-        state.error = action.error.message || 'Failed to fetch staff prices';
-      })
-
-      // updateStaffPrices
-      .addCase(updateStaffPrices.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(updateStaffPrices.fulfilled, (state, action: PayloadAction<StaffPrice>) => {
-        state.loading = false;
-        const existingIndex = state.staffPrices.findIndex(
-          (sp) =>
-            sp.workTitle === action.payload.workTitle &&
-            sp.subscriptionType === action.payload.subscriptionType
-        );
-        if (existingIndex >= 0) {
-          state.staffPrices[existingIndex] = action.payload;
-        } else {
-          state.staffPrices.push(action.payload);
-        }
-      })
-      .addCase(updateStaffPrices.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || 'Failed to update staff price';
+        state.error = action.payload;
       });
   },
 });
 
 export const { clearError } = adminSlice.actions;
-
 export default adminSlice.reducer;

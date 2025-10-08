@@ -1,5 +1,6 @@
- import React, { useEffect } from "react"; 
+import React, { useEffect } from "react"; 
 import { useDispatch, useSelector } from "react-redux";
+import vendorCategories from './data/vendorCategories.json'; 
 import {
   setFormData,
   setFormErrors,
@@ -30,7 +31,21 @@ const CompanyForm: React.FC = () => {
       setFormData({ name: name as keyof CompanyFormData, value: files?.[0] || value })
     );
   };
+// Inside CompanyForm component
+const [subVendorOptions, setSubVendorOptions] = React.useState<string[]>([]);
 
+// Handle Vendor Type change
+const handleVendorTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const value = e.target.value;
+  dispatch(setFormData({ name: "vendorType", value }));
+
+  if (value && vendorCategories[value]) {
+    setSubVendorOptions(vendorCategories[value]); // Update sub-options
+    dispatch(setFormData({ name: "vendorSubType", value: '' })); // Reset sub-type selection
+  } else {
+    setSubVendorOptions([]);
+  }
+};
   const handleServiceSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     dispatch(setFormData({ name: "eventService", value }));
@@ -52,6 +67,7 @@ const CompanyForm: React.FC = () => {
     // Company Details
     if (!formData.companyName.trim()) errors.companyName = "Company name is required";
     if (!formData.registrationType.trim()) errors.registrationType = "Registration type is required";
+    if (!formData.vendorType.trim()) errors.vendorType = "Vendor type is required";
 
     // Registered Address
     if (!formData.regdAddress.trim()) errors.regdAddress = "Registered address is required";
@@ -81,6 +97,9 @@ const CompanyForm: React.FC = () => {
     // Director / Owner
     if (!formData.directorName.trim()) errors.directorName = "Director / Owner name is required";
     if (!formData.gender.trim()) errors.gender = "Gender is required";
+
+    // Company Services
+    if (!formData.companyServices.trim()) errors.companyServices = "Company services selection is required";
 
     // Event Services
     if (formData.companyServices === "events" && !formData.eventService.trim()) {
@@ -132,7 +151,7 @@ const CompanyForm: React.FC = () => {
       {successMessage && <p className="success">{successMessage}</p>}
       {errorMessage && <p className="error">{errorMessage}</p>}
 
-      {/* SINGLE FORM */}
+      {/* Form */}
       <form onSubmit={handleSubmit} className="company-forms-container">
 
         {/* Company & Registration */}
@@ -148,21 +167,6 @@ const CompanyForm: React.FC = () => {
           <div className="form-group">
             <label>INC Certificate (PDF)</label>
             <input type="file" name="gstCertificate" accept="application/pdf" onChange={handleChange} />
-          </div>
-
-          <div className="form-group">
-            <label>Registration Type</label>
-            <select name="registrationType" value={formData.registrationType} onChange={handleChange} className="full-width">
-              <option value="">Select</option>
-              <option value="ltd">Ltd</option>
-              <option value="pvt ltd">Pvt Ltd</option>
-              <option value="llp">LLP</option>
-              <option value="partnership">Partnership</option>
-              <option value="firm">Firm</option>
-              <option value="upc">UPC</option>
-              <option value="individual">Individual</option>
-            </select>
-            {formErrors.registrationType && <span className="error">{formErrors.registrationType}</span>}
           </div>
 
           {/* Registered Address */}
@@ -241,6 +245,21 @@ const CompanyForm: React.FC = () => {
         <div className="company-form-section">
           <h3 className="title-center">Company Services</h3>
           <div className="form-group">
+            <label>Registration Type</label>
+            <select name="registrationType" value={formData.registrationType} onChange={handleChange} className="full-width">
+              <option value="">Select</option>
+              <option value="ltd">Ltd</option>
+              <option value="pvt ltd">Pvt Ltd</option>
+              <option value="llp">LLP</option>
+              <option value="partnership">Partnership</option>
+              <option value="firm">Firm</option>
+              <option value="upc">UPC</option>
+              <option value="individual">Individual</option>
+            </select>
+            {formErrors.registrationType && <span className="error">{formErrors.registrationType}</span>}
+          </div>
+
+          <div className="form-group">
             <label>Company Services</label>
             <select name="companyServices" value={formData.companyServices} onChange={handleChange} className="full-width">
               <option value="">Select Service</option>
@@ -250,6 +269,7 @@ const CompanyForm: React.FC = () => {
               <option value="hotel">Hotel</option>
               <option value="instant food">Instant Food</option>
             </select>
+            {formErrors.companyServices && <span className="error">{formErrors.companyServices}</span>}
           </div>
 
           {formData.companyServices === 'events' && (
@@ -267,29 +287,70 @@ const CompanyForm: React.FC = () => {
               {formErrors.eventService && <span className="error">{formErrors.eventService}</span>}
             </div>
           )}
+
+          {/* Vendor Type */}
+<div className="form-group">
+  <label>Vendor Type</label>
+  <select
+    name="vendorType"
+    value={formData.vendorType}
+    onChange={handleVendorTypeChange}
+    className="full-width"
+  >
+    <option value="">Select Vendor Type</option>
+    {Object.keys(vendorCategories).map((type) => (
+      <option key={type} value={type}>
+        {type}
+      </option>
+    ))}
+  </select>
+  {formErrors.vendorType && <span className="error">{formErrors.vendorType}</span>}
+</div>
+
+{/* Vendor Sub Type */}
+{subVendorOptions.length > 0 && (
+  <div className="form-group">
+    <label>Vendor Sub Type</label>
+    <select
+      name="vendorSubType"
+      value={formData.vendorSubType || ''}
+      onChange={handleChange}
+      className="full-width"
+    >
+      <option value="">Select Vendor Sub Type</option>
+      {subVendorOptions.map((sub) => (
+        <option key={sub} value={sub}>
+          {sub}
+        </option>
+      ))}
+    </select>
+    {formErrors.vendorSubType && <span className="error">{formErrors.vendorSubType}</span>}
+  </div>
+)}
+
         </div>
 
         {/* Submit Button */}
-       <div className="form-group" style={{ textAlign: 'center', marginTop: '20px' }}>
-  <button
-    type="submit"
-    className="submit-btn"
-    disabled={isSubmitting}
-    style={{
-      backgroundColor: '#d8b573', // yellow
-      color: '#000',
-      padding: '10px 30px',
-      border: 'none',
-      borderRadius: '5px',
-      cursor: isSubmitting ? 'not-allowed' : 'pointer',
-      fontWeight: 'bold',
-      fontSize: '16px',
-       width: '250px'
-    }}
-  >
-    {isSubmitting ? "Submitting..." : "Submit"}
-  </button>
-</div>
+        <div className="form-group" style={{ textAlign: 'center', marginTop: '20px' }}>
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={isSubmitting}
+            style={{
+              backgroundColor: '#d8b573',
+              color: '#000',
+              padding: '10px 30px',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: isSubmitting ? 'not-allowed' : 'pointer',
+              fontWeight: 'bold',
+              fontSize: '16px',
+              width: '250px'
+            }}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
+        </div>
       </form>
 
       {/* Display selected event component */}

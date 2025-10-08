@@ -187,11 +187,11 @@ const LoginForm = () => {
 
           {/* Signup Links */}
           <div className="signup-link">
-            <p>Don't have an account?</p>
+             <p>
+              Don't have an account? <a href="/UserForm">Sign up</a>
+            </p>
             <div className="signup-options-links">
-              <button type="button" onClick={() => navigate('/UserForm')} className="link-btn">
-                User Signup
-              </button>
+             
               <button type="button" onClick={() => navigate('/CompanyForm')} className="link-btn">
                 Vendor Signup
               </button>

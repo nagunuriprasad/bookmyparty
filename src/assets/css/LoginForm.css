@@ -1,9 +1,10 @@
+/* Container */
 .loginform-container {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #12172d;
-  min-height: 100vh;         /* full height screen */
+  min-height: 100vh; /* full height screen */
   padding: 40px 20px;
   margin: auto;
   width: 90%;
@@ -19,6 +20,7 @@
   box-sizing: border-box;
 }
 
+/* Form style */
 .form-style {
   background-color: #1e2746;
   border: none;
@@ -44,7 +46,7 @@
   flex: 1;
   background-color: #1e2746;
   border-radius: 20px;
-  max-width: 380px;
+  max-width: 400px;
   width: 100%;
   padding: 30px;
   box-sizing: border-box;
@@ -203,20 +205,27 @@
   font-size: 15px;
   margin-bottom: 5px;
 }
+.signup-link a {
+  
+ color: rgb(13, 110, 253);
+  font-size: 20px;
+  
+}
 .signup-options-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 10px;
+  gap: 5px;             /* smaller gap */
+  margin-top: 15px;
+  text-align: left;
+  
 }
 .link-btn {
   background: none;
   border: none;
   color: #d8b573;
-  font-size: 16px;
+  font-size: 12px;      /* smaller font */
   cursor: pointer;
-  padding: 0;
+  padding: 4px 8px;     /* smaller padding */
   text-decoration: underline;
   transition: color 0.2s;
 }
@@ -255,5 +264,13 @@
     flex: 1;
     font-size: 14px;
     padding: 8px;
+  }
+  .signup-options-links {
+    flex-direction: column; /* stack buttons on mobile */
+    gap: 6px;
+  }
+  .link-btn {
+    font-size: 13px;       /* slightly larger for mobile readability */
+    padding: 6px 10px;
   }
 }

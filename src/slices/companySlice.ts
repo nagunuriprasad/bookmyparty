@@ -7,6 +7,8 @@ export interface CompanyFormData {
   phone: string;
   companyServices: string;
   eventService: string;
+  vendorType: string;
+  vendorSubType: string; // ✅ added
   regdAddress: string;
   regdCity: string;
   regdArea: string;
@@ -43,6 +45,8 @@ const initialState: CompanyFormState = {
     registrationType: '',
     email: '',
     phone: '',
+    vendorType: '',
+    vendorSubType: '', // ✅ added
     companyServices: '',
     eventService: '',
     regdAddress: '',
@@ -71,7 +75,7 @@ const initialState: CompanyFormState = {
   errorMessage: null,
 };
 
-// Async thunk for API call
+// Async thunk for form submission
 export const submitCompanyForm = createAsyncThunk<
   any,
   CompanyFormData,
@@ -82,8 +86,11 @@ export const submitCompanyForm = createAsyncThunk<
     try {
       const data = new FormData();
       Object.entries(formData).forEach(([key, value]) => {
-        if (value instanceof File) data.append(key, value);
-        else if (value !== undefined && value !== null) data.append(key, value.toString());
+        if (value instanceof File) {
+          data.append(key, value);
+        } else if (value !== undefined && value !== null) {
+          data.append(key, value.toString());
+        }
       });
 
       const response = await fetch('http://localhost:8014/api/company-form', {
@@ -120,7 +127,7 @@ const companySlice = createSlice({
       state.errorMessage = null;
     },
     resetForm: (state) => {
-      state.formData = initialState.formData;
+      state.formData = { ...initialState.formData };
       state.formErrors = {};
       state.isSubmitting = false;
       state.successMessage = null;

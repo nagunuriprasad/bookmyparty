@@ -7,6 +7,7 @@ import vendorReducer from "../slices/vendorSlice";
 import walletReducer from "../slices/walletSlice";
 import adminReducer from '../slices/adminSlice';
 import serviceReducer from "../slices/serviceSlice";
+import loginReducer from '../slices/loginSlice';
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     wallet: walletReducer,
      admin: adminReducer,
      service: serviceReducer,
+     login: loginReducer,
   },
 });
 

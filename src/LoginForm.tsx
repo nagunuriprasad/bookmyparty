@@ -1,149 +1,140 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from './store/store';
+import { setLoginType, setField, loginUser } from './slices/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import './assets/css/LoginForm.css';
-import logo from './assets/BMP.png'; // Adjust the path if needed
+import logo from './assets/BMP.png';
 
-const LoginForm = () => {
-  const [loginType, setLoginType] = useState<'email' | 'mobile'>('email');
-  const [email, setEmail] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [password, setPassword] = useState('');
-  const [otp, setOtp] = useState('');
-  const [otpSent, setOtpSent] = useState(false);
-  const [error, setError] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
-
+const LoginForm: React.FC = () => {
+  const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
 
+  const {
+    loginType,
+    email,
+    password,
+    mobile,
+    otp,
+    otpSent,
+    rememberMe,
+    error,
+    isLoading,
+  } = useSelector((state: RootState) => state.login);
+
   const handleSendOtp = () => {
-    if (!mobile || mobile.length !== 10) {
-      setError('Please enter a valid 10-digit mobile number');
+    if (!mobile || !/^\d{10}$/.test(mobile)) {
+      dispatch(setField({ field: 'error', value: 'Enter a valid 10-digit mobile number' }));
       return;
     }
-    console.log("Sending OTP to:", mobile);
-    setOtpSent(true);
-    setError('');
+    dispatch(setField({ field: 'otpSent', value: true }));
+    dispatch(setField({ field: 'error', value: '' }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (loginType === 'email') {
-      if (!email || !password) {
-        setError('Please enter email and password');
+      if (!email.trim() || !password.trim()) {
+        dispatch(setField({ field: 'error', value: 'Enter email and password' }));
         return;
       }
-      console.log("Logging in with email:", email, password);
-    }
-
-    if (loginType === 'mobile') {
+      dispatch(setField({ field: 'error', value: '' }));
+      dispatch(loginUser({ loginType, email, password }));
+    } else {
       if (!otpSent) {
-        setError('Please request an OTP first');
+        dispatch(setField({ field: 'error', value: 'Request OTP first' }));
         return;
       }
-      if (!otp) {
-        setError('Please enter the OTP sent to your mobile');
+      if (!otp.trim()) {
+        dispatch(setField({ field: 'error', value: 'Enter OTP' }));
         return;
       }
-      console.log("Verifying OTP:", otp, "for mobile:", mobile);
+      dispatch(setField({ field: 'error', value: '' }));
+      dispatch(loginUser({ loginType, mobile, otp }));
     }
-
-    setError('');
   };
 
   return (
     <div className="loginform-container">
-      {/* Logo */}
       <div className="loginform-image">
         <img src={logo} alt="Book My Partys" />
       </div>
 
-      {/* Login Section */}
       <div className="login-form-events">
         <h2 className="login-form-header">Signin</h2>
         {error && <p className="error">{error}</p>}
 
-        {/* Toggle */}
         <div className="login-toggle">
           <button
             type="button"
             className={loginType === 'email' ? 'active' : ''}
-            onClick={() => {
-              setLoginType('email');
-              setOtpSent(false);
-              setOtp('');
-            }}
+            onClick={() => dispatch(setLoginType('email'))}
           >
             Email Login
           </button>
           <button
             type="button"
             className={loginType === 'mobile' ? 'active' : ''}
-            onClick={() => {
-              setLoginType('mobile');
-              setPassword('');
-            }}
+            onClick={() => dispatch(setLoginType('mobile'))}
           >
             Mobile Login
           </button>
         </div>
 
         <form className="form-style" onSubmit={handleSubmit}>
-          {/* Email Login */}
           {loginType === 'email' && (
             <>
               <div className="form-group-event input-container">
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => dispatch(setField({ field: 'email', value: e.target.value }))}
+                  required
                 />
                 <span className="icon email-icon">&#x2709;</span>
               </div>
               <div className="form-group-event input-container">
                 <input
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => dispatch(setField({ field: 'password', value: e.target.value }))}
+                  required
                 />
                 <span className="icon password-icon">&#x1f512;</span>
               </div>
             </>
           )}
 
-          {/* Mobile Login */}
           {loginType === 'mobile' && (
             <>
               <div className="form-group-event input-container">
                 <input
                   type="tel"
+                  placeholder="Enter mobile"
                   value={mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  placeholder="Enter your mobile number"
-                  pattern="[0-9]{10}"
                   maxLength={10}
+                  onChange={(e) => dispatch(setField({ field: 'mobile', value: e.target.value }))}
+                  required
                 />
                 <span className="icon mobile-icon">&#x260E;</span>
               </div>
 
               {!otpSent ? (
-                <button
-                  type="button"
-                  className="loginform-button"
-                  onClick={handleSendOtp}
-                >
+                <button type="button" className="loginform-button" onClick={handleSendOtp}>
                   Send OTP
                 </button>
               ) : (
                 <div className="form-group-event input-container">
                   <input
                     type="text"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
                     placeholder="Enter OTP"
                     maxLength={6}
+                    value={otp}
+                    onChange={(e) => dispatch(setField({ field: 'otp', value: e.target.value }))}
+                    required
                   />
                   <span className="icon">&#x1f4f1;</span>
                 </div>
@@ -151,14 +142,13 @@ const LoginForm = () => {
             </>
           )}
 
-          {/* Remember Me */}
           {loginType === 'email' && (
             <div className="form-options">
               <div className="remember-me">
                 <input
                   type="checkbox"
                   checked={rememberMe}
-                  onChange={() => setRememberMe(!rememberMe)}
+                  onChange={() => dispatch(setField({ field: 'rememberMe', value: !rememberMe }))}
                 />
                 <label>Remember me</label>
               </div>
@@ -168,39 +158,23 @@ const LoginForm = () => {
             </div>
           )}
 
-          {/* Submit */}
-          {loginType === 'email' || (loginType === 'mobile' && otpSent) ? (
-            <button type="submit" className="loginform-button">
-              {loginType === 'email' ? 'Signin Me' : 'Verify OTP'}
+          {(loginType === 'email' || (loginType === 'mobile' && otpSent)) && (
+            <button type="submit" className="loginform-button" disabled={isLoading}>
+              {isLoading ? 'Loading...' : loginType === 'email' ? 'Signin Me' : 'Verify OTP'}
             </button>
-          ) : null}
+          )}
 
-          {/* Social */}
           <div className="social-login">
-            <button type="button" className="google-button">
-              Login with Google
-            </button>
-            <button type="button" className="facebook-button">
-              Login with Facebook
-            </button>
+            <button type="button" className="google-button">Login with Google</button>
+            <button type="button" className="facebook-button">Login with Facebook</button>
           </div>
 
-          {/* Signup Links */}
           <div className="signup-link">
-             <p>
-              Don't have an account? <a href="/UserForm">Sign up</a>
-            </p>
+            <p>Don't have an account? <a href="/UserForm">Sign up</a></p>
             <div className="signup-options-links">
-             
-              <button type="button" onClick={() => navigate('/CompanyForm')} className="link-btn">
-                Vendor Signup
-              </button>
-              <button type="button" onClick={() => navigate('/StaffSignup')} className="link-btn">
-                Staff Signup
-              </button>
-              <button type="button" onClick={() => navigate('/DeliveryForm')} className="link-btn">
-                Delivery Boy Signup
-              </button>
+              <button type="button" onClick={() => navigate('/CompanyForm')} className="link-btn">Vendor Signup</button>
+              <button type="button" onClick={() => navigate('/StaffSignup')} className="link-btn">Staff Signup</button>
+              <button type="button" onClick={() => navigate('/DeliveryForm')} className="link-btn">Delivery Boy Signup</button>
             </div>
           </div>
         </form>

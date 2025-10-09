@@ -169,7 +169,106 @@ const CompanyForm: React.FC = () => {
             ))}
           </div>
         </div>
+{/* Contact & Login */}
+<div className="company-form-section">
+  <label>Work Address</label>
 
+  {/* Address Fields */}
+  <div className="address-fields">
+    {["workAddress", "workCity", "workArea", "workPin"].map((field) => (
+      <input
+        key={field}
+        type="text"
+        name={field}
+        placeholder={field.replace("work", "")}
+        value={formData[field]}
+        onChange={handleChange}
+        className="full-width"
+      />
+    ))}
+  </div>
+
+  {/* Two Sections: Director + Incharge */}
+  {[
+    { title: "Authorized Director / Proprietor / Owner Name", prefix: "director" },
+    { title: "Incharge Name", prefix: "incharge" },
+  ].map(({ title, prefix }) => (
+    <div key={prefix}>
+      <div className="form-group flex-group">
+        <div>
+          <label>{title}</label>
+          <input
+            type="text"
+            name={`${prefix}Name`}
+            value={formData[`${prefix}Name`] || ""}
+            onChange={handleChange}
+          />
+          {formErrors[`${prefix}Name`] && (
+            <span className="error">{formErrors[`${prefix}Name`]}</span>
+          )}
+        </div>
+
+        <div>
+          <label>Gender</label>
+          <select
+            name={`${prefix}Gender`}
+            value={formData[`${prefix}Gender`] || ""}
+            onChange={handleChange}
+          >
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          {formErrors[`${prefix}Gender`] && (
+            <span className="error">{formErrors[`${prefix}Gender`]}</span>
+          )}
+        </div>
+      </div>
+
+      {/* Contact Info */}
+      {[
+        { label: "Email ID", name: `${prefix}Email`, type: "email" },
+        { label: "Phone Number", name: `${prefix}Phone`, type: "text" },
+        { label: "Login Email ID", name: `${prefix}LoginEmail`, type: "email" },
+      ].map((input) => (
+        <div key={input.name} className="form-group">
+          <label>{input.label}</label>
+          <input
+            type={input.type}
+            name={input.name}
+            value={formData[input.name] || ""}
+            onChange={handleChange}
+            className="full-width"
+          />
+          {formErrors[input.name] && (
+            <span className="error">{formErrors[input.name]}</span>
+          )}
+        </div>
+      ))}
+
+      {/* Password Fields */}
+      {[
+        { label: "Password", name: `${prefix}Password` },
+        { label: "Confirm Password", name: `${prefix}ConfirmPassword` },
+      ].map((input) => (
+        <div key={input.name} className="mb-3">
+          <label>{input.label}</label>
+          <input
+            type="password"
+            className="form-control"
+            name={input.name}
+            value={formData[input.name] || ""}
+            onChange={handleChange}
+          />
+          {formErrors[input.name] && (
+            <span className="error">{formErrors[input.name]}</span>
+          )}
+        </div>
+      ))}
+    </div>
+  ))}
+</div>
         {/* Company Services */}
         <div className="company-form-section">
           <h3 className="title-center">Company Services</h3>

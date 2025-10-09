@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
+// ================== INTERFACES ==================
 export interface CompanyFormData {
   companyName: string;
   registrationType: string;
@@ -8,7 +9,7 @@ export interface CompanyFormData {
   companyServices: string;
   eventService: string;
   vendorType: string;
-  vendorSubType: string; // ✅ added
+  vendorSubType: string;
   regdAddress: string;
   regdCity: string;
   regdArea: string;
@@ -28,9 +29,10 @@ export interface CompanyFormData {
   confirmPassword: string;
   profileImage?: File | null;
   gstCertificate?: File | null;
+  selectedDocs?: string[]; // ✅ Required for vendor icons selection
 }
 
-// Slice state
+// ================== STATE INTERFACE ==================
 interface CompanyFormState {
   formData: CompanyFormData;
   formErrors: Partial<Record<keyof CompanyFormData, string>>;
@@ -39,6 +41,7 @@ interface CompanyFormState {
   errorMessage: string | null;
 }
 
+// ================== INITIAL STATE ==================
 const initialState: CompanyFormState = {
   formData: {
     companyName: '',
@@ -46,7 +49,7 @@ const initialState: CompanyFormState = {
     email: '',
     phone: '',
     vendorType: '',
-    vendorSubType: '', // ✅ added
+    vendorSubType: '',
     companyServices: '',
     eventService: '',
     regdAddress: '',
@@ -68,6 +71,7 @@ const initialState: CompanyFormState = {
     confirmPassword: '',
     profileImage: null,
     gstCertificate: null,
+    selectedDocs: [],
   },
   formErrors: {},
   isSubmitting: false,
@@ -75,7 +79,7 @@ const initialState: CompanyFormState = {
   errorMessage: null,
 };
 
-// Async thunk for form submission
+// ================== ASYNC THUNK (Secure Submission) ==================
 export const submitCompanyForm = createAsyncThunk<
   any,
   CompanyFormData,
@@ -84,22 +88,39 @@ export const submitCompanyForm = createAsyncThunk<
   'company/submitForm',
   async (formData, { rejectWithValue }) => {
     try {
+      // Validate password match before submission
+      if (formData.password !== formData.confirmPassword) {
+        return rejectWithValue('❌ Passwords do not match');
+      }
+
+      // Validate required vendor type
+      if (!formData.vendorType) {
+        return rejectWithValue('❌ Please select a vendor type');
+      }
+
+      // Securely prepare multipart/form-data
       const data = new FormData();
       Object.entries(formData).forEach(([key, value]) => {
         if (value instanceof File) {
           data.append(key, value);
+        } else if (Array.isArray(value)) {
+          value.forEach((v) => data.append(`${key}[]`, v));
         } else if (value !== undefined && value !== null) {
           data.append(key, value.toString());
         }
       });
 
+      // API Call (replace URL in production)
       const response = await fetch('http://localhost:8014/api/company-form', {
         method: 'POST',
         body: data,
+        headers: {
+          // No Content-Type (browser sets it for multipart automatically)
+        },
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         return rejectWithValue(errorData.message || '❌ Failed to submit form');
       }
 
@@ -111,15 +132,22 @@ export const submitCompanyForm = createAsyncThunk<
   }
 );
 
+// ================== SLICE ==================
 const companySlice = createSlice({
   name: 'company',
   initialState,
   reducers: {
-    setFormData: (state, action: PayloadAction<{ name: keyof CompanyFormData; value: any }>) => {
+    setFormData: (
+      state,
+      action: PayloadAction<{ name: keyof CompanyFormData; value: any }>
+    ) => {
       const { name, value } = action.payload;
       state.formData[name] = value;
     },
-    setFormErrors: (state, action: PayloadAction<Partial<Record<keyof CompanyFormData, string>>>) => {
+    setFormErrors: (
+      state,
+      action: PayloadAction<Partial<Record<keyof CompanyFormData, string>>>
+    ) => {
       state.formErrors = action.payload;
     },
     resetFormMessages: (state) => {
@@ -148,10 +176,18 @@ const companySlice = createSlice({
       })
       .addCase(submitCompanyForm.rejected, (state, action) => {
         state.isSubmitting = false;
-        state.errorMessage = action.payload || '❌ Failed to submit company';
+        state.errorMessage =
+          action.payload || '❌ Failed to submit company form';
       });
   },
 });
 
-export const { setFormData, setFormErrors, resetFormMessages, resetForm } = companySlice.actions;
+// ================== EXPORTS ==================
+export const {
+  setFormData,
+  setFormErrors,
+  resetFormMessages,
+  resetForm,
+} = companySlice.actions;
+
 export default companySlice.reducer;

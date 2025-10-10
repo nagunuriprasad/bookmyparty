@@ -13,6 +13,24 @@ import vendorsData from "./data/vendors.json";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/CompanyForm.css';
+import ltdIcon from "./icons/ltd.png";
+import pvtLtdIcon from "./icons/pvt-ltd.png";
+import llpIcon from "./icons/ltd.png";
+import partnershipIcon from "./icons/partnership.png";
+import firmIcon from "./icons/firm.png";
+import opcIcon from "./icons/ltd.png";
+import individualIcon from "./icons/ltd.png";
+
+const registrationIcons: Record<string, string> = {
+  ltd: ltdIcon,
+  "pvt ltd": pvtLtdIcon,
+  llp: llpIcon,
+  partnership: partnershipIcon,
+  firm: firmIcon,
+  opc: opcIcon,
+  individual: individualIcon,
+};
+
 
 
 interface VendorDocument {
@@ -399,36 +417,50 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
 )}
 
 
-          {/* Vendor Type Icons */}
           <h3 className="title-center mt-20">{formData.vendorType}</h3>
-          <div className="vendor-icons-container">
-            {vendorDocuments.map((doc) => (
-              <div key={doc.name} className="vendor-icon-card">
-                <label className="vendor-icon-label">
-                  <input
-                    type="checkbox"
-                    name="selectedDocs"
-                    value={doc.name}
-                    checked={formData.selectedDocs?.includes(doc.name) || false}
-                    onChange={(e) => {
-                      let selected = formData.selectedDocs || [];
-                      if (e.target.checked) selected = [...selected, doc.name];
-                      else selected = selected.filter((d) => d !== doc.name);
-                      dispatch(setFormData({ name: "selectedDocs", value: selected }));
-                    }}
-                  />
-                  {doc.name}
-                </label>
-                {doc.icon && (
-                  <img
-                    src={require(`./icons/${doc.icon}`)}
-                    alt={doc.name}
-                    className="vendor-icon-img"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
+<div className="vendor-icons-container">
+  {/* Show Registration Type icon first if selected */}
+  {formData.registrationType && registrationIcons[formData.registrationType] && (
+    <div className="vendor-icon-card">
+      <label className="vendor-icon-label">{formData.registrationType}</label>
+      <img
+        src={registrationIcons[formData.registrationType]}
+        alt={formData.registrationType}
+        className="vendor-icon-img"
+      />
+    </div>
+  )}
+
+  {/* Vendor Documents Icons */}
+  {vendorDocuments.map((doc) => (
+    <div key={doc.name} className="vendor-icon-card">
+      <label className="vendor-icon-label">
+        <input
+          type="checkbox"
+          name="selectedDocs"
+          value={doc.name}
+          checked={formData.selectedDocs?.includes(doc.name) || false}
+          onChange={(e) => {
+            let selected = formData.selectedDocs || [];
+            if (e.target.checked) selected = [...selected, doc.name];
+            else selected = selected.filter((d) => d !== doc.name);
+            dispatch(setFormData({ name: "selectedDocs", value: selected }));
+          }}
+        />
+        {doc.name}
+      </label>
+      {doc.icon && (
+        <img
+          src={require(`./icons/${doc.icon}`)}
+          alt={doc.name}
+          className="vendor-icon-img"
+        />
+      )}
+    </div>
+  ))}
+</div>
+
+
 {/* ✅ TERMS AND CONDITIONS SECTION */}
 <div
   style={{

@@ -15,11 +15,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/CompanyForm.css';
 import ltdIcon from "./icons/ltd.png";
 import pvtLtdIcon from "./icons/pvt-ltd.png";
-import llpIcon from "./icons/ltd.png";
+import llpIcon from "./icons/LLP.png";
 import partnershipIcon from "./icons/partnership.png";
 import firmIcon from "./icons/firm.png";
-import opcIcon from "./icons/ltd.png";
-import individualIcon from "./icons/ltd.png";
+import opcIcon from "./icons/OPC.png";
+import individualIcon from "./icons/individual.png";
 
 const registrationIcons: Record<string, string> = {
   ltd: ltdIcon,

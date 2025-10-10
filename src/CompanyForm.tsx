@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setFormData,
@@ -10,9 +10,10 @@ import {
 import { RootState, AppDispatch } from "./store/store";
 import guestAvatar from "./assets/image.png";
 import vendorsData from "./data/vendors.json";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/css/CompanyForm.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/css/CompanyForm.css";
+
 import ltdIcon from "./icons/ltd.png";
 import pvtLtdIcon from "./icons/pvt-ltd.png";
 import llpIcon from "./icons/LLP.png";
@@ -31,8 +32,6 @@ const registrationIcons: Record<string, string> = {
   individual: individualIcon,
 };
 
-
-
 interface VendorDocument {
   name: string;
   icon?: string;
@@ -45,10 +44,23 @@ const CompanyForm: React.FC = () => {
 
   const [subVendorOptions, setSubVendorOptions] = useState<string[]>([]);
   const [vendorDocuments, setVendorDocuments] = useState<VendorDocument[]>([]);
-  const [agreeTerms, setAgreeTerms] = useState(false);
-const [whatsappAgree, setWhatsappAgree] = useState<boolean>(false);
-const [staffingPartnerAgree, setStaffingPartnerAgree] = useState<boolean>(false);
-const [vendorAgree, setVendorAgree] = useState<boolean>(false);
+  const [profileImageFile, setProfileImageFile] = useState<File | null>(null);
+  const [documentFiles, setDocumentFiles] = useState<Record<string, File | null>>({});
+
+  // ✅ File validation helper
+  const validateFile = (file: File, allowed: string[], maxMB: number): boolean => {
+    if (!allowed.includes(file.type)) {
+      alert(`❌ Invalid file type (${file.type}). Allowed: ${allowed.join(", ")}`);
+      return false;
+    }
+    if (file.size > maxMB * 1024 * 1024) {
+      alert(`❌ File too large (max ${maxMB} MB)`);
+      return false;
+    }
+    return true;
+  };
+
+  // ✅ Vendor Type Handling
   const handleVendorTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     dispatch(setFormData({ name: "vendorType", value }));
@@ -62,83 +74,113 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
     }
   };
 
+  // ✅ Input and File Handling
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, files } = e.target as HTMLInputElement;
-    dispatch(
-      setFormData({ name: name as keyof CompanyFormData, value: files?.[0] || value })
-    );
+
+    if (files && files[0]) {
+      const file = files[0];
+      const allowedImageTypes = ["image/jpeg", "image/png", "image/webp"];
+      const allowedDocTypes = ["application/pdf", "image/jpeg", "image/png"];
+
+      if (name === "profileImage") {
+        if (!validateFile(file, allowedImageTypes, 5)) return;
+        setProfileImageFile(file);
+      } else {
+        if (!validateFile(file, allowedDocTypes, 10)) return;
+        setDocumentFiles((prev) => ({ ...prev, [name]: file }));
+      }
+    } else {
+      dispatch(setFormData({ name: name as keyof CompanyFormData, value }));
+    }
   };
 
+  // ✅ Full Form Validation
   const validateForm = (): boolean => {
-  const errors: Partial<Record<keyof CompanyFormData, string>> = {};
+    const errors: Partial<Record<keyof CompanyFormData, string>> = {};
 
-  // Company & Registration
-  if (!formData.companyName?.trim()) errors.companyName = "Company name is required";
-  if (!formData.registrationType?.trim()) errors.registrationType = "Registration type is required";
-  if (!formData.vendorType?.trim()) errors.vendorType = "Vendor type is required";
+    if (!formData.companyName?.trim()) errors.companyName = "Company name is required";
+    if (!formData.registrationType?.trim()) errors.registrationType = "Registration type is required";
+    if (!formData.vendorType?.trim()) errors.vendorType = "Vendor type is required";
 
-  if (!formData.regdAddress?.trim()) errors.regdAddress = "Registered address is required";
-  if (!formData.regdCity?.trim()) errors.regdCity = "Registered city is required";
-  if (!formData.regdArea?.trim()) errors.regdArea = "Registered area is required";
-  if (!formData.regdPin?.trim()) errors.regdPin = "Registered pin code is required";
+    const requiredAddressFields = ["regdAddress", "regdCity", "regdArea", "regdPin", "workAddress", "workCity", "workArea", "workPin"];
+    requiredAddressFields.forEach((f) => {
+      if (!formData[f]?.trim()) errors[f] = `${f.replace(/([A-Z])/g, " $1")} is required`;
+    });
 
-  // Work Address
-  if (!formData.workAddress?.trim()) errors.workAddress = "Work address is required";
-  if (!formData.workCity?.trim()) errors.workCity = "Work city is required";
-  if (!formData.workArea?.trim()) errors.workArea = "Work area is required";
-  if (!formData.workPin?.trim()) errors.workPin = "Work pin code is required";
+    if (!formData.email?.trim()) errors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = "Invalid email format";
 
-  // Contact Info
-  if (!formData.email?.trim()) errors.email = "Email is required";
-  else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = "Invalid email";
+    if (!formData.phone?.trim()) errors.phone = "Phone number is required";
+    else if (!/^\d{10}$/.test(formData.phone)) errors.phone = "Must be 10 digits";
 
-  if (!formData.phone?.trim()) errors.phone = "Phone number is required";
-  else if (!/^\d{10}$/.test(formData.phone)) errors.phone = "Phone number must be 10 digits";
+    ["director", "incharge"].forEach((prefix) => {
+      if (!formData[`${prefix}Name`]) errors[`${prefix}Name`] = `${prefix} name is required`;
+      if (!formData[`${prefix}Gender`]) errors[`${prefix}Gender`] = `Select ${prefix} gender`;
+      if (!formData[`${prefix}Phone`]) errors[`${prefix}Phone`] = `${prefix} phone is required`;
+      if (prefix === "director") {
+        if (!formData[`${prefix}LoginEmail`]) errors[`${prefix}LoginEmail`] = `${prefix} email is required`;
+        if (!formData[`${prefix}Password`]) errors[`${prefix}Password`] = `${prefix} password is required`;
+        if (!formData[`${prefix}ConfirmPassword`]) errors[`${prefix}ConfirmPassword`] = "Confirm password is required";
+        else if (formData[`${prefix}Password`] !== formData[`${prefix}ConfirmPassword`])
+          errors[`${prefix}ConfirmPassword`] = "Passwords do not match";
+      }
+    });
 
-  // Director + Incharge
-  ["director", "incharge"].forEach((prefix) => {
-    if (!formData[`${prefix}Name`] || !formData[`${prefix}Name`].trim()) errors[`${prefix}Name`] = `${prefix} name is required`;
-    if (!formData[`${prefix}Gender`]) errors[`${prefix}Gender`] = `Select ${prefix} gender`;
-    if (!formData[`${prefix}Phone`] || !formData[`${prefix}Phone`].trim()) errors[`${prefix}Phone`] = `${prefix} phone is required`;
-    if (!formData[`${prefix}LoginEmail`] || !formData[`${prefix}LoginEmail`].trim()) errors[`${prefix}LoginEmail`] = `${prefix} email is required`;
-    if (!formData[`${prefix}Password`]) errors[`${prefix}Password`] = `${prefix} password is required`;
-    if (!formData[`${prefix}ConfirmPassword`]) errors[`${prefix}ConfirmPassword`] = `${prefix} confirm password is required`;
-    else if (formData[`${prefix}Password`] !== formData[`${prefix}ConfirmPassword`]) errors[`${prefix}ConfirmPassword`] = "Passwords do not match";
-  });
+    if (!formData.companyServices) errors.companyServices = "Select company service";
+    if (subVendorOptions.length > 0 && !formData.vendorSubType) errors.vendorSubType = "Select vendor sub type";
 
-  // Company Services
-  if (!formData.companyServices) errors.companyServices = "Select company service";
+    vendorDocuments.forEach((doc) => {
+      const numberField = `${doc.name}_number` as keyof CompanyFormData;
+      if (!formData[numberField]) errors[numberField] = `${doc.name} number is required`;
+      if (!documentFiles[doc.name]) errors[doc.name as keyof CompanyFormData] = `${doc.name} file is required`;
+    });
 
-  // Vendor Sub Type (if applicable)
-  if (subVendorOptions.length > 0 && !formData.vendorSubType) errors.vendorSubType = "Select vendor sub type";
+    if (!profileImageFile) errors.profileImage = "Profile image is required";
 
-  // Documents validation
-  vendorDocuments.forEach((doc) => {
-    const numberField = `${doc.name}_number` as keyof CompanyFormData;
-    if (!formData[numberField] || !formData[numberField]?.trim()) errors[numberField] = `${doc.name} number is required`;
-    if (!formData[doc.name]) errors[doc.name as keyof CompanyFormData] = `${doc.name} file is required`;
-  });
+    if (!formData.whatsappAgree || !formData.staffingPartnerAgree || !formData.vendorAgree) {
+      errors.agreeTerms = "You must agree to all terms before submitting";
+    }
 
-  // Agreements
-  if (!formData.whatsappAgree || !formData.staffingPartnerAgree || !formData.vendorAgree) {
-    errors.agreeTerms = "❌ You must agree to all terms and conditions before submitting";
-  }
+    dispatch(setFormErrors(errors));
+    return Object.keys(errors).length === 0;
+  };
 
-  dispatch(setFormErrors(errors));
-  return Object.keys(errors).length === 0;
-};
-
+  // ✅ Submit Handler (with protection)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) dispatch(submitCompanyForm(formData));
+    if (isSubmitting) return;
+    if (!validateForm()) return;
+
+    const submitData = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value !== undefined && value !== null && typeof value !== "object") {
+        submitData.append(key, value.toString());
+      }
+    });
+
+    if (profileImageFile) submitData.append("profileImage", profileImageFile);
+    Object.entries(documentFiles).forEach(([key, file]) => {
+      if (file) submitData.append(key, file);
+    });
+
+    dispatch(submitCompanyForm(submitData));
   };
 
+  // ✅ Reset success/error messages after delay
+ useEffect(() => {
+  if (!successMessage && !errorMessage) return;
+  const timer = setTimeout(() => dispatch(resetFormMessages()), 5000);
+  return () => clearTimeout(timer);
+}, [successMessage, errorMessage, dispatch]);
+
+  // ✅ Clear files after success
   useEffect(() => {
-    if (successMessage || errorMessage) {
-      const timer = setTimeout(() => dispatch(resetFormMessages()), 5000);
-      return () => clearTimeout(timer);
+    if (successMessage) {
+      setProfileImageFile(null);
+      setDocumentFiles({});
     }
-  }, [successMessage, errorMessage, dispatch]);
+  }, [successMessage]);
 
   return (
     <div className="company-form-container">
@@ -147,12 +189,8 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
       {/* Profile Image */}
       <div className="profile-image-container">
         <img
-          src={
-            formData.profileImage instanceof File
-              ? URL.createObjectURL(formData.profileImage)
-              : formData.profileImage || guestAvatar
-          }
-          alt="Profile Preview"
+          src={profileImageFile ? URL.createObjectURL(profileImageFile) : guestAvatar}
+          alt="Profile"
           className="profile-image"
           onClick={() => document.getElementById("profileImage")?.click()}
         />
@@ -164,13 +202,15 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
           onChange={handleChange}
           style={{ display: "none" }}
         />
+        {formErrors.profileImage && <span className="error">{formErrors.profileImage}</span>}
       </div>
 
-      {/* Messages */}
+      {/* Status Messages */}
       {isSubmitting && <p>Submitting...</p>}
       {successMessage && <p className="success">{successMessage}</p>}
       {errorMessage && <p className="error">{errorMessage}</p>}
 
+      {/* ✅ Form Starts */}
       <form onSubmit={handleSubmit} className="company-forms-container">
         {/* Company & Registration */}
         <div className="company-form-section">
@@ -542,28 +582,28 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
 
 
 
-          {/* Submit Button */}
-          {/* --- SUBMIT BUTTON --- */}
-        <div className="form-group" style={{ textAlign: "center", marginTop: "20px" }}>
-          <button
-            type="submit"
-            className="submit-btn"
-            disabled={isSubmitting}
-            style={{
-              backgroundColor: "#d8b573",
-              color: "#000",
-              padding: "10px 30px",
-              border: "none",
-              borderRadius: "5px",
-              cursor: isSubmitting ? "not-allowed" : "pointer",
-              fontWeight: "bold",
-              fontSize: "16px",
-              width: "250px",
-            }}
-          >
-            {isSubmitting ? "Submitting..." : "Submit"}
-          </button>
-        </div>
+         {/* Submit Button */}
+<div className="form-group" style={{ textAlign: "center", marginTop: "20px" }}>
+  <button
+    type="submit"
+    className="submit-btn"
+    disabled={isSubmitting}
+    style={{
+      backgroundColor: "#d8b573",
+      color: "#000",
+      padding: "10px 30px",
+      border: "none",
+      borderRadius: "5px",
+      cursor: isSubmitting ? "not-allowed" : "pointer",
+      fontWeight: "bold",
+      fontSize: "16px",
+      width: "250px",
+    }}
+  >
+    {isSubmitting ? "Submitting..." : "Submit"}
+  </button>
+</div>
+
         </div>
       </form>
     </div>

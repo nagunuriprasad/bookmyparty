@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import axios from "axios";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 // ================== INTERFACES ==================
 export interface CompanyFormData {
@@ -21,14 +22,15 @@ export interface CompanyFormData {
   directorName: string;
   directorGender: string;
   directorPhone: string;
-  directorEmail: string;
+  directorLoginEmail: string;
+  directorPassword: string;
+  directorConfirmPassword: string;
   inchargeName: string;
   inchargeGender: string;
   inchargePhone: string;
-  inchargeEmail: string;
-  loginEmail: string;
-  password: string;
-  confirmPassword: string;
+  inchargeLoginEmail: string;
+  inchargePassword: string;
+  inchargeConfirmPassword: string;
   profileImage?: File | null;
   gstCertificate?: File | null;
   selectedDocs?: string[];
@@ -36,8 +38,7 @@ export interface CompanyFormData {
   staffingPartnerAgree: boolean;
   vendorAgree: boolean;
 
-  // Dynamic document number fields
-  [key: string]: any;
+  [key: string]: any; // dynamic doc numbers
 }
 
 // ================== STATE INTERFACE ==================
@@ -52,33 +53,34 @@ interface CompanyFormState {
 // ================== INITIAL STATE ==================
 const initialState: CompanyFormState = {
   formData: {
-    companyName: '',
-    registrationType: '',
-    email: '',
-    phone: '',
-    vendorType: '',
-    vendorSubType: '',
-    companyServices: '',
-    eventService: '',
-    regdAddress: '',
-    regdCity: '',
-    regdArea: '',
-    regdPin: '',
-    workAddress: '',
-    workCity: '',
-    workArea: '',
-    workPin: '',
-    directorName: '',
-    directorGender: '',
-    directorPhone: '',
-    directorEmail: '',
-    inchargeName: '',
-    inchargeGender: '',
-    inchargePhone: '',
-    inchargeEmail: '',
-    loginEmail: '',
-    password: '',
-    confirmPassword: '',
+    companyName: "",
+    registrationType: "",
+    email: "",
+    phone: "",
+    vendorType: "",
+    vendorSubType: "",
+    companyServices: "",
+    eventService: "",
+    regdAddress: "",
+    regdCity: "",
+    regdArea: "",
+    regdPin: "",
+    workAddress: "",
+    workCity: "",
+    workArea: "",
+    workPin: "",
+    directorName: "",
+    directorGender: "",
+    directorPhone: "",
+    directorLoginEmail: "",
+    directorPassword: "",
+    directorConfirmPassword: "",
+    inchargeName: "",
+    inchargeGender: "",
+    inchargePhone: "",
+    inchargeLoginEmail: "",
+    inchargePassword: "",
+    inchargeConfirmPassword: "",
     profileImage: null,
     gstCertificate: null,
     selectedDocs: [],
@@ -94,60 +96,33 @@ const initialState: CompanyFormState = {
 
 // ================== ASYNC THUNK ==================
 export const submitCompanyForm = createAsyncThunk<
-  any,
-  CompanyFormData,
+  { message: string }, // expected response type
+  FormData, // we send FormData (for files)
   { rejectValue: string }
 >(
-  'company/submitForm',
+  "company/submitForm",
   async (formData, { rejectWithValue }) => {
     try {
-      // Frontend checks
-      if (formData.password !== formData.confirmPassword) {
-        return rejectWithValue('❌ Passwords do not match');
-      }
-      if (!formData.vendorType) {
-        return rejectWithValue('❌ Please select a vendor type');
-      }
-      if (!formData.whatsappAgree || !formData.staffingPartnerAgree || !formData.vendorAgree) {
-        return rejectWithValue('❌ Please agree to all terms and conditions');
-      }
-
-      const data = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value instanceof File) {
-          data.append(key, value);
-        } else if (Array.isArray(value)) {
-          value.forEach((v) => data.append(`${key}[]`, v));
-        } else if (value !== undefined && value !== null) {
-          data.append(key, value.toString());
-        }
+      const response = await axios.post("http://localhost:8014/api/vendersignup", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
 
-      const response = await fetch('http://localhost:8014/api/company-form', {
-        method: 'POST',
-        body: data,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        return rejectWithValue(errorData.message || '❌ Failed to submit form');
-      }
-
-      const result = await response.json();
-      return result;
+      return response.data; // expected { message: string }
     } catch (err: any) {
-      return rejectWithValue(err.message || '❌ Network error');
+      return rejectWithValue(
+        err.response?.data?.error || err.message || "❌ Network error"
+      );
     }
   }
 );
 
 // ================== SLICE ==================
 const companySlice = createSlice({
-  name: 'company',
+  name: "company",
   initialState,
   reducers: {
     setFormData: <K extends keyof CompanyFormData>(
-      state: CompanyFormState,
+      state,
       action: PayloadAction<{ name: K; value: CompanyFormData[K] }>
     ) => {
       const { name, value } = action.payload;
@@ -178,14 +153,17 @@ const companySlice = createSlice({
         state.successMessage = null;
         state.errorMessage = null;
       })
-      .addCase(submitCompanyForm.fulfilled, (state) => {
+      .addCase(submitCompanyForm.fulfilled, (state, action) => {
         state.isSubmitting = false;
-        state.successMessage = '✅ Company registered successfully!';
+        state.successMessage =
+          action.payload?.message || "✅ Company registered successfully!";
         state.formErrors = {};
+        state.formData = { ...initialState.formData }; // reset form
       })
       .addCase(submitCompanyForm.rejected, (state, action) => {
         state.isSubmitting = false;
-        state.errorMessage = action.payload || '❌ Failed to submit company form';
+        state.errorMessage =
+          action.payload || "❌ Failed to submit company form";
       });
   },
 });

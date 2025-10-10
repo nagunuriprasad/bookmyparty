@@ -202,86 +202,111 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
   </div>
 
   {/* Two Sections: Director + Incharge */}
-  {[
-    { title: "Authorized Director / Proprietor / Owner Name", prefix: "director" },
-    { title: "Incharge Name", prefix: "incharge" },
-  ].map(({ title, prefix }) => (
-    <div key={prefix}>
-      <div className="form-group ">
-        <div>
-          <label>{title}</label>
+  <>
+    {[
+      { title: "Authorized Director / Proprietor / Owner Name", prefix: "director" },
+      { title: "Incharge Name", prefix: "incharge" },
+    ].map(({ title, prefix }) => (
+      <div key={prefix}>
+        <div className="form-group">
+          <div>
+            <label>{title}</label>
+            <input
+              type="text"
+              name={`${prefix}Name`}
+              value={formData[`${prefix}Name`] || ""}
+              onChange={handleChange}
+            />
+            {formErrors[`${prefix}Name`] && (
+              <span className="error">{formErrors[`${prefix}Name`]}</span>
+            )}
+          </div>
+
+          <div>
+            <label>Gender</label>
+            <select
+              name={`${prefix}Gender`}
+              value={formData[`${prefix}Gender`] || ""}
+              onChange={handleChange}
+            >
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            {formErrors[`${prefix}Gender`] && (
+              <span className="error">{formErrors[`${prefix}Gender`]}</span>
+            )}
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className="form-group">
+          <label>Phone Number</label>
           <input
             type="text"
-            name={`${prefix}Name`}
-            value={formData[`${prefix}Name`] || ""}
-            onChange={handleChange}
-          />
-          {formErrors[`${prefix}Name`] && (
-            <span className="error">{formErrors[`${prefix}Name`]}</span>
-          )}
-        </div>
-
-        <div>
-          <label>Gender</label>
-          <select
-            name={`${prefix}Gender`}
-            value={formData[`${prefix}Gender`] || ""}
-            onChange={handleChange}
-          >
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-          {formErrors[`${prefix}Gender`] && (
-            <span className="error">{formErrors[`${prefix}Gender`]}</span>
-          )}
-        </div>
-      </div>
-
-      {/* Contact Info */}
-      {[
-        
-        { label: "Phone Number", name: `${prefix}Phone`, type: "text" },
-        { label: "Login Email ID", name: `${prefix}LoginEmail`, type: "email" },
-      ].map((input) => (
-        <div key={input.name} className="form-group">
-          <label>{input.label}</label>
-          <input
-            type={input.type}
-            name={input.name}
-            value={formData[input.name] || ""}
+            name={`${prefix}Phone`}
+            value={formData[`${prefix}Phone`] || ""}
             onChange={handleChange}
             className="full-width"
           />
-          {formErrors[input.name] && (
-            <span className="error">{formErrors[input.name]}</span>
+          {formErrors[`${prefix}Phone`] && (
+            <span className="error">{formErrors[`${prefix}Phone`]}</span>
           )}
         </div>
-      ))}
 
-      {/* Password Fields */}
-      {[
-        { label: "Password", name: `${prefix}Password` },
-        { label: "Confirm Password", name: `${prefix}ConfirmPassword` },
-      ].map((input) => (
-        <div key={input.name} className="mb-3">
-          <label>{input.label}</label>
-          <input
-            type="password"
-            className="form-control"
-            name={input.name}
-            value={formData[input.name] || ""}
-            onChange={handleChange}
-          />
-          {formErrors[input.name] && (
-            <span className="error">{formErrors[input.name]}</span>
-          )}
-        </div>
-      ))}
-    </div>
-  ))}
+        {/* Login Email and Password only for Director */}
+        {prefix === "director" && (
+          <>
+            <div className="form-group">
+              <label> Email ID</label>
+              <input
+                type="email"
+                name={`${prefix}LoginEmail`}
+                value={formData[`${prefix}LoginEmail`] || ""}
+                onChange={handleChange}
+                className="full-width"
+              />
+              {formErrors[`${prefix}LoginEmail`] && (
+                <span className="error">{formErrors[`${prefix}LoginEmail`]}</span>
+              )}
+            </div>
+
+            <div className="mb-3">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name={`${prefix}Password`}
+                value={formData[`${prefix}Password`] || ""}
+                onChange={handleChange}
+              />
+              {formErrors[`${prefix}Password`] && (
+                <span className="error">{formErrors[`${prefix}Password`]}</span>
+              )}
+            </div>
+
+            <div className="mb-3">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name={`${prefix}ConfirmPassword`}
+                value={formData[`${prefix}ConfirmPassword`] || ""}
+                onChange={handleChange}
+              />
+              {formErrors[`${prefix}ConfirmPassword`] && (
+                <span className="error">{formErrors[`${prefix}ConfirmPassword`]}</span>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+    ))}
+  </>
 </div>
+
+
         {/* Company Services */}
         <div className="company-form-section">
           <h3 className="title-center">Company Services</h3>

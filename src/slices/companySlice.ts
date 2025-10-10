@@ -19,11 +19,13 @@ export interface CompanyFormData {
   workArea: string;
   workPin: string;
   directorName: string;
-  gender: string;
+  directorGender: string;
+  directorPhone: string;
+  directorEmail: string;
   inchargeName: string;
   inchargeGender: string;
+  inchargePhone: string;
   inchargeEmail: string;
-  inchargeContact: string;
   loginEmail: string;
   password: string;
   confirmPassword: string;
@@ -34,8 +36,8 @@ export interface CompanyFormData {
   staffingPartnerAgree: boolean;
   vendorAgree: boolean;
 
-  // ✅ Dynamic document number fields
-  [key: string]: any; // allows keys like "INC Certificate (PDF)_number"
+  // Dynamic document number fields
+  [key: string]: any;
 }
 
 // ================== STATE INTERFACE ==================
@@ -67,11 +69,13 @@ const initialState: CompanyFormState = {
     workArea: '',
     workPin: '',
     directorName: '',
-    gender: '',
+    directorGender: '',
+    directorPhone: '',
+    directorEmail: '',
     inchargeName: '',
     inchargeGender: '',
+    inchargePhone: '',
     inchargeEmail: '',
-    inchargeContact: '',
     loginEmail: '',
     password: '',
     confirmPassword: '',
@@ -81,7 +85,6 @@ const initialState: CompanyFormState = {
     whatsappAgree: false,
     staffingPartnerAgree: false,
     vendorAgree: false,
-    // ✅ document numbers can be dynamically added
   },
   formErrors: {},
   isSubmitting: false,
@@ -98,20 +101,18 @@ export const submitCompanyForm = createAsyncThunk<
   'company/submitForm',
   async (formData, { rejectWithValue }) => {
     try {
+      // Frontend checks
       if (formData.password !== formData.confirmPassword) {
         return rejectWithValue('❌ Passwords do not match');
       }
-
       if (!formData.vendorType) {
         return rejectWithValue('❌ Please select a vendor type');
       }
-
       if (!formData.whatsappAgree || !formData.staffingPartnerAgree || !formData.vendorAgree) {
         return rejectWithValue('❌ Please agree to all terms and conditions');
       }
 
       const data = new FormData();
-
       Object.entries(formData).forEach(([key, value]) => {
         if (value instanceof File) {
           data.append(key, value);
@@ -184,8 +185,7 @@ const companySlice = createSlice({
       })
       .addCase(submitCompanyForm.rejected, (state, action) => {
         state.isSubmitting = false;
-        state.errorMessage =
-          action.payload || '❌ Failed to submit company form';
+        state.errorMessage = action.payload || '❌ Failed to submit company form';
       });
   },
 });

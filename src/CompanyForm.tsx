@@ -52,39 +52,63 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
   };
 
   const validateForm = (): boolean => {
-    const errors: Partial<Record<keyof CompanyFormData, string>> = {};
+  const errors: Partial<Record<keyof CompanyFormData, string>> = {};
 
-    if (!formData.companyName?.trim()) errors.companyName = "Company name is required";
-    if (!formData.registrationType?.trim()) errors.registrationType = "Registration type is required";
-    if (!formData.vendorType?.trim()) errors.vendorType = "Vendor type is required";
+  // Company & Registration
+  if (!formData.companyName?.trim()) errors.companyName = "Company name is required";
+  if (!formData.registrationType?.trim()) errors.registrationType = "Registration type is required";
+  if (!formData.vendorType?.trim()) errors.vendorType = "Vendor type is required";
 
-    if (!formData.regdAddress?.trim()) errors.regdAddress = "Registered address is required";
-    if (!formData.regdCity?.trim()) errors.regdCity = "Registered city is required";
-    if (!formData.regdArea?.trim()) errors.regdArea = "Registered area is required";
-    if (!formData.regdPin?.trim()) errors.regdPin = "Registered pin code is required";
+  if (!formData.regdAddress?.trim()) errors.regdAddress = "Registered address is required";
+  if (!formData.regdCity?.trim()) errors.regdCity = "Registered city is required";
+  if (!formData.regdArea?.trim()) errors.regdArea = "Registered area is required";
+  if (!formData.regdPin?.trim()) errors.regdPin = "Registered pin code is required";
 
-    if (!formData.workAddress?.trim()) errors.workAddress = "Work address is required";
-    if (!formData.workCity?.trim()) errors.workCity = "Work city is required";
-    if (!formData.workArea?.trim()) errors.workArea = "Work area is required";
-    if (!formData.workPin?.trim()) errors.workPin = "Work pin code is required";
+  // Work Address
+  if (!formData.workAddress?.trim()) errors.workAddress = "Work address is required";
+  if (!formData.workCity?.trim()) errors.workCity = "Work city is required";
+  if (!formData.workArea?.trim()) errors.workArea = "Work area is required";
+  if (!formData.workPin?.trim()) errors.workPin = "Work pin code is required";
 
-    if (!formData.email?.trim()) errors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = "Invalid email";
-    if (!formData.phone?.trim()) errors.phone = "Phone number is required";
-    else if (!/^\d{10}$/.test(formData.phone)) errors.phone = "Phone number must be 10 digits";
+  // Contact Info
+  if (!formData.email?.trim()) errors.email = "Email is required";
+  else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = "Invalid email";
 
-    if (!formData.password) errors.password = "Password is required";
-    if (!formData.confirmPassword) errors.confirmPassword = "Confirm password is required";
-    else if (formData.password !== formData.confirmPassword) errors.confirmPassword = "Passwords do not match";
+  if (!formData.phone?.trim()) errors.phone = "Phone number is required";
+  else if (!/^\d{10}$/.test(formData.phone)) errors.phone = "Phone number must be 10 digits";
 
-    if (!agreeTerms) {
-      alert("You must agree to the Terms and Conditions before submitting.");
-      return false;
-    }
+  // Director + Incharge
+  ["director", "incharge"].forEach((prefix) => {
+    if (!formData[`${prefix}Name`] || !formData[`${prefix}Name`].trim()) errors[`${prefix}Name`] = `${prefix} name is required`;
+    if (!formData[`${prefix}Gender`]) errors[`${prefix}Gender`] = `Select ${prefix} gender`;
+    if (!formData[`${prefix}Phone`] || !formData[`${prefix}Phone`].trim()) errors[`${prefix}Phone`] = `${prefix} phone is required`;
+    if (!formData[`${prefix}LoginEmail`] || !formData[`${prefix}LoginEmail`].trim()) errors[`${prefix}LoginEmail`] = `${prefix} email is required`;
+    if (!formData[`${prefix}Password`]) errors[`${prefix}Password`] = `${prefix} password is required`;
+    if (!formData[`${prefix}ConfirmPassword`]) errors[`${prefix}ConfirmPassword`] = `${prefix} confirm password is required`;
+    else if (formData[`${prefix}Password`] !== formData[`${prefix}ConfirmPassword`]) errors[`${prefix}ConfirmPassword`] = "Passwords do not match";
+  });
 
-    dispatch(setFormErrors(errors));
-    return Object.keys(errors).length === 0;
-  };
+  // Company Services
+  if (!formData.companyServices) errors.companyServices = "Select company service";
+
+  // Vendor Sub Type (if applicable)
+  if (subVendorOptions.length > 0 && !formData.vendorSubType) errors.vendorSubType = "Select vendor sub type";
+
+  // Documents validation
+  vendorDocuments.forEach((doc) => {
+    const numberField = `${doc.name}_number` as keyof CompanyFormData;
+    if (!formData[numberField] || !formData[numberField]?.trim()) errors[numberField] = `${doc.name} number is required`;
+    if (!formData[doc.name]) errors[doc.name as keyof CompanyFormData] = `${doc.name} file is required`;
+  });
+
+  // Agreements
+  if (!formData.whatsappAgree || !formData.staffingPartnerAgree || !formData.vendorAgree) {
+    errors.agreeTerms = "❌ You must agree to all terms and conditions before submitting";
+  }
+
+  dispatch(setFormErrors(errors));
+  return Object.keys(errors).length === 0;
+};
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -217,7 +241,7 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
 
       {/* Contact Info */}
       {[
-        { label: "Email ID", name: `${prefix}Email`, type: "email" },
+        
         { label: "Phone Number", name: `${prefix}Phone`, type: "text" },
         { label: "Login Email ID", name: `${prefix}LoginEmail`, type: "email" },
       ].map((input) => (
@@ -301,9 +325,9 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
           {/* Vendor Sub Type */}
           {subVendorOptions.length > 0 && (
             <div className="form-group">
-              <label>Vendor Sub Type</label>
+              <label>Vendor Services</label>
               <select name="vendorSubType" value={formData.vendorSubType || ""} onChange={handleChange} className="full-width">
-                <option value="">Select Vendor Sub Type</option>
+                <option value="">Select Vendor Services</option>
                 {subVendorOptions.map((sub) => (
                   <option key={sub} value={sub}>{sub}</option>
                 ))}
@@ -380,7 +404,6 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
               </div>
             ))}
           </div>
-
 {/* ✅ TERMS AND CONDITIONS SECTION */}
 <div
   style={{
@@ -397,8 +420,10 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
     <input
       type="checkbox"
       id="whatsappAgree"
-      checked={whatsappAgree}
-      onChange={(e) => setWhatsappAgree(e.target.checked)}
+      checked={formData.whatsappAgree}
+      onChange={(e) =>
+        dispatch(setFormData({ name: "whatsappAgree", value: e.target.checked }))
+      }
       style={{ width: "20px", height: "20px", cursor: "pointer", marginTop: "4px" }}
     />
     <label htmlFor="whatsappAgree" style={{ fontSize: "16px", lineHeight: "1.5", color: "#333" }}>
@@ -411,8 +436,10 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
     <input
       type="checkbox"
       id="staffingPartnerAgree"
-      checked={staffingPartnerAgree}
-      onChange={(e) => setStaffingPartnerAgree(e.target.checked)}
+      checked={formData.staffingPartnerAgree}
+      onChange={(e) =>
+        dispatch(setFormData({ name: "staffingPartnerAgree", value: e.target.checked }))
+      }
       style={{ width: "20px", height: "20px", cursor: "pointer", marginTop: "4px" }}
     />
     <label htmlFor="staffingPartnerAgree" style={{ fontSize: "16px", lineHeight: "1.5", color: "#333" }}>
@@ -427,8 +454,10 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
     <input
       type="checkbox"
       id="vendorAgree"
-      checked={vendorAgree}
-      onChange={(e) => setVendorAgree(e.target.checked)}
+      checked={formData.vendorAgree}
+      onChange={(e) =>
+        dispatch(setFormData({ name: "vendorAgree", value: e.target.checked }))
+      }
       style={{ width: "20px", height: "20px", cursor: "pointer", marginTop: "4px" }}
     />
     <label htmlFor="vendorAgree" style={{ fontSize: "16px", lineHeight: "1.5", color: "#333" }}>
@@ -445,6 +474,13 @@ const [vendorAgree, setVendorAgree] = useState<boolean>(false);
       .
     </label>
   </div>
+
+  {/* ✅ Display agreement error */}
+  {formErrors.agreeTerms && (
+    <span className="error" style={{ marginTop: "5px" }}>
+      {formErrors.agreeTerms}
+    </span>
+  )}
 </div>
 
 

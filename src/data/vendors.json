@@ -29,7 +29,7 @@
     "documents": [
       { "name": "FSSAI", "icon": "url1.jpg" },
       { "name": "GST", "icon": "url2.jpg" },
-      { "name": "PAN", "icon": "pan.jpg" }
+      { "name": "PAN", "icon": "pan.png" }
     ]
   },
   "Venue Vendors": {
@@ -46,9 +46,9 @@
     ],
     "documents": [
       { "name": "GST", "icon": "url2.jpg" },
-      { "name": "PAN", "icon": "pan.jpg" },
-      { "name": "TRADE LICENSE", "icon": "tradelicense.jpg" },
-      { "name": "PREMISYS LICENSE", "icon": "tradelicense.jpg" }
+      { "name": "PAN", "icon": "pan.png" },
+      { "name": "TRADE LICENSE", "icon": "tradelicense.png" },
+      { "name": "PREMISYS LICENSE", "icon": "PL.png" }
     ]
   },
   "Support Vendors": {
@@ -64,7 +64,7 @@
     ],
     "documents": [
       { "name": "GST", "icon": "url2.jpg" },
-      { "name": "PAN", "icon": "pan.jpg" }
+      { "name": "PAN", "icon": "pan.png" }
     ]
   },
   "Entertainment Vendors": {
@@ -80,7 +80,7 @@
     ],
     "documents": [
       { "name": "GST", "icon": "url2.jpg" },
-      { "name": "PAN", "icon": "pan.jpg" }
+      { "name": "PAN", "icon": "pan.png" }
     ]
   },
   "Photo/Videography Vendors": {
@@ -89,7 +89,7 @@
     ],
     "documents": [
       { "name": "GST", "icon": "url2.jpg" },
-      { "name": "PAN", "icon": "pan.jpg" }
+      { "name": "PAN", "icon": "pan.png" }
     ]
   },
   "Rental Vendors": {
@@ -106,7 +106,7 @@
     ],
     "documents": [
       { "name": "GST", "icon": "url2.jpg" },
-      { "name": "PAN", "icon": "pan.jpg" }
+      { "name": "PAN", "icon": "pan.png" }
     ]
   }
 }

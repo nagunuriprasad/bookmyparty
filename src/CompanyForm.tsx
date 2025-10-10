@@ -10,7 +10,10 @@ import {
 import { RootState, AppDispatch } from "./store/store";
 import guestAvatar from "./assets/image.png";
 import vendorsData from "./data/vendors.json";
-import "./assets/css/CompanyForm.css"; // make sure CSS is imported
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/CompanyForm.css';
+
 
 interface VendorDocument {
   name: string;
@@ -25,7 +28,9 @@ const CompanyForm: React.FC = () => {
   const [subVendorOptions, setSubVendorOptions] = useState<string[]>([]);
   const [vendorDocuments, setVendorDocuments] = useState<VendorDocument[]>([]);
   const [agreeTerms, setAgreeTerms] = useState(false);
-
+const [whatsappAgree, setWhatsappAgree] = useState<boolean>(false);
+const [staffingPartnerAgree, setStaffingPartnerAgree] = useState<boolean>(false);
+const [vendorAgree, setVendorAgree] = useState<boolean>(false);
   const handleVendorTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     dispatch(setFormData({ name: "vendorType", value }));
@@ -152,23 +157,7 @@ const CompanyForm: React.FC = () => {
           </div>
         </div>
 
-        {/* Work Address & Director/Owner */}
-        <div className="company-form-section">
-          <label>Work Address</label>
-          <div className="address-fields">
-            {["workAddress", "workCity", "workArea", "workPin"].map((field) => (
-              <input
-                key={field}
-                type="text"
-                name={field}
-                placeholder={field.replace("work", "")}
-                value={formData[field] || ""}
-                onChange={handleChange}
-                className="full-width"
-              />
-            ))}
-          </div>
-        </div>
+        
 {/* Contact & Login */}
 <div className="company-form-section">
   <label>Work Address</label>
@@ -194,7 +183,7 @@ const CompanyForm: React.FC = () => {
     { title: "Incharge Name", prefix: "incharge" },
   ].map(({ title, prefix }) => (
     <div key={prefix}>
-      <div className="form-group flex-group">
+      <div className="form-group ">
         <div>
           <label>{title}</label>
           <input
@@ -322,23 +311,44 @@ const CompanyForm: React.FC = () => {
             </div>
           )}
 
-          {/* Documents Section */}
-          {vendorDocuments.length > 0 && (
-            <div className="company-form-section">
-              <h3 className="title-center">Required Documents for {formData.vendorType}</h3>
-              {[{ name: "INC Certificate (PDF)" }, ...vendorDocuments].map((doc) => (
-                <div key={doc.name} className="form-group flex-group">
-                  <label>{doc.name}</label>
-                  <input
-                    type="file"
-                    name={doc.name}
-                    onChange={handleChange}
-                    accept={doc.name === "INC Certificate (PDF)" ? "application/pdf" : "application/pdf,image/*"}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+         {/* Documents Section */}
+{vendorDocuments.length > 0 && (
+  <div className="company-form-section">
+    <h3 className="title-center">
+      Required Documents for {formData.vendorType}
+    </h3>
+
+    {[{ name: "INC Certificate (PDF)" }, ...vendorDocuments].map((doc) => (
+      <div key={doc.name} className="form-group flex-group">
+        <label>{doc.name}</label>
+
+        {/* Document Number Field */}
+        <input
+          type="text"
+          name={`${doc.name}_number`}
+          placeholder="Enter Document Number"
+          value={formData[`${doc.name}_number`] || ""}
+          onChange={handleChange}
+          className="document-number-input"
+        />
+
+        {/* File Upload Field */}
+        <input
+          type="file"
+          name={doc.name}
+          onChange={handleChange}
+          accept={
+            doc.name === "INC Certificate (PDF)"
+              ? "application/pdf"
+              : "application/pdf,image/*"
+          }
+          className="document-file-input"
+        />
+      </div>
+    ))}
+  </div>
+)}
+
 
           {/* Vendor Type Icons */}
           <h3 className="title-center mt-20">{formData.vendorType}</h3>
@@ -371,39 +381,72 @@ const CompanyForm: React.FC = () => {
             ))}
           </div>
 
-      {/* ✅ TERMS AND CONDITIONS SECTION */}
+{/* ✅ TERMS AND CONDITIONS SECTION */}
 <div
   style={{
     display: "flex",
-    alignItems: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
     justifyContent: "center",
     marginTop: "25px",
-    gap: "10px", // spacing between checkbox and label
+    gap: "15px",
   }}
 >
-  <input
-    type="checkbox"
-    id="terms"
-    checked={agreeTerms}
-    onChange={(e) => setAgreeTerms(e.target.checked)}
-    style={{
-      width: "25px",
-      height: "25px",
-      cursor: "pointer",
-    }}
-  />
-  <label htmlFor="terms" style={{ fontSize: "18px", cursor: "pointer", marginTop:"10px", }}>
-    I agree to the{" "}
-    <a
-      href="/terms-and-conditions"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ color: "#d8b573", textDecoration: "underline" }}
-    >
-      Terms and Conditions
-    </a>
-  </label>
+  {/* 1️⃣ WhatsApp Agreement */}
+  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+    <input
+      type="checkbox"
+      id="whatsappAgree"
+      checked={whatsappAgree}
+      onChange={(e) => setWhatsappAgree(e.target.checked)}
+      style={{ width: "20px", height: "20px", cursor: "pointer", marginTop: "4px" }}
+    />
+    <label htmlFor="whatsappAgree" style={{ fontSize: "16px", lineHeight: "1.5", color: "#333" }}>
+      I agree to receive sales orders, offers, and confirmation messages on my WhatsApp Number.
+    </label>
+  </div>
+
+  {/* 2️⃣ Staffing Partner Agreement */}
+  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+    <input
+      type="checkbox"
+      id="staffingPartnerAgree"
+      checked={staffingPartnerAgree}
+      onChange={(e) => setStaffingPartnerAgree(e.target.checked)}
+      style={{ width: "20px", height: "20px", cursor: "pointer", marginTop: "4px" }}
+    />
+    <label htmlFor="staffingPartnerAgree" style={{ fontSize: "16px", lineHeight: "1.5", color: "#333" }}>
+      I have read and agree to sign with <strong>BookMyPartys</strong> as a{" "}
+      <strong>“Staffing Partner”</strong> and also agree to the terms & conditions of the{" "}
+      <strong>“Staffing Partner Agreement”</strong>.
+    </label>
+  </div>
+
+  {/* 3️⃣ Vendor Service Agreement */}
+  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+    <input
+      type="checkbox"
+      id="vendorAgree"
+      checked={vendorAgree}
+      onChange={(e) => setVendorAgree(e.target.checked)}
+      style={{ width: "20px", height: "20px", cursor: "pointer", marginTop: "4px" }}
+    />
+    <label htmlFor="vendorAgree" style={{ fontSize: "16px", lineHeight: "1.5", color: "#333" }}>
+      I have read and agree to sign with <strong>BookMyPartys</strong> and its terms & conditions of the{" "}
+      <strong>“Vendor Service Agreement”</strong>.{" "}
+      <a
+        href="/TermsAndConditions"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "#d8b573", textDecoration: "underline" }}
+      >
+        View full Terms and Conditions
+      </a>
+      .
+    </label>
+  </div>
 </div>
+
 
 
           {/* Submit Button */}

@@ -29,7 +29,13 @@ export interface CompanyFormData {
   confirmPassword: string;
   profileImage?: File | null;
   gstCertificate?: File | null;
-  selectedDocs?: string[]; // ✅ Required for vendor icons selection
+  selectedDocs?: string[];
+  whatsappAgree: boolean;
+  staffingPartnerAgree: boolean;
+  vendorAgree: boolean;
+
+  // ✅ Dynamic document number fields
+  [key: string]: any; // allows keys like "INC Certificate (PDF)_number"
 }
 
 // ================== STATE INTERFACE ==================
@@ -72,6 +78,10 @@ const initialState: CompanyFormState = {
     profileImage: null,
     gstCertificate: null,
     selectedDocs: [],
+    whatsappAgree: false,
+    staffingPartnerAgree: false,
+    vendorAgree: false,
+    // ✅ document numbers can be dynamically added
   },
   formErrors: {},
   isSubmitting: false,
@@ -79,7 +89,7 @@ const initialState: CompanyFormState = {
   errorMessage: null,
 };
 
-// ================== ASYNC THUNK (Secure Submission) ==================
+// ================== ASYNC THUNK ==================
 export const submitCompanyForm = createAsyncThunk<
   any,
   CompanyFormData,
@@ -88,18 +98,20 @@ export const submitCompanyForm = createAsyncThunk<
   'company/submitForm',
   async (formData, { rejectWithValue }) => {
     try {
-      // Validate password match before submission
       if (formData.password !== formData.confirmPassword) {
         return rejectWithValue('❌ Passwords do not match');
       }
 
-      // Validate required vendor type
       if (!formData.vendorType) {
         return rejectWithValue('❌ Please select a vendor type');
       }
 
-      // Securely prepare multipart/form-data
+      if (!formData.whatsappAgree || !formData.staffingPartnerAgree || !formData.vendorAgree) {
+        return rejectWithValue('❌ Please agree to all terms and conditions');
+      }
+
       const data = new FormData();
+
       Object.entries(formData).forEach(([key, value]) => {
         if (value instanceof File) {
           data.append(key, value);
@@ -110,13 +122,9 @@ export const submitCompanyForm = createAsyncThunk<
         }
       });
 
-      // API Call (replace URL in production)
       const response = await fetch('http://localhost:8014/api/company-form', {
         method: 'POST',
         body: data,
-        headers: {
-          // No Content-Type (browser sets it for multipart automatically)
-        },
       });
 
       if (!response.ok) {
@@ -137,9 +145,9 @@ const companySlice = createSlice({
   name: 'company',
   initialState,
   reducers: {
-    setFormData: (
-      state,
-      action: PayloadAction<{ name: keyof CompanyFormData; value: any }>
+    setFormData: <K extends keyof CompanyFormData>(
+      state: CompanyFormState,
+      action: PayloadAction<{ name: K; value: CompanyFormData[K] }>
     ) => {
       const { name, value } = action.payload;
       state.formData[name] = value;

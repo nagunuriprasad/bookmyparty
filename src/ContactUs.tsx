@@ -45,6 +45,7 @@ const ContactUs = () => {
   };
 
   return (
+    <div className="contact-form">
     <div className="contactus-container">
       <section className="contact-section">
       <h2 className="contactus-heading">CONTACT US</h2>
@@ -104,6 +105,7 @@ const ContactUs = () => {
 
         </form>
       </section>
+    </div>
     </div>
   );
 };

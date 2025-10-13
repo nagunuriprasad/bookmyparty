@@ -1,3 +1,5 @@
+
+.contact-form{
 .contactus-container {
   width: 100%;
   font-family: Arial, sans-serif;
@@ -154,4 +156,5 @@ button:hover {
   /* Space below the label */
   display: block; /* Ensure label takes a block layout */
   text-align: left;
+}
 }

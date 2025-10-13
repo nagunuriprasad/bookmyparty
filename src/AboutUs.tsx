@@ -11,24 +11,21 @@ const AboutUs = () => {
         <div className="aboutus-item">
           <h2 className="aboutus-heading">Who Are We?</h2>
           <p className="aboutus-text">
-            We are IBTC Events & Entertainments Pvt Ltd, a team of technology experts and industry leaders in events and event management.
-            We've developed innovative solutions to provide transparent one-stop end-to-end solutions for our customers.
+            We are from Bookmypartys, A team of technology experts and industry leaders in Event Industry Organising, Planning and Management. We have developed innovative solutions to provide customers transparent one-stop E2E solutions to make events booking easy.
           </p>
         </div>
 
         <div className="aboutus-item">
           <h2 className="aboutus-heading">Our Team</h2>
           <p className="aboutus-text">
-            With a decade of industry experience, we're passionate about helping our customers reach their event goals. 
-            Our solutions are designed to succeed in their selected events and entertainments. We're committed to your satisfaction and trust.
+            With a decade of industry experience, we're passionate about helping to our customers and vendors to reach their goals in Event Management and Event Booking. Our solutions are designed to succeed in their Future events and entertainments. We're committed to our customers satisfaction and trust.
           </p>
         </div>
 
         <div className="aboutus-item">
           <h2 className="aboutus-heading">Our Approach</h2>
           <p className="aboutus-text">
-            Our services include comprehensive consulting to identify gaps and opportunities, event plans with timelines and milestones, 
-            cost analysis, and schedules. We offer a suite of quality solutions to ensure your satisfaction.
+            Our services include comprehensive consulting to identify gaps and opportunities, event plans with timelines and milestones, cost analysis, and schedules. We offer a suite of quality solutions to ensure customer satisfaction.
           </p>
         </div>
 
@@ -41,7 +38,7 @@ const AboutUs = () => {
       </section>
 
      <div><Faq/></div>
-     <div><ContactUs/></div>
+    
     </div>
   );
 };

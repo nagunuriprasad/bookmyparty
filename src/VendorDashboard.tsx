@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./assets/css/VendorDashboard.css";
 import companyLogo from "./assets/Bp-image.png";
-import VendorWallet from "./VendorWallet"; 
-import CompanyForm from "./CompanyForm";
+import VendorWallet from "./VendorWallet";
 import EditVendorProfile from "./editprofile/editvendorprofile";
 import { Link } from "react-router-dom";
-
-import { FaEye, FaEyeSlash, FaHeart, FaCartPlus } from "react-icons/fa";
 import {
+  FaEye,
+  FaEyeSlash,
+  FaHeart,
+  FaCartPlus,
   FaTasks,
   FaCheckCircle,
   FaShoppingCart,
@@ -26,7 +27,12 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "./store/store";
-import { fetchVendors, updatePassword, clearMessages } from "./slices/vendorSlice";
+import {
+  fetchVendors,
+  fetchDashboard,
+  updatePassword,
+  clearMessages,
+} from "./slices/vendorSlice";
 
 const Dashboard: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +45,7 @@ const Dashboard: React.FC = () => {
   const [isConfirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
-  const { vendors, loading, error, message } = useSelector(
+  const { vendors, dashboard, loading, error, message } = useSelector(
     (state: RootState) => state.vendor
   );
 
@@ -51,6 +57,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchVendors());
+    dispatch(fetchDashboard());
   }, [dispatch]);
 
   const toggleOldPasswordVisibility = () =>
@@ -129,7 +136,9 @@ const Dashboard: React.FC = () => {
                 {isOpen && (
                   <i
                     className={`fas ${
-                      isOrdersDropdownOpen ? "fa-chevron-down" : "fa-chevron-right"
+                      isOrdersDropdownOpen
+                        ? "fa-chevron-down"
+                        : "fa-chevron-right"
                     }`}
                   ></i>
                 )}
@@ -240,26 +249,32 @@ const Dashboard: React.FC = () => {
         <section className="dashboard-cards10">
           {activeMenu === "Dashboard" && (
             <div className="cards10-container10">
-              <div className="card10">
-                <FaTasks className="card10-icon" />
-                <h2>{vendors.length}</h2>
-                <p>Total Services Created</p>
-              </div>
-              <div className="card10">
-                <FaCheckCircle className="card10-icon" />
-                <h2>0</h2>
-                <p>Successful Orders</p>
-              </div>
-              <div className="card10">
-                <FaShoppingCart className="card10-icon" />
-                <h2>0</h2>
-                <p>Total Orders</p>
-              </div>
-              <div className="card10">
-                <FaTimesCircle className="card10-icon" />
-                <h2>0</h2>
-                <p>Cancelled Orders</p>
-              </div>
+              {loading ? (
+                <p>Loading dashboard...</p>
+              ) : (
+                <>
+                  <div className="card10">
+                    <FaTasks className="card10-icon" />
+                    <h2>{dashboard.totalServices || vendors.length}</h2>
+                    <p>Total Services Created</p>
+                  </div>
+                  <div className="card10">
+                    <FaCheckCircle className="card10-icon" />
+                    <h2>{dashboard.successfulOrders}</h2>
+                    <p>Successful Orders</p>
+                  </div>
+                  <div className="card10">
+                    <FaShoppingCart className="card10-icon" />
+                    <h2>{dashboard.totalOrders}</h2>
+                    <p>Total Orders</p>
+                  </div>
+                  <div className="card10">
+                    <FaTimesCircle className="card10-icon" />
+                    <h2>{dashboard.cancelledOrders}</h2>
+                    <p>Cancelled Orders</p>
+                  </div>
+                </>
+              )}
             </div>
           )}
 
@@ -279,7 +294,6 @@ const Dashboard: React.FC = () => {
           {activeMenu === "Password" && (
             <section className="password-section">
               <h2 className="text-left">
-                {" "}
                 <center>Password Settings</center>
               </h2>
               <form onSubmit={handlePasswordSubmit}>

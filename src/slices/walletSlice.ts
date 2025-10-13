@@ -29,7 +29,7 @@ export const fetchWallet = createAsyncThunk(
   "wallet/fetchWallet",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:5000/api/wallet"); // <-- change API URL
+      const response = await axios.get("http://localhost:8010/api/vendors/wallet"); // <-- change API URL
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response?.data?.message || "Failed to load wallet data");

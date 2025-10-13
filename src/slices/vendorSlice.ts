@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Vendor type
+// ========== TYPES ==========
 interface Vendor {
   id: number;
   name: string;
   email: string;
 }
 
-// Wallet type
 interface Wallet {
   balance: number;
   totalPayments?: number;
@@ -18,10 +17,18 @@ interface Wallet {
   creditDue?: number;
 }
 
+interface DashboardData {
+  totalServices: number;
+  successfulOrders: number;
+  totalOrders: number;
+  cancelledOrders: number;
+}
+
 // Slice state
 interface VendorState {
   vendors: Vendor[];
   wallet: Wallet;
+  dashboard: DashboardData;
   loading: boolean;
   error: string | null;
   message: string | null;
@@ -30,18 +37,38 @@ interface VendorState {
 const initialState: VendorState = {
   vendors: [],
   wallet: { balance: 0 },
+  dashboard: {
+    totalServices: 0,
+    successfulOrders: 0,
+    totalOrders: 0,
+    cancelledOrders: 0,
+  },
   loading: false,
   error: null,
   message: null,
 };
 
+// ========== ASYNC ACTIONS ==========
+
 // ✅ Fetch vendors
 export const fetchVendors = createAsyncThunk("vendor/fetchVendors", async () => {
-  const response = await axios.get("http://localhost:8014/api/services");
+  const response = await axios.get("http://localhost:8014/api/vendors");
   return response.data;
 });
 
-// ✅ Update password
+// ✅ Fetch wallet
+export const fetchWallet = createAsyncThunk("vendor/fetchWallet", async () => {
+  const response = await axios.get("http://localhost:8014/api/vendor-wallet");
+  return response.data;
+});
+
+// ✅ Fetch dashboard data
+export const fetchDashboard = createAsyncThunk("vendor/fetchDashboard", async () => {
+  const response = await axios.get("http://localhost:8014/api/vendor-dashboard");
+  return response.data;
+});
+
+// ✅ Update password (still from backend)
 export const updatePassword = createAsyncThunk(
   "vendor/updatePassword",
   async (
@@ -49,7 +76,7 @@ export const updatePassword = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const response = await axios.put("http://localhost:5000/api/vendors/password", {
+      const response = await axios.put("http://localhost:8014/api/vendors/password", {
         oldPassword,
         newPassword,
       });
@@ -60,12 +87,7 @@ export const updatePassword = createAsyncThunk(
   }
 );
 
-// ✅ Fetch wallet
-export const fetchWallet = createAsyncThunk("vendor/fetchWallet", async () => {
-  const response = await axios.get("http://localhost:8014/api/vendors/wallet");
-  return response.data;
-});
-
+// ========== SLICE ==========
 const vendorSlice = createSlice({
   name: "vendor",
   initialState,
@@ -77,7 +99,7 @@ const vendorSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // fetch vendors
+      // ----- Vendors -----
       .addCase(fetchVendors.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -91,7 +113,35 @@ const vendorSlice = createSlice({
         state.error = action.error.message || "Failed to fetch vendors";
       })
 
-      // update password
+      // ----- Wallet -----
+      .addCase(fetchWallet.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchWallet.fulfilled, (state, action: PayloadAction<Wallet>) => {
+        state.loading = false;
+        state.wallet = action.payload;
+      })
+      .addCase(fetchWallet.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch wallet";
+      })
+
+      // ----- Dashboard -----
+      .addCase(fetchDashboard.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchDashboard.fulfilled, (state, action: PayloadAction<DashboardData>) => {
+        state.loading = false;
+        state.dashboard = action.payload;
+      })
+      .addCase(fetchDashboard.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to fetch dashboard data";
+      })
+
+      // ----- Password -----
       .addCase(updatePassword.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -104,20 +154,6 @@ const vendorSlice = createSlice({
       .addCase(updatePassword.rejected, (state, action) => {
         state.loading = false;
         state.error = (action.payload as string) || "Password update failed";
-      })
-
-      // fetch wallet
-      .addCase(fetchWallet.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchWallet.fulfilled, (state, action: PayloadAction<Wallet>) => {
-        state.loading = false;
-        state.wallet = action.payload;
-      })
-      .addCase(fetchWallet.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || "Failed to fetch wallet";
       });
   },
 });

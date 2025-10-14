@@ -1,10 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.32131aeb.css",
-    "main.js": "/static/js/main.808f303c.js",
+    "main.css": "/static/css/main.d331f495.css",
+    "main.js": "/static/js/main.4da2fbfe.js",
+    "static/media/firm.png": "/static/media/firm.199ae25bb5f571eea52f.png",
+    "static/media/partnership.png": "/static/media/partnership.0c4da2fce31daba31e8a.png",
+    "static/media/pvt-ltd.png": "/static/media/pvt-ltd.b28c8fd94a295f0450e5.png",
+    "static/media/ltd.png": "/static/media/ltd.3ab091c7febace5531f8.png",
+    "static/media/individual.png": "/static/media/individual.fa88b9600abe0d1112e0.png",
     "static/media/fa-solid-900.svg": "/static/media/fa-solid-900.7a8b4f130182d19a2d7c.svg",
+    "static/media/OPC.png": "/static/media/OPC.9721dfd799b09d6806c6.png",
+    "static/media/LLP.png": "/static/media/LLP.0237701e61edfccf82a3.png",
     "static/media/pan.png": "/static/media/pan.644b000d71ea64cf9598.png",
     "static/media/PL.png": "/static/media/PL.717d79ceaa3036cdfaf3.png",
+    "static/media/patnership1.png": "/static/media/patnership1.874b0944e5aba6206e68.png",
     "static/media/tradelicense.png": "/static/media/tradelicense.7f39b1e7c470ef6b1529.png",
     "static/media/fa-brands-400.svg": "/static/media/fa-brands-400.2f517e09eb2ca6650ff5.svg",
     "static/media/Menu.png": "/static/media/Menu.436f81d44c1a0c3b2b17.png",
@@ -50,11 +58,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/index.html",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
-    "main.32131aeb.css.map": "/static/css/main.32131aeb.css.map",
-    "main.808f303c.js.map": "/static/js/main.808f303c.js.map"
+    "main.d331f495.css.map": "/static/css/main.d331f495.css.map",
+    "main.4da2fbfe.js.map": "/static/js/main.4da2fbfe.js.map"
   },
   "entrypoints": [
-    "static/css/main.32131aeb.css",
-    "static/js/main.808f303c.js"
+    "static/css/main.d331f495.css",
+    "static/js/main.4da2fbfe.js"
   ]
 }

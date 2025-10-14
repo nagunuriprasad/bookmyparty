@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import companyLogo from './assets/BMP.png';
+import companyLogo from './assets/bookmyparty.png';
 
 
 import './assets/css/Header.css'; // External CSS for additional styling

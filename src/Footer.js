@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './assets/css/Footer.css'; // External CSS
-import companyLogo from './assets/BMP.png';
+import companyLogo from './assets/bookmyparty.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Font Awesome
 
@@ -35,7 +35,7 @@ const Footer = () => {
           <ul>
             <li><a href="AboutUs">About Us</a></li>
             <li><a href="reviews/ReviewCarousel">Customer Review</a></li>
-            <li><a href="/Bcareer/Career">Career</a></li>
+            <li><a href="/CareerPage">Career</a></li>
             <li><a href="ContactUs">Contact Us</a></li>
             <li><a href="FormComponent">Pay Us</a></li>
           </ul>

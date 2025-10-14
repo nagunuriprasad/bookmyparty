@@ -1,0 +1,96 @@
+.career-page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+.career-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #c59d5f;
+  margin-bottom: 30px;
+}
+
+.job-title {
+  text-align: center;
+  font-size: 26px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #222;
+  border-bottom: 2px solid #d8b573;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.responsibility {
+  margin-bottom: 25px;
+}
+
+.responsibility h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #c59d5f;
+  margin-bottom: 8px;
+}
+
+.responsibility ul {
+  list-style: disc;
+  padding-left: 20px;
+  line-height: 1.6;
+   color: #444;
+}
+ul li {
+  color: #444;  
+}
+.apply-section {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #eee;
+}
+
+.apply-section a {
+  color: #c59d5f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.apply-button {
+  background-color: #c59d5f;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #a88342;
+}
+
+@media (max-width: 600px) {
+  .career-title {
+    font-size: 30px;
+  }
+  .job-title {
+    font-size: 22px;
+  }
+  .responsibility h4 {
+    font-size: 16px;
+  }
+}

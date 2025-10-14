@@ -9,7 +9,7 @@
   align-items: center;
   padding-left: 5px; /* Reduce padding on the left */
   padding-right: 5px; /* Reduce padding on the right */
-  height: 80px; /* Reduced height for the header container */
+  height: 150px; /* Reduced height for the header container */
 }
 
 .logo-container {
@@ -17,8 +17,11 @@
 }
 
 .logo-img {
-  height: 100px; /* Reduced logo height */
-  width: 120px;  /* Reduced logo width */
+    height: 150px;
+    width: 150px;
+    object-fit: contain; /* keeps image proportions */
+    
+    margin: 0 auto; /* center it horizontally */
 }
 
 .login-container {
@@ -40,12 +43,7 @@
   background-color: #0056b3;
   color: white;
 }
-/* CSS for Header */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 
 .logo-container {
   flex: 1;

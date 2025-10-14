@@ -55,7 +55,7 @@
 
 .cancellation-table th,
 .cancellation-table td {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   padding: 8px 10px;
   text-align: left;
 }

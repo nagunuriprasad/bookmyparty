@@ -51,109 +51,113 @@ const FAQ = () => {
     },
   ];
 
-  const cancellationPolicyHTML = `
-    <h2>Cancellation Policy</h2>
-    <p>
-      In the event industry, vendors require advance payments to make necessary arrangements such as food preparation, rentals, and staffing. To protect both vendors and customers, BookMyPartys follows a transparent cancellation policy as detailed below:
-    </p>
+ const cancellationPolicyHTML = `
+  <h2>Cancellation Policy</h2>
+  <p>
+    In the event industry, vendors require advance payments to make necessary arrangements such as food preparation, rentals, and staffing. To protect both vendors and customers, BookMyPartys follows a transparent cancellation policy as detailed below:
+  </p>
 
-    <table class="cancellation-table">
-      <thead>
-        <tr>
-          <th>Event Service</th>
-          <th>Cancellation Done Between</th>
-          <th>Cancellation Fee</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td rowspan="3">All Packages</td>
-          <td>Before 7 days of booking delivery date</td>
-          <td>0%</td>
-        </tr>
-        <tr>
-          <td>Between 7–3 days before booking delivery date</td>
-          <td>60%</td>
-        </tr>
-        <tr>
-          <td>Between 3–0 days before booking delivery date</td>
-          <td>100%</td>
-        </tr>
+  <table class="cancellation-table">
+    <thead>
+      <tr>
+        <th>Event Service</th>
+        <th>Cancellation Time</th>
+        <th>Cancellation Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- All Packages -->
+      <tr>
+        <td rowspan="3">All Packages</td>
+        <td>Cancellation done before 7 days of the booking delivery date</td>
+        <td>0%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done between 7–3 days before the booking delivery date</td>
+        <td>60%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done less than 3 days before the booking delivery date</td>
+        <td>100%</td>
+      </tr>
 
-        <tr>
-          <td rowspan="4">All Food Related Services</td>
-          <td>Between 12–0 hours before booking delivery date</td>
-          <td>100%</td>
-        </tr>
-        <tr>
-          <td>Before 12 hours</td>
-          <td>80%</td>
-        </tr>
-        <tr>
-          <td>Before 24 hours</td>
-          <td>60%</td>
-        </tr>
-        <tr>
-          <td>Before 48 hours</td>
-          <td>0%</td>
-        </tr>
+      <!-- All Food Related Services -->
+      <tr>
+        <td rowspan="4">All Food Related Services</td>
+        <td>Cancellation done within 12 hours of booking delivery</td>
+        <td>100%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 12 hours</td>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 24 hours</td>
+        <td>60%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 48 hours</td>
+        <td>0%</td>
+      </tr>
 
-        <tr>
-          <td rowspan="4">Other Event Related Services</td>
-          <td>Between 12–0 hours</td>
-          <td>80%</td>
-        </tr>
-        <tr>
-          <td>Before 12 hours</td>
-          <td>60%</td>
-        </tr>
-        <tr>
-          <td>Before 24 hours</td>
-          <td>40%</td>
-        </tr>
-        <tr>
-          <td>Before 48 hours</td>
-          <td>0%</td>
-        </tr>
+      <!-- Other Event Related Services -->
+      <tr>
+        <td rowspan="4">Other Event Related Services</td>
+        <td>Cancellation done within 12 hours of booking delivery</td>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 12 hours</td>
+        <td>60%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 24 hours</td>
+        <td>40%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 48 hours</td>
+        <td>0%</td>
+      </tr>
 
-        <tr>
-          <td rowspan="4">Rental Services</td>
-          <td>Between 12–0 hours</td>
-          <td>80%</td>
-        </tr>
-        <tr>
-          <td>Before 12 hours</td>
-          <td>60%</td>
-        </tr>
-        <tr>
-          <td>Before 24 hours</td>
-          <td>40%</td>
-        </tr>
-        <tr>
-          <td>Before 48 hours</td>
-          <td>0%</td>
-        </tr>
+      <!-- Rental Services -->
+      <tr>
+        <td rowspan="4">Rental Services</td>
+        <td>Cancellation done within 12 hours of booking delivery</td>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 12 hours</td>
+        <td>60%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 24 hours</td>
+        <td>40%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done before 48 hours</td>
+        <td>0%</td>
+      </tr>
 
-        <tr>
-          <td rowspan="4">Shop Products</td>
-          <td>Between 12–0 hours</td>
-          <td>80%</td>
-        </tr>
-        <tr>
-          <td>Before 12 hours</td>
-          <td>60%</td>
-        </tr>
-        <tr>
-          <td>Before 24 hours</td>
-          <td>40%</td>
-        </tr>
-        <tr>
-          <td>Before 48 hours</td>
-          <td>0%</td>
-        </tr>
-      </tbody>
-    </table>
-  `;
+      <!-- Shop Products -->
+      <tr>
+        <td rowspan="2">Shop Products</td>
+        <td>Cancellation done before shipping</td>
+        <td>0%</td>
+      </tr>
+      <tr>
+        <td>Cancellation done after shipping</td>
+        <td>50%</td>
+      </tr>
+
+      <!-- Platform/Delivery Partner Fault -->
+      <tr>
+        <td>Platform or Delivery Partner Fault</td>
+        <td>If cancellation is due to platform or delivery partner issue (e.g., item unavailable)</td>
+        <td>0%</td>
+      </tr>
+    </tbody>
+  </table>
+`;
 
   return (
     <div className="faq">

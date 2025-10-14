@@ -45,7 +45,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="contact-form">
+    <div className="contact-main">
     <div className="contactus-container">
       <section className="contact-section">
       <h2 className="contactus-heading">CONTACT US</h2>

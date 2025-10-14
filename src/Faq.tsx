@@ -12,52 +12,154 @@ const FAQ = () => {
     {
       question: "WHAT IS BOOKMYPARTYS?",
       answer:
-        "Bookmypartys is web application and mobile app which is useful for any kind of event services booking like catering, venues, decors, Tents Lights, Photography, DJ and others like entire requirements of event Industry for all categories people.",
+        "Bookmypartys is a web application and mobile app useful for any kind of event services booking like catering, venues, decors, tents, lights, photography, DJ, and other requirements of the event industry for all categories of people.",
     },
     {
       question: "WHO RUNS BOOKMYPARTYS?",
       answer:
-        "Bookmypartys is run by Team of Technology Experts  and Event Industry Experts with customer centric features like user friendly, stress free, Transparent and satisfactory.",
+        "Bookmypartys is run by a team of technology and event industry experts with customer-centric features that are user-friendly, stress-free, transparent, and satisfactory.",
     },
     {
-      question:
-        "HOW CAN I BOOK EVENT CATERING?",
+      question: "HOW CAN I BOOK EVENT CATERING?",
       answer:
-        "All event catering vendors are registered in bookmypartys portal along with pre-approved menus with cost of the ‘PAX’ in different subscription types (Basic, Standard, VIP and PRO). Each and every Menu will consist of all necessary food Item as per the party requirements.ll event catering vendors are registered in bookmypartys portal along with pre-approved menu's with cost of the 'pax' in different subscription types Each and every Menu will consist of different food item names which can be derived for different occasions. Based on subscription type customer can book the service without a doubt.",
+        "All event catering vendors are registered on the Bookmypartys portal with pre-approved menus and PAX-based pricing under different subscription types (Basic, Standard, VIP, and PRO). Each menu includes all necessary food items for various party requirements.",
     },
     {
-      question:
-        "WHO IS RESPONSIBLE FOR EXECUTION OF EVENT SERVICES?",
+      question: "WHO IS RESPONSIBLE FOR EXECUTION OF EVENT SERVICES?",
       answer:
-        "BookmypBookmypartys Team will take care of all event booking services and execution will be done by bookmypartys expertise event planners, event organisers and Event Mangers along with delivery Team.artys will take care of all event booking services and execution will be done by bookmypartys expertise event planners, event organisers and Event Mangers along with delivery Team.",
+        "Bookmypartys takes care of all event booking services. Execution is managed by our team of event planners, organizers, and managers along with the delivery team.",
     },
     {
       question: "WHAT IS PACKAGES?",
       answer:
-        "CombiAll the multiple event services are combined like catering, decors, venues, photography, dj and others can be made as a package or combo pack for a particular event requirements. Packages are defined combo pack, limited, unlimited.ned services like catering, decors, venues, photography, dj and others can be made as a package or combo pack for a particular event.Packages are defined combo pack, limited, unlimited.",
+        "Multiple event services such as catering, decors, venues, photography, DJ, and others can be bundled into packages or combo packs based on event needs. Packages are defined as Combo Pack, Limited, or Unlimited.",
     },
-    
     {
-        question: "HOW CAN I TRUST BOOKMYPARTYS TO BOOK MY EVENT?",
-        answer:
-          "When CustomeWhen Customer booking Individual Event services and Event package Services from bookmypartys, BMP Team of experts will take care of all event services and complete E2E monitoring and follow up from vendor side QC and make sure to execute in timely manner. Specially for Food vendors QC like hygiene environment,  Fresh & Natural Ingredients, Fresh Groceries, Food TQQ(Taste, Quality and Quantity) all will be taken care of by Bookmypartys QC Team and same will be executed by the delivery Team.r booking Individual Event services and Event package Services from bookmypartys, BMP Team of experts will take care of complete end to end monitoring and follow up on vendors quality services, Guest safety, Food vendors quality like hygiene environment, Fresh & Natural Ingredients, Fresh Groceries, Food TQQ(Taste, Quality and Quantity) all will be taken care of by BMPQC Team and same will be executed by the delivery Team.",
-      },
-      {
-        question: "HOW IS THE CANCELATION POLICY?",
-        answer:
-          "All individual seIn Event Industry, All Event Service Vendors are asked for Advance Payments because, they need to purchase all necessary food arrangements and given advances to cooks as well. So, Considering all the safety from vendor side as well customer side we work on Cancellation Policy for all Events and Packages can be shown as below.rvices can be cancelled before one day (24 hours) to the event date. Cancellation cannot be done in 24 hours to the event date.Package services can be cancelled before 48 hours to the event date. Cancellation cannot be done in 48 hours to the event date.",
-      },
-      {
-        question: "HOW IS THE REFUND POLICY?",
-        answer:
-          "We have a Money Back Guarantee Policy if we are unable to deliver products or services as committed to you. You can write to us at info@bookmypartys.com. Our refund department will investigate the matter, and if it finds non-catering of services on the part of bookmypartys, we'll gladly refund your payment within 7-10 working days of your refund request.All individual services can be cancelled before one day (24 hours) to the event date. Cancellation done in 24 hours to the event date then 50% refund.Package services can be cancelled before 48 hours to the event date. Cancellation done in 48 hours to the event date then 50% refund",
-      },
+      question: "HOW CAN I TRUST BOOKMYPARTYS TO BOOK MY EVENT?",
+      answer:
+        "When customers book individual event services or event packages through Bookmypartys, our expert team manages end-to-end monitoring and quality checks. Especially for food vendors, hygiene, freshness, ingredients, and taste-quality-quantity (TQQ) are carefully verified by our QC team before delivery.",
+    },
+    {
+      question: "HOW IS THE REFUND POLICY?",
+      answer:
+        "We have a Money Back Guarantee Policy if we are unable to deliver products or services as committed. You can write to us at info@bookmypartys.com. Our refund department will investigate, and if non-delivery is confirmed, we’ll refund your payment within 7–10 working days of your request.",
+    },
+    {
+      question: "HOW IS THE RETURN POLICY?",
+      answer:
+        "There is no Return Policy for all Event Related Services and Staffing Services, especially food orders. For shop products, especially foods, returns are not accepted. However, all other non-food products can be returned within 24 hours of delivery with a valid reason. Return charges may apply depending on the product type and quantity.",
+    },
   ];
+
+  const cancellationPolicyHTML = `
+    <h2>Cancellation Policy</h2>
+    <p>
+      In the event industry, vendors require advance payments to make necessary arrangements such as food preparation, rentals, and staffing. To protect both vendors and customers, BookMyPartys follows a transparent cancellation policy as detailed below:
+    </p>
+
+    <table class="cancellation-table">
+      <thead>
+        <tr>
+          <th>Event Service</th>
+          <th>Cancellation Done Between</th>
+          <th>Cancellation Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="3">All Packages</td>
+          <td>Before 7 days of booking delivery date</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+          <td>Between 7–3 days before booking delivery date</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td>Between 3–0 days before booking delivery date</td>
+          <td>100%</td>
+        </tr>
+
+        <tr>
+          <td rowspan="4">All Food Related Services</td>
+          <td>Between 12–0 hours before booking delivery date</td>
+          <td>100%</td>
+        </tr>
+        <tr>
+          <td>Before 12 hours</td>
+          <td>80%</td>
+        </tr>
+        <tr>
+          <td>Before 24 hours</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td>Before 48 hours</td>
+          <td>0%</td>
+        </tr>
+
+        <tr>
+          <td rowspan="4">Other Event Related Services</td>
+          <td>Between 12–0 hours</td>
+          <td>80%</td>
+        </tr>
+        <tr>
+          <td>Before 12 hours</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td>Before 24 hours</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td>Before 48 hours</td>
+          <td>0%</td>
+        </tr>
+
+        <tr>
+          <td rowspan="4">Rental Services</td>
+          <td>Between 12–0 hours</td>
+          <td>80%</td>
+        </tr>
+        <tr>
+          <td>Before 12 hours</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td>Before 24 hours</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td>Before 48 hours</td>
+          <td>0%</td>
+        </tr>
+
+        <tr>
+          <td rowspan="4">Shop Products</td>
+          <td>Between 12–0 hours</td>
+          <td>80%</td>
+        </tr>
+        <tr>
+          <td>Before 12 hours</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td>Before 24 hours</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td>Before 48 hours</td>
+          <td>0%</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
 
   return (
     <div className="faq">
-      <h1>Frequently Asked Questions(FAQ)</h1>
-      <h2>Discover answers related to  BOOKMYPARTYS and how it can help you.</h2>
+      <h1>Frequently Asked Questions (FAQ)</h1>
+      <h2>Discover answers related to BOOKMYPARTYS and how it can help you.</h2>
+
       <div className="faq-list">
         {faqData.map((faq, index) => (
           <div
@@ -66,9 +168,7 @@ const FAQ = () => {
             onClick={() => toggleFAQ(index)}
           >
             <div className="faq-question">
-              <span className="faq-icon">
-                {activeIndex === index ? "-" : "+"}
-              </span>
+              <span className="faq-icon">{activeIndex === index ? "-" : "+"}</span>
               <h3>{faq.question}</h3>
             </div>
             <div className={`faq-answer`}>
@@ -77,6 +177,12 @@ const FAQ = () => {
           </div>
         ))}
       </div>
+
+      {/* Cancellation Policy Section */}
+      <div
+        className="cancellation-policy-section"
+        dangerouslySetInnerHTML={{ __html: cancellationPolicyHTML }}
+      />
     </div>
   );
 };

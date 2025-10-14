@@ -1,5 +1,5 @@
 
-.contact-form{
+.contact-main{
 .contactus-container {
   width: 100%;
   font-family: Arial, sans-serif;
@@ -36,8 +36,8 @@
 
 
 
-.contactus-form input,
-.contactus-form textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%; /* Make input and textarea fields 100% width */
   padding: 10px;
   font-size: 14px;
@@ -59,7 +59,7 @@
 
 
 button:hover {
-  background-color: #e5be00;
+  background-color:  #b28f4c;;
 }
 
 /* General styling for sections */
@@ -123,7 +123,7 @@ button:hover {
 
 .contactus-button {
   padding: 10px 20px;
-  background-color: #fdd835;
+  background-color:  #b28f4c;;
   border: none;
   cursor: pointer;
   font-size: 20px;

@@ -4,7 +4,7 @@ import { RootState, AppDispatch } from './store/store';
 import { setLoginType, setField, loginUser } from './slices/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import './assets/css/LoginForm.css';
-import logo from './assets/BMP.png';
+import logo from './assets/bookmyparty.png';
 
 const LoginForm: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();

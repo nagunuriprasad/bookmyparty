@@ -26,6 +26,17 @@ const ShippingDelivery = () => {
       <p>Customers can pay using cash or by card (if accepted by Bookmypartys authorised Partner) at the time of delivery of order placed under COD. Except by cash, card or UPI and QRCODE Payments. other mode of payment will be accepted.</p>
       <p>Customer will be required to pay the amount as stated on the shipping label for all Cash on Delivery Orders. In case of split shipment of single order or consolidation of multiple orders, the value on the shipping label might not correspond to the product delivered. In case of over payments for such shipments, Bookmypartys will refund any excess cash received to the Customer on request and to the Bank Account provided. Such refund will be processed provided there is a confirmation of cash received from the logistics partner.</p>
       <p>By selecting the COD option, the Customer is agreeing to pay the order value on delivery. Bookmypartys reserves the right to take suitable action including but not limited to account suspension, recovery proceedings and legal course of action against the Customer.</p>
+      {/* Refunds */}
+      <h1>Refunds</h1>
+      <p>
+        Refund, if any, shall be made at the same issuing bank through which the Product/Service was purchased. For cash on delivery transactions, the Customer has the option to receive the refund in any bank account via NEFT, and it is the responsibility of the Customer to share the valid bank details to avail the said return.
+      </p>
+      <p>
+        For payments made through electronic means like debit card, credit card, net banking, wallet, etc., refund shall be made using the same payment mode.
+      </p>
+      <p>
+        On request from the Customer, Bookmypartys is liable to provide ARN (Acquirer Reference Number) or UTR (Unique Transaction Reference Number) to the Customer for refunds made. However, in an event of non-receipt of such a refund in the designated Bank Account, it will be the responsibility of the Customer to provide Bookmypartys with the set of documents required to support the claim of non-receipt. Bookmypartys, through its payment service provider, shall initiate the refund procedure post satisfactory verification of the documents provided by the Customer.
+      </p>
     </div>
   );
 };

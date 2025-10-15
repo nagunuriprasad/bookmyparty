@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Types
+// =================== TYPES ===================
 export interface Address {
   address: string;
   city: string;
@@ -21,6 +21,7 @@ export interface Education {
 
 export interface JobDetails {
   jobTitle: string;
+  service: string; // ✅ Added this new field
   experience: string;
   expertIn: string;
   languages: string[];
@@ -63,6 +64,7 @@ interface StaffSignupState {
   message: string | null;
 }
 
+// =================== INITIAL STATE ===================
 const initialState: StaffSignupState = {
   formData: {
     personalInfo: {
@@ -88,6 +90,7 @@ const initialState: StaffSignupState = {
     })),
     jobDetails: {
       jobTitle: "",
+      service: "", // ✅ Added this line
       experience: "",
       expertIn: "",
       languages: [],
@@ -103,29 +106,36 @@ const initialState: StaffSignupState = {
   message: null,
 };
 
-// API thunk
+// =================== ASYNC THUNK ===================
 export const submitStaffSignup = createAsyncThunk(
   "staffSignup/submit",
   async (formData: StaffSignupForm, { rejectWithValue }) => {
     try {
       const formDataObj = new FormData();
 
-      // Append personal info
+      // Personal Info
       Object.entries(formData.personalInfo).forEach(([key, value]) => {
         if (typeof value === "string") formDataObj.append(key, value);
       });
 
-      // Append addresses
+      // Addresses
       formDataObj.append("permanentAddress", JSON.stringify(formData.personalInfo.permanentAddress));
       formDataObj.append("presentAddress", JSON.stringify(formData.personalInfo.presentAddress));
 
-      // Append education
+      // Education
       formData.education.forEach((edu, i) => {
         formDataObj.append(`education[${i}]`, JSON.stringify({ ...edu, docs: undefined }));
         if (edu.docs) formDataObj.append(`educationDocs[${i}]`, edu.docs);
       });
 
-      // Append job details uploads
+      // Job Details (including service)
+      Object.entries(formData.jobDetails).forEach(([key, value]) => {
+        if (key === "uploads") return; // Skip files for now
+        if (Array.isArray(value)) formDataObj.append(key, JSON.stringify(value));
+        else formDataObj.append(key, value as string);
+      });
+
+      // Uploads
       Object.entries(formData.jobDetails.uploads).forEach(([k, v]) => {
         if (v) formDataObj.append(k, v);
       });
@@ -141,6 +151,7 @@ export const submitStaffSignup = createAsyncThunk(
   }
 );
 
+// =================== SLICE ===================
 const staffSignupSlice = createSlice({
   name: "staffSignup",
   initialState,
@@ -176,5 +187,6 @@ const staffSignupSlice = createSlice({
   },
 });
 
+// =================== EXPORTS ===================
 export const { setFormData, setErrors, clearMessages } = staffSignupSlice.actions;
 export default staffSignupSlice.reducer;

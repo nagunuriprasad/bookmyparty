@@ -17,6 +17,60 @@ const StaffSignup: React.FC = () => {
   );
 
   const [localErrors, setLocalErrors] = useState<string[]>([]);
+  // ✅ Helper: Dynamic services based on job title
+  const getServicesByJobTitle = (jobTitle: string): string[] => {
+    const servicesMap: Record<string, string[]> = {
+      "Masters, Chefs & Associate": [
+        "Certified Master Chefs",
+        "Certified Chefs",
+        "Master Chefs",
+        "Experienced Chefs",
+        "Associates",
+        "Trainee Chefs",
+      ],
+      "Event Management Staff": [
+        "Event Organizers",
+        "Event Planners",
+        "Event Managers",
+        "Event Supervisors",
+      ],
+      "Stage setup & Decoration Staff": [
+        "Stage setup Boys",
+        "Decoration Boys",
+        "Flower Decoration Boys",
+        "Balloon Decoration Boys",
+      ],
+      "Welcome & Service Staff": [
+        "Welcome Girls",
+        "Welcome Foreign Girls",
+        "Couple Service",
+        "HM Girls",
+        "Chinese Girls",
+      ],
+      "Catering Staff": [
+        "Food Pickup Boys (Leads)",
+        "Catering Boys",
+        "Waistcoat Boys",
+        "Hotel Management Boys",
+      ],
+      "Security & Bouncers": [
+        "Security Men",
+        "Security Women",
+        "Security Manager",
+        "Bouncers",
+        "Drivers",
+        "Wallet Parking",
+      ],
+      "House Keeping Staff": [
+        "House Keeping Supervisors",
+        "House Keeping Men",
+        "House Keeping Women",
+        "Helpers",
+      ],
+    };
+
+    return servicesMap[jobTitle] || [];
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -53,10 +107,20 @@ const StaffSignup: React.FC = () => {
     }
   };
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedLanguages = Array.from(e.target.selectedOptions, (option) => option.value);
-    dispatch(setFormData({ jobDetails: { ...formData.jobDetails, languages: selectedLanguages } }));
-  };
+ // Add this function near the top of your component (below other handlers)
+const handleLanguageChange = (value: string, checked: boolean) => {
+  const updatedLangs = checked
+    ? [...formData.jobDetails.languages, value]
+    : formData.jobDetails.languages.filter((lang) => lang !== value);
+
+  dispatch(
+    setFormData({
+      jobDetails: { ...formData.jobDetails, languages: updatedLangs },
+    })
+  );
+};
+
+
 
   const handleEducationFileUpload = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const file = e.target.files?.[0] || null;
@@ -356,19 +420,44 @@ const StaffSignup: React.FC = () => {
 </div>
 
 
-        {/* Job Details */}
+        {/* ================= JOB DETAILS ================= */}
         <div className="staffsignup-form-section">
           <h2>Job Details</h2>
+
+          {/* Job Title */}
+          <label className="language-label">Select Job:</label>
           <select
             value={formData.jobDetails.jobTitle}
             onChange={(e) => handleInputChange(e, "jobDetails", "jobTitle")}
             required
           >
             <option value="">Select Job Title</option>
-            <option value="Cook">Cook</option>
-            <option value="Helper">Helper</option>
-            <option value="Chef">Chef</option>
+            <option value="Masters, Chefs & Associate">Masters, Chefs & Associate</option>
+            <option value="Event Management Staff">Event Management Staff</option>
+            <option value="Stage setup & Decoration Staff">Stage setup & Decoration Staff</option>
+            <option value="Welcome & Service Staff">Welcome & Service Staff</option>
+            <option value="Catering Staff">Catering Staff</option>
+            <option value="Security & Bouncers">Security & Bouncers</option>
+            <option value="House Keeping Staff">House Keeping Staff</option>
           </select>
+
+          {/* Dynamic Services */}
+          {formData.jobDetails.jobTitle && (
+            <select
+              value={formData.jobDetails.service}
+              onChange={(e) => handleInputChange(e, "jobDetails", "service")}
+              required
+            >
+              <option value="">Select Service</option>
+              {getServicesByJobTitle(formData.jobDetails.jobTitle).map((service, i) => (
+                <option key={i} value={service}>
+                  {service}
+                </option>
+              ))}
+            </select>
+          )}
+
+          {/* Experience */}
           <input
             type="text"
             placeholder="Work Experience"
@@ -376,6 +465,8 @@ const StaffSignup: React.FC = () => {
             onChange={(e) => handleInputChange(e, "jobDetails", "experience")}
             required
           />
+
+          {/* Expert In */}
           <select
             value={formData.jobDetails.expertIn}
             onChange={(e) => handleInputChange(e, "jobDetails", "expertIn")}
@@ -385,17 +476,37 @@ const StaffSignup: React.FC = () => {
             <option value="Veg">Veg</option>
             <option value="Non-Veg">Non-Veg</option>
           </select>
-          <select multiple value={formData.jobDetails.languages} onChange={handleLanguageChange}>
-            <option value="Hindi">Hindi</option>
-            <option value="Telugu">Telugu</option>
-            <option value="Tamil">Tamil</option>
-          </select>
+
+   {/* Languages */}
+<div className="language-section">
+  <label className="language-label">Languages Known:</label>
+  <div className="language-options">
+    {["Hindi", "Telugu", "Tamil", "English", "Kannada"].map((lang) => (
+      <label key={lang} className="language-option">
+        <input
+          type="checkbox"
+          value={lang}
+          checked={formData.jobDetails.languages.includes(lang)}
+          onChange={(e) => handleLanguageChange(e.target.value, e.target.checked)}
+          required={formData.jobDetails.languages.length === 0} // ✅ At least one required
+        />
+        <span>{lang}</span>
+      </label>
+    ))}
+  </div>
+</div>
+
+
+
+          {/* Description */}
           <textarea
             placeholder="Description"
             value={formData.jobDetails.description}
             onChange={(e) => handleInputChange(e, "jobDetails", "description")}
             required
           />
+
+          {/* Work Type */}
           <select
             value={formData.jobDetails.workType}
             onChange={(e) => handleInputChange(e, "jobDetails", "workType")}
@@ -405,6 +516,8 @@ const StaffSignup: React.FC = () => {
             <option value="Full Time">Full Time</option>
             <option value="Part Time">Part Time</option>
           </select>
+
+          {/* Subscription */}
           <select
             value={formData.jobDetails.subscription}
             onChange={(e) => handleInputChange(e, "jobDetails", "subscription")}
@@ -414,6 +527,7 @@ const StaffSignup: React.FC = () => {
             <option value="Basic">Basic</option>
             <option value="Premium">Premium</option>
           </select>
+        
 
           <h3>Uploads</h3>
           <div className="staffsignup-upload-section">

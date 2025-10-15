@@ -11,12 +11,12 @@ import IBTC4 from './assets/ibtc.png';
 import StarRating from './StarRating';
 import StaffSelection from './StaffSelection'; // Import StaffSelection component
 
-const ProductSlider = () => {
+const ProductSlider: React.FC = () => {
   const images = [IBTC, IBTC1, IBTC2, IBTC3, IBTC4];
-  const [showModal, setShowModal] = useState(false); // Manage modal state
-  const [selectedTab, setSelectedTab] = useState("All"); // Default to "All"
-  const [searchTerm, setSearchTerm] = useState(""); // Search term state
-  const tabsRef = useRef(null); // Reference for the tab container
+  const [showModal, setShowModal] = useState(false);
+  const [selectedTab, setSelectedTab] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const tabsRef = useRef<HTMLDivElement>(null);
 
   const options = {
     loop: true,
@@ -34,33 +34,17 @@ const ProductSlider = () => {
   };
 
   const tabs = [
-    "Event Organisers",
-    "Event Planners",
-    "Event Managers",
-    "Master Chefs",
-    "Chefs",
-    "Assistant Chefs",
-    "Stage Setup Boys",
-    "Flower Decors",
-    "Balloon Decors",
-    "Catering Boys",
-    "Food Pickup Supervisors",
-    "Hotel Management Boys",
-    "Welcome Girls",
-    "Chinese Girls",
-    "Foreign Girls",
-    "Couple Service",
-    "Liquor Service Boys",
-    "Cocktail Specialists",
-    "Bar Tenders",
-    "Security Guards",
-    "Bouncers",
-    "Drivers for Wallet Parking",
-    "Housekeeping",
+    "Masters, Chefs & Associates",
+    "Event Management Staff",
+    "Stage Setup & Decoration Staff",
+    "Welcome & Service Girls",
+    "Catering Staff",
+    "Security & Bouncers",
+    "House Keeping Staff",
   ];
 
-  // Scroll tabs function
-  const scrollTabs = (direction) => {
+  // Scroll tabs
+  const scrollTabs = (direction: 'left' | 'right') => {
     if (tabsRef.current) {
       const scrollAmount = direction === 'left' ? -200 : 200;
       tabsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -85,7 +69,7 @@ const ProductSlider = () => {
       alignItems: 'center',
       justifyContent: 'center',
       zIndex: 1000,
-    },
+    } as React.CSSProperties,
     content: {
       background: '#fff',
       width: '90%',
@@ -95,12 +79,12 @@ const ProductSlider = () => {
       maxHeight: '90vh',
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
       position: 'relative',
-    },
+    } as React.CSSProperties,
     header: {
       padding: '10px 20px',
       backgroundColor: '#f8f9fa',
       borderBottom: '1px solid #ddd',
-    },
+    } as React.CSSProperties,
     closeButton: {
       position: 'absolute',
       top: '10px',
@@ -111,103 +95,104 @@ const ProductSlider = () => {
       fontWeight: 'bold',
       color: '#333',
       cursor: 'pointer',
-    },
+    } as React.CSSProperties,
     body: {
       padding: '20px',
-    },
+    } as React.CSSProperties,
     footer: {
       textAlign: 'center',
       padding: '10px 20px',
       borderTop: '1px solid #ddd',
       backgroundColor: '#f8f9fa',
-    },
+    } as React.CSSProperties,
   };
 
   return (
     <>
+      {/* Tabs Section */}
       <div
-  style={{
-    position: "sticky",
-    top: 0,
-    zIndex: 1000,
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-    padding: "10px 0",
-    display: "flex",
-    alignItems: "center",
-    marginBottom: "20px",
-  }}
-  className="tabs-container-wrapper"
->
-  <button
-    onClick={() => scrollTabs('left')}
-    style={{
-      backgroundColor: "#f5f5f5",
-      border: "1px solid #ccc",
-      borderRadius: "5%",
-      cursor: "pointer",
-      padding: "0px",
-      marginRight: "3px",
-      fontSize: "1.5rem",
-      fontWeight: "bold",
-      color: "black",
-    }}
-  >
-    {"<"}
-  </button>
-  <div
-    style={{
-      display: "flex",
-      overflowX: "auto",
-      whiteSpace: "nowrap",
-      scrollbarWidth: "none",
-      flex: 1,
-    }}
-    ref={tabsRef}
-    className="tabs-container"
-  >
-    {tabs.map((tab, index) => (
-      <button
-        key={index}
         style={{
-          padding: "10px 20px",
-          fontSize: "1rem",
-          backgroundColor: selectedTab === tab ? "#007bff" : "#f5f5f5",
-          border: "1px solid #ccc",
-          borderRadius: "5px",
-          cursor: "pointer",
-          transition: "background-color 0.3s",
-          color: selectedTab === tab ? "white" : "black",
-          flexShrink: 0,
-          whiteSpace: "nowrap",
-          minWidth: "120px",
-          marginRight: "10px",
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+          padding: "10px 0",
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "20px",
+          backgroundColor: "#fff",
         }}
-        onClick={() => setSelectedTab(tab)}
+        className="tabs-container-wrapper"
       >
-        {tab}
-      </button>
-    ))}
-  </div>
-  <button
-    onClick={() => scrollTabs('right')}
-    style={{
-      backgroundColor: "#f5f5f5",
-      border: "1px solid #ccc",
-      borderRadius: "5%",
-      cursor: "pointer",
-      padding: "0px",
-      marginLeft: "3px",
-      fontSize: "1.5rem",
-      fontWeight: "bold",
-      color: "black",
-    }}
-  >
-    {">"}
-  </button>
-</div>
+        <button
+          onClick={() => scrollTabs('left')}
+          style={{
+            backgroundColor: "#f5f5f5",
+            border: "1px solid #ccc",
+            borderRadius: "5%",
+            cursor: "pointer",
+            padding: "0px",
+            marginRight: "3px",
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            color: "black",
+          }}
+        >
+          {"<"}
+        </button>
+        <div
+          style={{
+            display: "flex",
+            overflowX: "auto",
+            whiteSpace: "nowrap",
+            scrollbarWidth: "none",
+            flex: 1,
+          }}
+          ref={tabsRef}
+          className="tabs-container"
+        >
+          {tabs.map((tab, index) => (
+            <button
+              key={index}
+              style={{
+                padding: "10px 20px",
+                fontSize: "1rem",
+                backgroundColor: selectedTab === tab ? "#007bff" : "#f5f5f5",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+                cursor: "pointer",
+                transition: "background-color 0.3s",
+                color: selectedTab === tab ? "white" : "black",
+                flexShrink: 0,
+                whiteSpace: "nowrap",
+                minWidth: "150px",
+                marginRight: "10px",
+              }}
+              onClick={() => setSelectedTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+        <button
+          onClick={() => scrollTabs('right')}
+          style={{
+            backgroundColor: "#f5f5f5",
+            border: "1px solid #ccc",
+            borderRadius: "5%",
+            cursor: "pointer",
+            padding: "0px",
+            marginLeft: "3px",
+            fontSize: "1.5rem",
+            fontWeight: "bold",
+            color: "black",
+          }}
+        >
+          {">"}
+        </button>
+      </div>
 
-
-      {/* Search Bar Below Tabs */}
+      {/* Search Bar */}
       <div style={{ marginBottom: "20px", textAlign: "center" }}>
         <input
           type="text"
@@ -240,7 +225,7 @@ const ProductSlider = () => {
         />
       </div>
 
-      {/* Title Section */}
+      {/* Title */}
       <div className="text-center mb-4 py-4 d-flex justify-content-center align-items-center">
         <h2 className="section-title px-5">
           <span className="px-2">
@@ -249,7 +234,7 @@ const ProductSlider = () => {
         </h2>
       </div>
 
-      {/* Product Carousel */}
+      {/* Owl Carousel */}
       <OwlCarousel className="owl-theme" {...options}>
         {filteredProducts.concat(filteredProducts).map((image, index) => (
           <div className="image-container" key={index}>
@@ -270,17 +255,19 @@ const ProductSlider = () => {
                 </div>
               </div>
               <div className="card-footer">
-                <a href="/StaffDetail" className="btn btn-outline-primary">
+                <button
+                  className="btn btn-outline-primary"
+                  onClick={() => setShowModal(true)}
+                >
                   <i className="fas fa-eye"></i> View Detail
-                </a>
-                
+                </button>
               </div>
             </div>
           </div>
         ))}
       </OwlCarousel>
 
-      {/* Modal for Staff Selection */}
+      {/* Modal */}
       {showModal && (
         <div style={modalStyles.background} onClick={(e) => e.stopPropagation()}>
           <div style={modalStyles.content}>

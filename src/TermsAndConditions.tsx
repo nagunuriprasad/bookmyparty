@@ -86,12 +86,17 @@ Any content posted or produced through the Site shall not to be used under The R
       </p>
       <h3>Liability for Damage</h3>
       <p>
-        Bookmypartys will not be liable for any damage or loss caused to the Products post delivery. Any claims for damages must be reported immediately upon receipt of the Product/Service and will be handled as per the policies laid down by Bookmypartys.
+       The customer is liable for loss or damage caused by guests while on the events like Venues,
+Decors boats, vehicles, clothing, Rental Equipment like Tents, walls, Utensils, lights, sounds,
+Digital screens , Digital Equipment or other equipment supplied by the Vendors through
+company. And should be paid for Loss, Damage or Broken by the Customer to the Vendors
+Directly. Vendors Customers should understand that the Company is no-way responsible for
+such Incidents.
       </p>
-      <p>The customer is liable for loss or damage caused by guests while on the event to Venues, Decors boats, vehicles, clothing, Rental Equipment like Tents, walls, Utensils, lights, sounds, Digital screens , Digital Equipment or other equipment supplied by the Vendors through company. And should be paid for Loss, Damage or Broken by the Customer to the Vendors Directly. Vendors Customers should understand that the Company is no-way responsible for such Incidents. 
-
-In case of any damage, Broken or Loss of Particular Items such as Glass Items and bakery Items in delivering by the delivery Staff to the Customers or Event.  Company has not responsible For such kind of attempts happen with delivery Team. Any dues to the company by the customer should not be affected. </p>
-<h2>Event Policies</h2>
+      <p>In case of any damage, Broken or Loss of Particular Items such as Glass Items and bakery
+Items in delivering by the delivery Staff to the Customers or Event. Company has not
+responsible For such kind of attempts happen with delivery Team. Any dues to the company
+by the customer should not be affected. </p>
 
 <h3>Drugs and Alcohol</h3>
 <p>
@@ -100,7 +105,9 @@ In case of any damage, Broken or Loss of Particular Items such as Glass Items an
 
 <h3>Substitution</h3>
 <p>
-  The company reserves the right to substitute a comparable activity for another in the event of equipment failure or circumstances beyond its reasonable control. Customers should understand and are required to support this policy.
+  The company reserves the right to substitute a comparable activity for another in the event of
+equipment failure or circumstances beyond its reasonable control. Customer should
+understand and required to support for the same
 </p>
 
 <h3>Inclusions</h3>
@@ -166,16 +173,25 @@ For Every Event Booking, Company believes Customers health or conduct before  bo
       <p>Company will strongly recommend that you take out travel insurance where your booking includes domestic or international air travel.  </p>
       <h3>Dress Code: </h3>
       <p>All Vendors are required to maintain a proper dress code which Mandatory to the Vendors and his employees according to their supply and work. Company has the rule to maintain company dress code for every vendor and third party individual delivery staff. In case of failure to maintain dress code will be paid penalty of Rs.500/- </p>
-      <h3>Behaviour: </h3>
-      <p>Customer should adhere to the current laws of the Venues for which the Arrangements are made for their event. </p>
-      <p>We, the Company and Team support the responsible service and consumption of alcohol. Licensing laws prohibit the service of alcohol to underage and unduly intoxicated persons. The Company management of all Vendors and Third Party Delivery Staff have the right to refuse service to Customers or Their Guests if you are displaying disorderly, aggressive, abusive, anti-social or intoxicated behaviour. Refusal is at the sole discretion of the management of the Third Party Service Staff.  </p>
-      <p>The booking is for the Arrangements only, and does not include the sale of alcohol. Consumption of alcohol is participants own risk and Company Team urge all participants to drink responsibly. The Company cannot take or accept any responsibility or liability for participants who drink excessively, resulting in damages, ill health, injury or death. 
-
-Company accept no liability for any accident or misadventure that occurs while any of group Participants is under the influence of alcohol or illicit substances.  </p>
-      <p>All participants attending the Arrangements should be aware of their own physical and mental limitations before attending the Event. If you have a medical condition or are pregnant we strongly recommend that you do not the events. Despite our Vendors and Third Party Services Staff being aware of the nature and likely intent of same sex groups, Customers and Participants are expected to respect the environment and other people around you.  </p>
-      <p>All suppliers and hotels have every right to terminate, without notice, your stay or activity under threat of vandalism, violence or any other behaviour deemed inappropriate by them.   
-
-Such cases constitute a breach of these terms and conditions and you will not have any entitlement for a refund of any kind whatsoever.  Company accept no liability for any accident or misadventure that occurs while any of your group is under the influence of drinks or drugs.  Please also be aware that some hotels may require a behaviour ‘bond’ to be placed on hold with a credit card or cash, upon check in.  We will do our utmost to give you prior notice where this might happen, but in some extreme cases this may not be possible.  Please check with us when paying your final balance. </p>
+   <h3> Behaviour:</h3>
+      <p>
+        Customer should adhere to the current laws of the Venues for which the Arrangements are made for their event.
+      </p>
+      <p>
+        We, the Company and Team, support the responsible service and consumption of alcohol. Licensing laws prohibit the service of alcohol to underage and unduly intoxicated persons. The Company management of all Vendors and Third Party Delivery Staff have the right to refuse service to Customers or their Guests if you display disorderly, aggressive, abusive, anti-social, or intoxicated behaviour. Refusal is at the sole discretion of the management of the Third Party Service Staff.
+      </p>
+      <p>
+        The booking is for the Arrangements only and does not include the sale of alcohol. Consumption of alcohol is at the participant's own risk, and the Company Team urges all participants to drink responsibly. The Company cannot take or accept any responsibility or liability for participants who drink excessively, resulting in damages, ill health, injury, or death.
+      </p>
+      <p>
+        The Company accepts no liability for any accident or misadventure that occurs while any group participant is under the influence of alcohol or illicit substances.
+      </p>
+      <p>
+        All participants attending the Arrangements should be aware of their own physical and mental limitations before attending the Event. If you have a medical condition or are pregnant, we strongly recommend that you do not attend the events. Despite our Vendors and Third Party Services Staff being aware of the nature and likely intent of same-sex groups, Customers and Participants are expected to respect the environment and other people around them.
+      </p>
+      <p>
+        All suppliers and hotels have the right to terminate, without notice, your stay or activity under threat of vandalism, violence, or any other behaviour deemed inappropriate by them. Such cases constitute a breach of these terms and conditions, and you will not have any entitlement for a refund. The Company accepts no liability for any accident or misadventure that occurs while any of your group is under the influence of drinks or drugs. Please also be aware that some hotels may require a behaviour ‘bond’ to be placed on hold with a credit card or cash upon check-in. We will do our utmost to give you prior notice where this might happen, but in some extreme cases this may not be possible. Please check with us when paying your final balance.
+      </p>
       <h3>Indemnification  </h3>
       <p>You agree that you shall indemnify Bookmypartys and all parties from whom Bookmypartys has licensed portions of Content, and their directors, officers, and employees, against all claims, liability, damages, costs and expenses, including reasonable legal fees and expenses arising out of or related to (i) your breach of these Terms or (ii) any suit, claim, or demand arising from or relating to any text, photograph, image, graphic or other material that was not part of the standard Site Content and that you uploaded or otherwise provided to Bookmypartys or incorporated Services and Products. As to clause (ii), you agree that we have the right to control the defence of any such suit, claim or demand. </p>
       <p>An indemnification clause protects you from liability if you’re sued by a third-party due to negligence on the client’s end. If an attendee is injured, for example, the clause ensures that the attendee cannot hold you legally responsible. Another example is damage to the venue. In this case, the venue operators need to hold the client responsible, not the company. </p>
@@ -186,14 +202,26 @@ Such cases constitute a breach of these terms and conditions and you will not ha
 <h3>Disclaimer of Warranty  </h3> 
       <p>THE SITE AND ITS CONTENT ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. YOU ACKNOWLEDGE THAT OPERATION OF THE SITE MAY NOT BE UNINTERRUPTED OR ERROR FREE. WHILE WE MAKE REASONABLE EFFORTS TO ACCURATELY DISPLAY THE ATTRIBUTES OF PRODUCTS AND SERVICES, WE DO NOT WARRANT THAT PRODUCT DESCRIPTIONS ARE ACCURATE, RELIABLE AND ERROR-FREE. REFERENCES AND LINKS TO PRODUCTS OR SERVICES OF INDEPENDENT COMPANIES MAY APPEAR ON THE SITE. THESE REFERENCES AND LINKS ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED. </p>
       <p>Some jurisdictions may provide you with certain warranties or guarantees that cannot be excluded by contract ("consumer guarantees"), or only limited in certain circumstances, and nothing in these Terms alter those consumer guarantees if it is illegal for Bookmypartys to do so. If those consumer guarantees apply to you, and Bookmypartys cannot legally exclude those consumer guarantees, then to the maximum extent permitted by law, Bookmypartys: (1) excludes or limits those consumer guarantees; and (2) limits its liability at the option of Bookmypartys to the following: (a) in the case of services, the supply of the services again or the payment of the cost of having the services supplied again; (b) in the case of goods, the replacement of the goods or the supply of equivalent goods; the repair of the goods; the payment of the cost of replacing the goods or acquiring equivalent goods; or the payment of the cost of having the goods repaired. Bookmypartys’s Satisfaction Guarantee is valid for 10 years following your purchase. If you request a refund, the time it takes for your refund to arrive may depend on your bank. In most cases, you should receive your refund within 30 days. Certain circumstances are beyond Bookmypartys’s control and may not be covered by the Satisfaction Guarantee. Please note that we cannot be responsible for: All kinds of Customer Mistakes done at choosing products or Services under rated (with less cost) by expecting Satisfaction and Guarantees. prior to placing your order. </p>
-      <h3>Limitation of Liability  </h3> 
-      
-      <p>Any comments, suggestions, proposals, or other feedback (collectively “Feedback Information”) provided to Bookmypartys in connection with the operation or content of this Site shall be provided by the submitter and received by Bookmypartys on a non-confidential basis. All such comments, Reviews, suggestions, and other information shall become the exclusive property of Bookmypartys. By submitting any such information to Bookmypartys, you agree that you are transferring and assigning, at no charge, all your right, title, and interest in the information, including all copyrights and other intellectual property rights. You agree that Bookmypartys shall be free to use such information on an unrestricted basis. 
-
-The company retains rights to images & videos taken on behalf of the customers. Where the customer has paid for All kind of Event Booking Services , the company gives the customer permission to use such images freely.  The customer gives the company permission to use images or video taken during the event in company marketing and advertising materials. </p>
-<h2>Grievance/Nodal/Compliance Officer</h2>
+     <h1>Limitation of Liability</h1>
       <p>
-        <strong>Name:</strong> Ram Jaller, Customer Service
+        IN NO EVENT SHALL BOOKMYPARTYS OR ITS LICENSORS, SUPPLIERS, OR VENDORS, OR THE OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS OF ANY OF THEM, BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES OF ANY KIND, OR FOR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA, OR PROFITS, WHETHER OR NOT BOOKMYPARTYS HAS BEEN ADVISED OF THE POSSIBILITY OF DAMAGE, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE SITE OR OF FAILURE TO PROVIDE PRODUCTS OR SERVICES THAT YOU ORDER FROM BOOKMYPARTYS OR ITS AFFILIATES, INCLUDING WITHOUT LIMITATION, DAMAGES ARISING FROM MISTAKE, OMISSION, VIRUS, DELAY, OR INTERRUPTION OF SERVICE. 
+      </p>
+      <p>
+        IN NO EVENT SHALL BOOKMYPARTYS BE LIABLE OR RESPONSIBLE FOR ANY DAMAGES OR CONSEQUENCES ARISING FROM OR RELATED TO YOUR INAPPROPRIATE OR UNAUTHORISED USE OF THIS SITE OR ITS CONTENT OR OUR SUPPLIED PRODUCTS OR SERVICES. IF YOU LIVE IN A COUNTRY OR STATE THAT DOES NOT ALLOW ANY OF THE FOREGOING EXCLUSIONS OR LIMITATIONS OF LIABILITY OR ANY OF THE DISCLAIMERS OF WARRANTIES IN THE ABOVE SECTION, SUCH EXCLUSIONS OR LIMITATIONS WILL NOT APPLY TO YOU BUT ONLY TO THE EXTENT SUCH EXCLUSIONS OR LIMITATIONS ARE NOT ALLOWED. IN SUCH CASE, SUCH EXCLUSIONS OR LIMITATIONS SHALL BE LIMITED TO THE GREATEST EXTENT PERMITTED BY APPLICABLE LAW.
+      </p>
+
+      {/* Feedback & Reviews */}
+      <h1>Feedback & Reviews</h1>
+      <p>
+        Any comments, suggestions, proposals, or other feedback (collectively “Feedback Information”) provided to Bookmypartys in connection with the operation or content of this Site shall be provided by the submitter and received by Bookmypartys on a non-confidential basis. All such comments, reviews, suggestions, and other information shall become the exclusive property of Bookmypartys. By submitting any such information to Bookmypartys, you agree that you are transferring and assigning, at no charge, all your right, title, and interest in the information, including all copyrights and other intellectual property rights. You agree that Bookmypartys shall be free to use such information on an unrestricted basis.
+      </p>
+      <p>
+        The company retains rights to images & videos taken on behalf of the customers. Where the customer has paid for all kinds of Event Booking Services, the company gives the customer permission to use such images freely. The customer gives the company permission to use images or videos taken during the event in company marketing and advertising materials.
+      </p>
+
+      <h1>Grievance/Nodal/Compliance Officer</h1>
+      <p>
+        <strong>Name:</strong> Ramarao Jallarapu
       </p>
       <p>
         <strong>Email ID:</strong> <a href="mailto:info@bookmypartys.com">info@bookmypartys.com</a>
@@ -201,7 +229,6 @@ The company retains rights to images & videos taken on behalf of the customers. 
       <p>
         <strong>Customer Care Number:</strong> +91 85558 73013
       </p>
-
       <h3>Dispute Resolution</h3>
       <p>
         At Bookmypartys, we are committed to ensuring that disputes between Sellers and Buyers are settled amicably through our dispute resolution mechanisms and procedures. The Customer may reach out to our customer support at +91 85559 73013 (Monday to Friday) from 9:00 AM - 9:00 PM and Saturday & Sunday from 9:00 AM - 6:00 PM (Indian Standard Time) or access the help centre at 

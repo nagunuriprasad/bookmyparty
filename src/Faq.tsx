@@ -39,11 +39,24 @@ const FAQ = () => {
       answer:
         "When customers book individual event services or event packages through Bookmypartys, our expert team manages end-to-end monitoring and quality checks. Especially for food vendors, hygiene, freshness, ingredients, and taste-quality-quantity (TQQ) are carefully verified by our QC team before delivery.",
     },
-    {
-      question: "HOW IS THE REFUND POLICY?",
-      answer:
-        "We have a Money Back Guarantee Policy if we are unable to deliver products or services as committed. You can write to us at info@bookmypartys.com. Our refund department will investigate, and if non-delivery is confirmed, we’ll refund your payment within 7–10 working days of your request.",
-    },
+    
+      {
+  question: "HOW IS THE REFUND POLICY?",
+  answer: (
+    <>
+      We have a Money Back Guarantee Policy if we are unable to deliver products or
+      services as committed. You can write to us at{" "}
+      <a
+        href="mailto:info@bookmypartys.com"
+        
+      >
+        info@bookmypartys.com
+      </a>
+      . Our refund department will investigate, and if non-delivery is confirmed,
+      we’ll refund your payment within 7–10 working days of your request.
+    </>
+  ),
+},
     {
       question: "HOW IS THE RETURN POLICY?",
       answer:

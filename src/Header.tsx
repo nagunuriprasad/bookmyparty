@@ -5,69 +5,62 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import companyLogo from './assets/bookmyparty.png';
 import './assets/css/Header.css';
 import LanguageSelector from './LanguageSelector';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const Header = () => {
-    const [selectedLanguage, setSelectedLanguage] = useState('Login/Signup');
-    const [searchQuery, setSearchQuery] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState('Login/Signup');
+  const [searchQuery, setSearchQuery] = useState('');
 
-    const handleLanguageChange = (language: string) => {
-        setSelectedLanguage(`Login/Signup (${language})`);
-    };
+  const handleLanguageChange = (language: string) => {
+    setSelectedLanguage(`Login/Signup (${language})`);
+  };
 
-    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
-    };
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    console.log('Searching for:', e.target.value);
+  };
 
-    const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log('Searching for:', searchQuery);
-        // You can integrate actual search logic here
-    };
+  return (
+    <header className="header">
+      <div className="header-container">
+        {/* Left: Logo, Location, Search */}
+        <div className="d-flex align-items-center gap-3">
+          <NavLink className="logo" to="/">
+            <img src={companyLogo} alt="Company Logo" className="logo-img" />
+          </NavLink>
 
-    return (
-        <header className="header py-2">
-            <div className="container-main d-flex align-items-center justify-content-between">
-                {/* Logo + Location + Search */}
-                <div className="d-flex align-items-center gap-3">
-                    <NavLink className="logo" to="/">
-                        <img src={companyLogo} alt="Company Logo" className="logo-img" />
-                    </NavLink>
+          {/* Location Icon */}
+          <a
+            href="https://www.google.com/maps/@17.4334334,78.4418009,17z?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="location-link-icon"
+          >
+            <FaMapMarkerAlt size={22} />
+          </a>
 
-                    {/* Location Link */}
-                    <a
-                        href="https://www.google.com/maps/@17.4334334,78.4418009,17z?entry=ttu&g_ep=EgoyMDI1MTAxMi4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="location-link btn btn-outline-primary btn-sm"
-                    >
-                        Location
-                    </a>
+          {/* Search Input */}
+          <div className="search-container">
+            <input
+              type="text"
+              className="search-bar"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
+          </div>
+        </div>
 
-                    {/* Search Bar */}
-                    <form onSubmit={handleSearchSubmit} className="d-flex">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Search..."
-                            value={searchQuery}
-                            onChange={handleSearchChange}
-                        />
-                        <button type="submit" className="btn btn-primary ms-2">
-                            Search
-                        </button>
-                    </form>
-                </div>
-
-                {/* Login Button + Language Selector */}
-                <div className="d-flex align-items-center gap-3">
-                    <NavLink className="login-button btn btn-outline-secondary" to="/LoginForm">
-                        {selectedLanguage}
-                    </NavLink>
-                    <LanguageSelector onLanguageChange={handleLanguageChange} />
-                </div>
-            </div>
-        </header>
-    );
+        {/* Right: Login + Language */}
+        <div className="login-container d-flex align-items-center gap-3">
+          <NavLink className="login-button" to="/LoginForm">
+            {selectedLanguage}
+          </NavLink>
+          <LanguageSelector onLanguageChange={handleLanguageChange} />
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Header;

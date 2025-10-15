@@ -1,46 +1,100 @@
-.cancelation-refund-container {
-    background-color: #f9f9f9;
-    padding: 30px;
-    
-    
-    border-radius: 8px;
-    width:100%;
-    font-family: Arial, sans-serif;
-  }
-  
-  .cancelation-refund-container h2 {
+/* src/assets/css/CancellationPolicy.css */
+
+.cancellation-policy {
+    font-family: 'Arial', sans-serif;
     color: #333;
+    padding: 20px;
+}
+
+/* Headings */
+.cancellation-policy h2 {
+    color: #d8b573;
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .cancelation-refund-container h3 {
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  .cancelation-refund-container p {
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  .cancelation-refund-container ul {
-    margin-left: 20px;
-    color: #444;
-  }
-  
-  .cancelation-refund-container ul li {
+}
+
+.cancellation-policy h4 {
+    color: #d8b573;
+    margin-top: 30px;
     margin-bottom: 10px;
-    color: #444;
-  }
-  
-  .cancelation-refund-container a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .cancelation-refund-container a:hover {
+}
+
+/* Table styling */
+.cancellation-policy table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cancellation-policy table th,
+.cancellation-policy table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.cancellation-policy table th {
+    background-color: #d8b573;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Striped rows */
+.cancellation-policy table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect */
+.cancellation-policy table tbody tr:hover {
+    background-color: #f1e7d2;
+    transition: background-color 0.3s ease;
+}
+
+/* Fee-based coloring */
+.cancellation-policy table td:nth-child(3) {
+    font-weight: 600;
+}
+
+/* Highlight high cancellation fees */
+.cancellation-policy table td:nth-child(3):contains("100%") {
+    color: #d9534f; /* Red for 100% fee */
+}
+
+.cancellation-policy table td:nth-child(3):contains("60%") {
+    color: #f0ad4e; /* Orange for 60% fee */
+}
+
+.cancellation-policy table td:nth-child(3):contains("50%") {
+    color: #f0ad4e; /* Orange for 50% fee */
+}
+
+.cancellation-policy table td:nth-child(3):contains("40%") {
+    color: #f0ad4e; /* Orange for 40% fee */
+}
+
+.cancellation-policy table td:nth-child(3):contains("80%") {
+    color: #f0ad4e; /* Orange for 80% fee */
+}
+
+.cancellation-policy table td:nth-child(3):contains("0%") {
+    color: #5cb85c; /* Green for 0% fee */
+}
+
+/* Links */
+.cancellation-policy a {
+    color: #d8b573;
     text-decoration: underline;
-  }
-  
+}
+
+.cancellation-policy a:hover {
+    color: #b0894f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cancellation-policy table th,
+    .cancellation-policy table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}

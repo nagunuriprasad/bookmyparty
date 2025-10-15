@@ -1,116 +1,172 @@
 /* Footer Container */
 .footer-container {
-  background-color: #222;
-  color: #fff;
-  padding: 10px 20px; /* Adjusted padding */
+  background: linear-gradient(180deg, #1c1c1c 0%, #2a2a2a 100%);
+  color: #b0894f;
+  padding: 25px 40px;
   font-size: 14px;
-  max-width: auto;
-  max-height: auto;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box; /* Ensure padding and borders are included in the size */
+  box-sizing: border-box;
+  border-top: 2px solid #b0894f;
 }
 
-/* Footer Content */
+/* Footer Content Layout */
 .footer-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px; /* Adjusted gap for better spacing */
-  margin-bottom: 15px;
+  gap: 25px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
-/* Footer Sections */
+/* Footer Section */
 .footer-section {
   flex: 1;
-  min-width: 200px; /* Slightly increased minimum width for better fit */
+  min-width: 220px;
   margin: 10px;
-  text-align: center; /* Center-align for consistent mobile view */
-}
-
-.footer-section h4 {
-  margin-bottom: 10px; /* Adjusted margin for spacing */
-  font-size: 16px; /* Better readability */
-  color: #f0f0f0;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin-bottom: 5px;
-}
-
-.footer-section ul li a {
-  color: #bbb;
-  text-decoration: none;
-  font-size: 14px;
+  text-align: center;
   transition: all 0.3s ease;
 }
 
+.footer-section:hover {
+  transform: translateY(-3px);
+}
+
+.footer-section h4 {
+  font-size: 16px;
+  color: #b0894f;
+  margin-bottom: 12px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.footer-section h4::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: rgba(176, 137, 79, 0.5);
+  margin: 6px auto 0;
+  transition: width 0.3s ease;
+}
+
+.footer-section:hover h4::after {
+  width: 60px;
+  background: #ff4444;
+}
+
+/* Footer Links */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+  color: #b0894f;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
 .footer-section ul li a:hover {
-  color: #e0dfeb;
+  color: #ff4444;
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
+/* Footer Logo */
 .footer-logo {
-  height: 150px;
-    width: 150px;
-    object-fit: contain; /* keeps image proportions */
-    
-    margin: 0 auto; /* center it horizontally */
-  margin-bottom: 10px;
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
+  margin: 0 auto 10px auto;
+  display: block;
+  filter: drop-shadow(0px 0px 8px rgba(176, 137, 79, 0.3));
 }
 
-/* Contact Information & Apps */
+/* Contact & Apps Section */
 .contact-and-apps {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px;
   gap: 15px;
 }
 
-/* Contact Info Styling */
+/* Contact Info */
 .contact-info {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  font-size: 14px;
+  gap: 20px;
   flex-wrap: wrap;
   text-align: center;
-  color: #bbb;
+  color: #b0894f;
+  font-size: 14px;
 }
 
 .contact-info span {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  transition: color 0.3s ease;
 }
 
 .contact-info i {
-  color: #e0dfeb;
+  color: #b0894f;
+  transition: color 0.3s ease;
 }
 
-/* App Store & Play Store Icons */
+.contact-info span:hover,
+.contact-info i:hover {
+  color: #ff4444;
+}
+
+/* App Store Buttons (No border now) */
 .app-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 18px;
 }
 
 .app-icons img {
   width: 100px;
   height: auto;
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
+  border: none; /* ✅ Removed border */
+  border-radius: 8px;
+  padding: 5px;
 }
 
 .app-icons img:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(176, 137, 79, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 13px;
+  color: #b0894f;
+  border-top: 1px solid rgba(176, 137, 79, 0.3);
+}
+
+.footer-bottom a {
+  color: #b0894f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #ff4444;
+  text-decoration: underline;
 }
 
 /* Responsive Styles */
@@ -118,11 +174,11 @@
   .footer-content {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .footer-section {
     min-width: 100%;
-    text-align: center;
   }
 
   .contact-info {
@@ -131,13 +187,13 @@
   }
 
   .app-icons img {
-    width: 80px;
+    width: 85px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-logo {
-    width: 60px;
+    width: 80px;
   }
 
   .footer-section h4 {
@@ -145,7 +201,7 @@
   }
 
   .footer-section ul li a {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .app-icons img {

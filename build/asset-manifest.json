@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d331f495.css",
-    "main.js": "/static/js/main.4da2fbfe.js",
+    "main.css": "/static/css/main.bf217d5e.css",
+    "main.js": "/static/js/main.50126edb.js",
     "static/media/firm.png": "/static/media/firm.199ae25bb5f571eea52f.png",
     "static/media/partnership.png": "/static/media/partnership.0c4da2fce31daba31e8a.png",
     "static/media/pvt-ltd.png": "/static/media/pvt-ltd.b28c8fd94a295f0450e5.png",
@@ -30,13 +30,13 @@
     "static/media/fa-brands-400.eot": "/static/media/fa-brands-400.23f19bb08961f37aaf69.eot",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.527940b104eb2ea366c8.ttf",
     "static/media/Bp-image.png": "/static/media/Bp-image.4624a7c48cc57c0f2cce.png",
+    "static/media/bookmyparty.png": "/static/media/bookmyparty.23b0a3e9ec0c30ae2170.png",
     "static/media/ibtc.png": "/static/media/ibtc.3244fec1375adf7e9481.png",
     "static/media/language.png": "/static/media/language.ee55eb1892cb3bfb3ba9.png",
     "static/media/fa-solid-900.woff": "/static/media/fa-solid-900.eeccf4f66002c6f2ba24.woff",
     "static/media/fa-brands-400.woff": "/static/media/fa-brands-400.2285773e6b4b172f07d9.woff",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.1551f4f60c37af51121f.woff2",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.d878b0a6a1144760244f.woff2",
-    "static/media/BMP.png": "/static/media/BMP.c34c2b3500bb46d3797a.png",
     "static/media/tradelicense.jpg": "/static/media/tradelicense.e40a938a03652ad21aae.jpg",
     "static/media/fa-regular-400.eot": "/static/media/fa-regular-400.77206a6bb316fa0aded5.eot",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.491974d108fe4002b2aa.ttf",
@@ -58,11 +58,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/index.html",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
-    "main.d331f495.css.map": "/static/css/main.d331f495.css.map",
-    "main.4da2fbfe.js.map": "/static/js/main.4da2fbfe.js.map"
+    "main.bf217d5e.css.map": "/static/css/main.bf217d5e.css.map",
+    "main.50126edb.js.map": "/static/js/main.50126edb.js.map"
   },
   "entrypoints": [
-    "static/css/main.d331f495.css",
-    "static/js/main.4da2fbfe.js"
+    "static/css/main.bf217d5e.css",
+    "static/js/main.50126edb.js"
   ]
 }

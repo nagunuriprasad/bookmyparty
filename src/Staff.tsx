@@ -192,38 +192,7 @@ const ProductSlider: React.FC = () => {
         </button>
       </div>
 
-      {/* Search Bar */}
-      <div style={{ marginBottom: "20px", textAlign: "center" }}>
-        <input
-          type="text"
-          placeholder="Search for Staffs and Chefs"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            padding: "12px 16px",
-            width: "100%",
-            maxWidth: "400px",
-            margin: "10px 0",
-            borderRadius: "24px",
-            border: "1px solid #ddd",
-            fontSize: "1rem",
-            color: "#333",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            backgroundColor: "#ffffff",
-            outline: "none",
-            transition: "all 0.3s ease",
-            caretColor: "#ff6f61",
-          }}
-          onFocus={(e) => {
-            e.target.style.borderColor = "#ff6f61";
-            e.target.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.15)";
-          }}
-          onBlur={(e) => {
-            e.target.style.borderColor = "#ddd";
-            e.target.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-          }}
-        />
-      </div>
+     
 
       {/* Title */}
       <div className="text-center mb-4 py-4 d-flex justify-content-center align-items-center">

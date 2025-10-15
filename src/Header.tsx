@@ -25,19 +25,10 @@ const Header = () => {
       <div className="header-container">
         {/* Left: Logo, Location, Search */}
         <div className="d-flex align-items-center gap-3">
-          <NavLink className="logo" to="/">
-            <img src={companyLogo} alt="Company Logo" className="logo-img" />
+          <NavLink  to="/">
+            <img src={companyLogo} alt="CompanyLogo" className="logo-img" />
           </NavLink>
 
-          {/* Location Icon */}
-          <a
-            href="https://www.google.com/maps/@17.4334334,78.4418009,17z?entry=ttu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="location-link-icon"
-          >
-            <FaMapMarkerAlt size={22} />
-          </a>
 
           {/* Search Input */}
           <div className="search-container">
@@ -49,6 +40,16 @@ const Header = () => {
               onChange={handleSearchChange}
             />
           </div>
+          
+          {/* Location Icon */}
+          <a
+            href="https://www.google.com/maps/@17.4334334,78.4418009,17z?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="location-link-icon"
+          >
+            <FaMapMarkerAlt size={22} />
+          </a>
         </div>
 
         {/* Right: Login + Language */}

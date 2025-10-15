@@ -1,25 +1,38 @@
+/* ============================= */
 /* HEADER BASE */
+/* ============================= */
 .header {
   background-color: #363e45;
   padding: 0;
 }
 
+/* HEADER CONTAINER */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5px;
-  height: 150px;
+  height: 120px;
+  gap: 15px;
 }
 
+/* ============================= */
 /* LOGO */
+/* ============================= */
 .logo-img {
-  height: 150px;
+  height: 120px;
   width: 180px;
   object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* ============================= */
 /* LOCATION ICON */
+/* ============================= */
 .location-link-icon {
   display: flex;
   align-items: center;
@@ -27,7 +40,7 @@
   color: #d8b573;
   border: 1px solid #d8b573;
   border-radius: 50%;
-  width: 28px;         /* Slightly larger for icon visibility */
+  width: 28px;
   height: 28px;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -35,7 +48,7 @@
 }
 
 .location-link-icon svg {
-  width: 14px;          /* Icon inside size */
+  width: 14px;
   height: 14px;
 }
 
@@ -46,20 +59,16 @@
   box-shadow: 0 0 6px rgba(216, 181, 115, 0.6);
 }
 
-.location-link-icon:hover {
-  background-color: #d8b573;
-  color: #fff;
-  transform: scale(1.1);
-}
-
+/* ============================= */
 /* SEARCH BAR */
+/* ============================= */
 .search-container {
   display: flex;
   align-items: center;
 }
 
 .search-bar {
-  width: 160px;
+  width: 250px;
   padding: 8px 14px;
   border: 1px solid #d8b573;
   border-radius: 20px;
@@ -74,7 +83,9 @@
   box-shadow: 0 0 6px rgba(216, 181, 115, 0.5);
 }
 
+/* ============================= */
 /* LOGIN BUTTON */
+/* ============================= */
 .login-button {
   background-color: #d8b573;
   color: white;
@@ -90,7 +101,9 @@
   color: #fff;
 }
 
+/* ============================= */
 /* RESPONSIVE DESIGN */
+/* ============================= */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -99,11 +112,37 @@
     gap: 10px;
   }
 
+  .logo-img {
+    height: 80px;
+    width: 140px;
+  }
+
   .search-bar {
     width: 200px;
   }
 
+  .login-button {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .location-link-icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    width: 180px;
+  }
+
   .logo-img {
-    height: 80px;
+    height: 70px;
+    width: 120px;
+  }
+
+  .login-button {
+    font-size: 12px;
   }
 }

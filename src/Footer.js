@@ -37,7 +37,7 @@ const Footer = () => {
             <li><a href="reviews/ReviewCarousel">Customer Review</a></li>
             <li><a href="/CareerPage">Career</a></li>
             <li><a href="ContactUs">Contact Us</a></li>
-            <li><a href="FormComponent">Pay Us</a></li>
+            
           </ul>
         </div>
 
@@ -69,7 +69,7 @@ const Footer = () => {
         <div className="footer-section connect-us">
           <h4>Connect With Us</h4>
           <ul>
-            <li><a href="#">Live Chat</a></li>
+            
             <li><a href="#">Partner With Us</a></li>
             <li><a href="#">Sitemap</a></li>
             <li><a href="/FeedbackPage">Suggestion And Feedback</a></li>

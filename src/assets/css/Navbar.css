@@ -1,26 +1,49 @@
+/* ==============================
+   General Navbar Styling
+============================== */
 .navbar-custom {
   background-color: #e3f2fd;
-  padding: 5px 0;
+  padding: 6px 0;
   width: 100%;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 .container-fluid {
-  padding: 0;
+  padding: 0 10px;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ==============================
+   Navbar Links & Items
+============================== */
 .navbar-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 8px;
 }
 
 .nav-item {
   text-align: center;
-  font-size: 14px;
   flex: 1;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
 }
 
 .nav-link {
@@ -28,80 +51,177 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: grey;
+  color: #444;
   text-decoration: none;
-  padding: 4px;
+  padding: 5px;
   font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-link i {
+  margin-bottom: 4px;
+  font-size: 20px;
+  color: #e84848;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #e84848;
+}
+
+
+
+/* ==============================
+   All Services + Filter Icon
+============================== */
+.services-filter-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border-radius: 8px;
+  padding: 5px;
+  color: #444;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.filter-btn i {
+  font-size: 22px;
+  color: #e84848;
   margin-bottom: 3px;
 }
 
-.nav-link:hover {
+.filter-btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(232, 72, 72, 0.1);
   color: #e84848;
 }
 
-.navbar-underline {
-  color: #e84848;
-  border-bottom: 2px solid #e84848;
-}
-
+/* ==============================
+   Dropdown Styling
+============================== */
 .custom-dropdown-menu {
-  max-height: 250px;
+  max-height: 280px;
   overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 14px;
 }
 
 .dropdown-item {
   display: flex;
   align-items: center;
-  font-size: 14px;
-  padding: 4px 8px;
+  padding: 6px 10px;
+  color: #333;
+  transition: background-color 0.2s ease;
 }
 
 .dropdown-item i {
-  margin-right: 4px;
+  margin-right: 6px;
   font-size: 10px;
+  color: #e84848;
 }
 
+.dropdown-item:hover {
+  background-color: #fbe9e9;
+  color: #e84848;
+}
+
+/* ==============================
+   Modal Styling
+============================== */
+.modal-content {
+  border-radius: 15px !important;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  background-color: #b89c62;
+  color: white;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ==============================
+   Font Defaults
+============================== */
 .fa,
 .fas {
   font-size: 20px;
 }
 
-/* Responsive Styles */
+.nav-link span {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ==============================
+   Responsive Adjustments
+============================== */
 @media (max-width: 991px) {
   .navbar-nav {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    padding: 6px 12px;
   }
 
   .nav-item {
     width: 100%;
     text-align: left;
-    padding: 8px 0;
+    padding: 6px 0;
   }
 
   .nav-link {
     flex-direction: row;
     align-items: center;
-    padding: 10px;
+    justify-content: flex-start;
+    padding: 8px;
+    font-size: 15px;
   }
 
   .nav-link i {
-    margin-right: 8px;
+    margin-right: 10px;
+    margin-bottom: 0;
   }
 
   .dropdown-menu {
     width: 100%;
   }
+
+  .services-filter-group {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .filter-btn span {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
   .nav-link span {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .fa,
@@ -109,12 +229,208 @@
     font-size: 18px;
   }
 
-  .navbar-toggler {
-    border: none;
+  .filter-btn {
+    padding: 4px;
+  }
+}
+
+/* ==============================
+   Filter Container Styling
+============================== */
+.filter-container {
+  max-width: 600px;
+ /* margin: 40px auto;*/
+  background: #ffffff;
+  /*padding: 25px 30px;*/
+  border-radius: 15px;
+  /*box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);*/
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filter-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+
+select,
+input[type="number"] {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+select:focus,
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+  accent-color: #007bff;
+}
+
+.budget-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.budget-value {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.search-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.search-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   Left Side Popup Styling
+============================== */
+/* ==============================
+   Left Side Popup Styling (Reduced Height)
+============================== */
+.left-popup {
+  position: fixed;
+  top: 15%;
+  left: 0;
+  width: 260px;          /* slightly smaller width */
+  max-height: 45vh;      /* lower height */
+  background-color: #fdd835;
+  border-radius: 12px 0 0 12px;
+  padding: 12px 10px;    /* reduced padding */
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  z-index: 1100;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  transform: translateX(-100%);
+  opacity: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.left-popup.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.left-popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;       /* reduce gap between fields */
+}
+
+.left-popup form input,
+.left-popup form select,
+.left-popup form textarea {
+  width: 100%;
+  padding: 6px 8px;   /* smaller padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;    /* smaller font */
+  font-family: "Poppins", sans-serif;
+}
+
+.left-popup form button {
+  background-color: #e84848;
+  color: #fff;
+  padding: 6px;        /* smaller button */
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+/* Responsive adjustments for popup */
+@media (max-width: 991px) {
+  .left-popup {
+    width: 220px;
+    top: 12%;
+    max-height: 50vh;
+    padding: 15px 12px;
   }
 
-  .navbar-toggler:focus {
-    outline: none;
-    box-shadow: none;
+  .left-popup form input,
+  .left-popup form select,
+  .left-popup form textarea {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  .left-popup form button {
+    padding: 6px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .left-popup {
+    width: 200px;
+    top: 10%;
+    max-height: 45vh;
+    padding: 12px 10px;
+  }
+
+  .left-popup form input,
+  .left-popup form select,
+  .left-popup form textarea {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .left-popup form button {
+    padding: 5px;
+    font-size: 13px;
   }
 }

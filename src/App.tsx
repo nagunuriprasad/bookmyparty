@@ -77,6 +77,7 @@ import CaterersMenu from "./CaterersMenu";
 import ServiceMenu from "./ServiceMenu";
 import WorkLogin from './WorkLogin'; 
 import CareerPage from './CareerPage';
+import FilterForm from './FilterForm';
 
 const App = () => {
   return (
@@ -193,6 +194,7 @@ const AppContent = () => {
         <Route path="/ServiceMenu" element={<ServiceMenu />} />
         <Route path="/WorkLogin" element={<WorkLogin />} />
         <Route path="/CareerPage" element={<CareerPage />} />
+        <Route path="/FilterForm" element={<FilterForm />} />
       </Routes>
 
       {!isAuthPage && <Footer />}

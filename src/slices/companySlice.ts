@@ -103,7 +103,7 @@ export const submitCompanyForm = createAsyncThunk<
   "company/submitForm",
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:8014/api/vendersignup", formData, {
+      const response = await axios.post("http://localhost:8014/api/companies", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
